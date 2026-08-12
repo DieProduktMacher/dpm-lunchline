@@ -1,0 +1,43 @@
+name: Update Mittagsmenüs
+
+on:
+  schedule:
+    # Werktags 08:00 Europe/Berlin = 06:00 UTC (Sommerzeit) / 07:00 UTC (Winterzeit).
+    # Wir fahren beide, damit es das ganze Jahr passt - ein Lauf findet dann
+    # meist schon Daten, der zweite ist ein günstiger Sicherheitsnetz-Retry.
+    - cron: "0 6 * * 1-5"
+    - cron: "0 7 * * 1-5"
+  workflow_dispatch: {}   # manuell über den "Run workflow"-Button auslösbar
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Scrape aktuelle Mittagsmenüs
+        run: python3 scraper.py
+
+      - name: Commit & push, falls sich menus.json geändert hat
+        run: |
+          git config user.name "lunchline-bot"
+          git config user.email "lunchline-bot@users.noreply.github.com"
+          if git diff --quiet -- menus.json; then
+            echo "Keine Änderungen an menus.json."
+          else
+            git add menus.json
+            git commit -m "Mittagsmenüs aktualisiert ($(date -u +%Y-%m-%d))"
+            git push
+          fi
