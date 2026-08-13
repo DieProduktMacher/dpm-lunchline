@@ -1,6 +1,95 @@
 {
-  "generated_at": "2026-08-13",
+  "generated_at": "2026-08-12",
+  "note": "Beispiel-Snapshot (KW 33, 10.–14.08.2026), manuell erfasst als Startdaten. scraper.py ersetzt diese Datei durch aktuelle Live-Daten, sobald es mit Internetzugriff ausgeführt wird.",
   "restaurants": [
+    {
+      "id": "augustiner",
+      "name": "Augustiner Schützengarten",
+      "address": "Zielstattstraße, 81379 München",
+      "walk_minutes": 10,
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/12.08.26_Tageskarte.pdf",
+      "format": "pdf",
+      "status": "ok",
+      "error": null,
+      "week_label": "Tageskarte (nur aktueller Tag)",
+      "days": {
+        "Mittwoch": [
+          {
+            "dish": "Cordon Bleu vom Schwein mit Pommes Frites",
+            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
+            "price": "9,90 €"
+          }
+        ]
+      }
+    },
+    {
+      "id": "moccasola",
+      "name": "Café Moccasola",
+      "address": "Zielstattstraße, 81379 München",
+      "walk_minutes": 10,
+      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW33_2026.pdf",
+      "format": "pdf",
+      "status": "ok",
+      "error": null,
+      "week_label": "KW 33, 10.–14.08.26",
+      "days": {
+        "Montag": [
+          {
+            "dish": "Köfte-Wrap mit Tomate, Gurke, Salat",
+            "description": null,
+            "price": "12,90 €"
+          },
+          {
+            "dish": "Gnocchi mit Tomaten-Sahne-Sauce",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Dienstag": [
+          {
+            "dish": "Hühnerstreifen in Rahmsauce mit Farfalle",
+            "description": null,
+            "price": "12,90 €"
+          },
+          {
+            "dish": "Hausgemachte Pfannkuchen mit Pfifferlingen und Kräuterquark",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Mittwoch": [
+          {
+            "dish": "Münchner Schnitzel mit Bratkartoffeln und Meerrettich",
+            "description": "Burger/Schnitzel-Tag",
+            "price": "12,90 €"
+          },
+          {
+            "dish": "Teriyaki-Gemüse mit Jasminreis",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Donnerstag": [
+          {
+            "dish": "Hausgemachte Ofenlasagne",
+            "description": null,
+            "price": "12,90 €"
+          },
+          {
+            "dish": "Rahmspinat mit Salzkartoffeln und zwei Spiegeleiern",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Freitag": [
+          {
+            "dish": "Betriebsschließung",
+            "description": "Kein Mittagstisch",
+            "price": null
+          }
+        ]
+      }
+    },
     {
       "id": "egghaus",
       "name": "Egg Haus Café",
@@ -8,58 +97,59 @@
       "walk_minutes": 3,
       "source_url": "https://egghauscafe.de/lunch-menu/",
       "format": "html",
+      "status": "ok",
+      "error": null,
+      "week_label": "Mo–Do, 10.–14.08.26 (Fr geschlossen)",
       "days": {
         "Montag": [
           {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "dish": "Pasta mit Auberginen, B.Pesto und Tomatensauce",
             "description": null,
-            "price": "10.50"
+            "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Salami, Oliven und Rucola",
             "description": null,
-            "price": "11,50"
+            "price": "11,50 €"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "dish": "Pasta mit Auberginen, B.Pesto und Tomatensauce",
             "description": null,
-            "price": "10.50"
+            "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Salami, Oliven und Rucola",
             "description": null,
-            "price": "11,50"
+            "price": "11,50 €"
           }
         ],
         "Mittwoch": [
           {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "dish": "Pasta mit Auberginen, B.Pesto und Tomatensauce",
             "description": null,
-            "price": "10.50"
+            "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Salami, Oliven und Rucola",
             "description": null,
-            "price": "11,50"
+            "price": "11,50 €"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "dish": "Pasta mit Auberginen, B.Pesto und Tomatensauce",
             "description": null,
-            "price": "10.50"
+            "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Salami, Oliven und Rucola",
             "description": null,
-            "price": "11,50"
+            "price": "11,50 €"
           }
         ]
-      },
-      "status": "ok",
-      "error": null
+      }
     },
     {
       "id": "lotus_asia",
@@ -68,163 +158,49 @@
       "walk_minutes": 8,
       "source_url": "https://www.lotusasia.shop/wochenkarte",
       "format": "html",
+      "status": "ok",
+      "error": null,
+      "week_label": "KW 33, 10.–14.08.26",
       "days": {
         "Montag": [
           {
             "dish": "Thailändischer Glasnudelsalat (pikant)",
-            "description": "Tomaten, Gurken, Paprika, Lauch, Erdnüsse, Sellerie Koriander und Reis",
-            "price": null
+            "description": "Tomaten, Gurken, Paprika, Lauch, Erdnüsse, Sellerie, Koriander und Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (vegetarisch)"
+          },
+          {
+            "dish": "Rotes Thai Curry (mittelscharf)",
+            "description": "Mit Bohnen, Zucchini, Paprika, Karotten, Bambus und Basilikum, dazu Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/vegetarisch)"
           }
         ],
         "Dienstag": [
           {
             "dish": "Gebratener Curryreis (mild)",
-            "description": "mit Erbsen, Karotten, Mais, Ei, Pilze, Paprika, Zwiebeln, Soyasprossen und Kräuter",
+            "description": "Mit Erbsen, Karotten, Mais, Ei, Pilzen, Paprika, Zwiebeln, Sojasprossen und Kräutern",
             "price": null
           }
         ],
         "Mittwoch": [
           {
             "dish": "Pad Siuw Nudeln (mild)",
-            "description": "Gebratene Reisbandnudeln mit Hühnerfleisch, Broccoli, China Kohl, Paprika, Ei, Porree, Sojasprossen und Lauch",
-            "price": null
+            "description": "Gebratene Reisbandnudeln mit Hühnerfleisch, Broccoli, Chinakohl, Paprika, Ei, Porree und Sojasprossen",
+            "price": "9,50 €"
+          },
+          {
+            "dish": "Süßkartoffel Curry (pikant)",
+            "description": "Karotten, Paprika, Bohnen, Zucchini, Bambus und Blumenkohl, dazu Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/vegetarisch)"
           }
         ],
         "Donnerstag": [
           {
             "dish": "Laab (mittelscharf)",
             "description": "Hackfleischsalat (gemischt Rind/Schwein) mit Zitronengras und Minze",
-            "price": null
-          }
-        ],
-        "Freitag": [
-          {
-            "dish": "Gai Pad Pet (scharf)",
-            "description": "scharfe Hühnerpfanne mit Bambus, Paprika, Bohnen, Porree, Karotten, Blumenkohl und Morcheln dazu Reis",
-            "price": null
+            "price": "10,00 €"
           }
         ]
-      },
-      "status": "ok",
-      "error": null
-    },
-    {
-      "id": "moccasola",
-      "name": "Café Moccasola",
-      "address": "Zielstattstraße, 81379 München",
-      "walk_minutes": 10,
-      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW33_2026.pdf?v=1786079236",
-      "format": "pdf",
-      "days": {
-        "Montag": [
-          {
-            "dish": "Köfte Wrap I Tomate I Gurke I Salat 12,90 € a,n,g",
-            "description": null,
-            "price": "12,90 €"
-          },
-          {
-            "dish": "Gnocchi I Tomaten-Sahne Sauce 11,50 € a,g",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Dienstag": [
-          {
-            "dish": "Rahmgeschnetzeltes vom Hühnchen I Farfalle12,90 € a,g",
-            "description": null,
-            "price": "12,90 €"
-          },
-          {
-            "dish": "Hausgemachte Pfannkuchen I Pfifferlinge I Kräuterquark 11,50 € a,c,g",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Mittwoch": [
-          {
-            "dish": "Burger/Schnitzeltag",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "Münchner Schnitzel I Bratkartoffeln I Kren 12,90 € a,c,g",
-            "description": null,
-            "price": "12,90 €"
-          },
-          {
-            "dish": "Teriyaki Gemüse I Jasminreis 11,50 € n,f",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Donnerstag": [
-          {
-            "dish": "Hausgemachte Ofenlasagne 12,90 € a,g",
-            "description": null,
-            "price": "12,90 €"
-          },
-          {
-            "dish": "Rahmspinat I Salzkartoffeln I 2 Spiegeleier 11,50 € c,g",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Freitag": [
-          {
-            "dish": "Betriebsferien",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "Änderungen vorbehalten",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "Allergenliste siehe Aushang",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "Reservierungen nehmen wir gerne unter 089 – 411 118 273 entgegen",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "www.moccasola.de",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "Mittagstisch oder zum Mitnehmen",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "Montag bis Donnerstag von 11:30 – 14:30",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "Freitags von 11:30 bis 13:00 Uhr",
-            "description": null,
-            "price": null
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
-    },
-    {
-      "id": "augustiner",
-      "name": "Augustiner Schützengarten",
-      "address": "Zielstattstraße, 81379 München",
-      "walk_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/13.08.26_Tageskarte.pdf",
-      "format": "pdf",
-      "days": {},
-      "status": "error",
-      "error": "PDF gefunden, aber keine Gerichte erkannt."
+      }
     }
   ]
 }

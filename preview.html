@@ -1,479 +1,663 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DPM Lunchline</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  /* ---- DPM design tokens (aus dem DPM Design System: tokens/colors.css, web.css) ---- */
-  :root {
-    --dpm-black: #000000;
-    --dpm-white: #ffffff;
-    --dpm-grey-10: #E6E6E6;
-    --dpm-grey-20: #CFCFCF;
-    --dpm-grey-30: #B4B4B4;
-    --dpm-cta: #5C69DF;           /* --colors--main-cta-d, echte Website-CTA-Farbe */
-    --dpm-saffron: #F8C81D;
-    --dpm-peach: #FFA591;
-    --dpm-violet: #DFABFF;
-    --dpm-periwinkle: #B6BDFD;
-    --dpm-blue: #5AD3E4;
-    --dpm-periwinkle-dark: #1A1157;
-    --dpm-magenta: #E71D4D;
-    --dpm-orange: #FF9737;
-    --radius-card: 24px;
-    --radius-pill: 100px;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: Inter, -apple-system, sans-serif;
-    background: var(--dpm-white);
-    color: var(--dpm-black);
-    letter-spacing: -0.01em;
-  }
-  header {
-    background: var(--dpm-white);
-    color: var(--dpm-black);
-    padding: 28px 20px;
-    border-bottom: 1px solid var(--dpm-grey-20);
-  }
-  .header-inner {
-    max-width: 960px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .brand svg.dpm-logo { height: 34px; width: auto; display: block; }
-  .brand .divider {
-    width: 1px;
-    height: 24px;
-    background: var(--dpm-grey-20);
-  }
-  .brand h1 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin: 0;
-    letter-spacing: -0.02em;
-  }
-  .today-pill {
-    background: var(--dpm-black);
-    color: var(--dpm-white);
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 6px 14px;
-    border-radius: var(--radius-pill);
-    white-space: nowrap;
-  }
-  .subline {
-    max-width: 960px;
-    margin: 8px auto 0;
-    font-size: 0.9rem;
-    color: #555;
-  }
-  main {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 28px 20px 60px;
-    display: grid;
-    gap: 18px;
-  }
-  .card {
-    background: var(--dpm-white);
-    border: 1px solid var(--dpm-grey-20);
-    border-radius: var(--radius-card);
-    padding: 22px 24px;
-    position: relative;
-    overflow: hidden;
-  }
-  .accent-tab {
-    position: absolute;
-    top: 0; left: 0;
-    width: 6px;
-    height: 100%;
-  }
-  .card-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding-left: 10px;
-  }
-  .card-head h2 {
-    margin: 0 0 4px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-  .card-head .sub {
-    color: #555;
-    font-size: 0.85rem;
-  }
-  .badge {
-    font-size: 0.72rem;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: var(--radius-pill);
-    background: var(--dpm-black);
-    color: var(--dpm-white);
-    white-space: nowrap;
-  }
-  .badge.warn {
-    background: var(--dpm-magenta);
-  }
-  ul.dishes {
-    list-style: none;
-    margin: 16px 0 4px;
-    padding: 0 0 0 10px;
-    display: grid;
-    gap: 12px;
-  }
-  ul.dishes li {
-    border-top: 1px solid var(--dpm-grey-10);
-    padding-top: 12px;
-  }
-  ul.dishes li:first-child {
-    border-top: none;
-    padding-top: 0;
-  }
-  .dish-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-    font-weight: 600;
-    font-size: 0.98rem;
-  }
-  .dish-desc {
-    color: #666;
-    font-size: 0.85rem;
-    margin-top: 3px;
-    font-weight: 400;
-  }
-  .price {
-    white-space: nowrap;
-    font-weight: 700;
-    background: var(--dpm-grey-10);
-    padding: 3px 10px;
-    border-radius: var(--radius-pill);
-    font-size: 0.85rem;
-  }
-  .empty-note {
-    color: #666;
-    font-size: 0.9rem;
-    margin: 12px 0 0;
-    padding-left: 10px;
-  }
-  details {
-    margin-top: 14px;
-    padding-left: 10px;
-  }
-  summary {
-    cursor: pointer;
-    color: var(--dpm-cta);
-    font-size: 0.85rem;
-    font-weight: 500;
-  }
-  .week-day-title {
-    font-weight: 700;
-    font-size: 0.78rem;
-    margin: 14px 0 6px;
-    color: #777;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  a.source-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 16px;
-    margin-left: 10px;
-    padding: 7px 16px;
-    background: var(--dpm-cta);
-    color: var(--dpm-white) !important;
-    border-radius: var(--radius-pill);
-    font-size: 0.78rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: opacity .2s;
-  }
-  a.source-link:hover { opacity: 0.85; }
-  footer {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 20px 40px;
-    color: var(--dpm-grey-30);
-    font-size: 0.78rem;
-  }
-</style>
-</head>
-<body>
-<header>
-  <div class="header-inner">
-    <div class="brand">
-      <svg class="dpm-logo" viewBox="0 0 358 148" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="DieProduktMacher">
-        <rect x="0.3" y="0" fill="#FFFFFF" width="150" height="148"/>
-        <g>
-          <g>
-            <defs>
-              <rect id="hdr-clip" x="0.3" y="0" width="150" height="148"/>
-            </defs>
-            <clipPath id="hdr-clip-path">
-              <use xlink:href="#hdr-clip" overflow="visible"/>
-            </clipPath>
-            <g clip-path="url(#hdr-clip-path)">
-              <path d="M0.3,0v148h150V0H0.3z M121.6,97.1c-1.1,1.2-2.7,1.9-4.3,1.9l-41.1,0.2l13-11.6l21.6-0.1l-3.7-35.4l-69.8,62.6
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DPM Lunchline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ---- DPM design tokens (aus dem DPM Design System: tokens/colors.css, web.css) ---- */
+      :root {
+        --dpm-black: #000000;
+        --dpm-white: #ffffff;
+        --dpm-grey-10: #e6e6e6;
+        --dpm-grey-20: #cfcfcf;
+        --dpm-grey-30: #b4b4b4;
+        --dpm-cta: #5c69df; /* --colors--main-cta-d, echte Website-CTA-Farbe */
+        --dpm-saffron: #f8c81d;
+        --dpm-peach: #ffa591;
+        --dpm-violet: #dfabff;
+        --dpm-periwinkle: #b6bdfd;
+        --dpm-blue: #5ad3e4;
+        --dpm-periwinkle-dark: #1a1157;
+        --dpm-magenta: #e71d4d;
+        --dpm-orange: #ff9737;
+        --radius-card: 24px;
+        --radius-pill: 100px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, -apple-system, sans-serif;
+        background: var(--dpm-white);
+        color: var(--dpm-black);
+        letter-spacing: -0.01em;
+      }
+      header {
+        background: var(--dpm-white);
+        color: var(--dpm-black);
+        padding: 28px 20px;
+        border-bottom: 1px solid var(--dpm-grey-20);
+      }
+      .header-inner {
+        max-width: 960px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand svg.dpm-logo {
+        height: 34px;
+        width: auto;
+        display: block;
+      }
+      .brand .divider {
+        width: 1px;
+        height: 24px;
+        background: var(--dpm-grey-20);
+      }
+      .brand h1 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+      .today-pill {
+        background: var(--dpm-black);
+        color: var(--dpm-white);
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 6px 14px;
+        border-radius: var(--radius-pill);
+        white-space: nowrap;
+      }
+      .subline {
+        max-width: 960px;
+        margin: 8px auto 0;
+        font-size: 0.9rem;
+        color: #555;
+      }
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 28px 20px 60px;
+        display: grid;
+        gap: 18px;
+      }
+      .card {
+        background: var(--dpm-white);
+        border: 1px solid var(--dpm-grey-20);
+        border-radius: var(--radius-card);
+        padding: 22px 24px;
+        position: relative;
+        overflow: hidden;
+      }
+      .accent-tab {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+      }
+      .card-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding-left: 10px;
+      }
+      .card-head h2 {
+        margin: 0 0 4px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      .card-head .sub {
+        color: #555;
+        font-size: 0.85rem;
+      }
+      .badge {
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 5px 12px;
+        border-radius: var(--radius-pill);
+        background: var(--dpm-black);
+        color: var(--dpm-white);
+        white-space: nowrap;
+      }
+      .badge.warn {
+        background: var(--dpm-magenta);
+      }
+      ul.dishes {
+        list-style: none;
+        margin: 16px 0 4px;
+        padding: 0 0 0 10px;
+        display: grid;
+        gap: 12px;
+      }
+      ul.dishes li {
+        border-top: 1px solid var(--dpm-grey-10);
+        padding-top: 12px;
+      }
+      ul.dishes li:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+      .dish-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        font-weight: 600;
+        font-size: 0.98rem;
+      }
+      .dish-desc {
+        color: #666;
+        font-size: 0.85rem;
+        margin-top: 3px;
+        font-weight: 400;
+      }
+      .price {
+        white-space: nowrap;
+        font-weight: 700;
+        background: var(--dpm-grey-10);
+        padding: 3px 10px;
+        border-radius: var(--radius-pill);
+        font-size: 0.85rem;
+      }
+      .empty-note {
+        color: #666;
+        font-size: 0.9rem;
+        margin: 12px 0 0;
+        padding-left: 10px;
+      }
+      details {
+        margin-top: 14px;
+        padding-left: 10px;
+      }
+      summary {
+        cursor: pointer;
+        color: var(--dpm-cta);
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+      .week-day-title {
+        font-weight: 700;
+        font-size: 0.78rem;
+        margin: 14px 0 6px;
+        color: #777;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      a.source-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 16px;
+        margin-left: 10px;
+        padding: 7px 16px;
+        background: var(--dpm-cta);
+        color: var(--dpm-white) !important;
+        border-radius: var(--radius-pill);
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
+      a.source-link:hover {
+        opacity: 0.85;
+      }
+      footer {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 20px 40px;
+        color: var(--dpm-grey-30);
+        font-size: 0.78rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <svg
+            class="dpm-logo"
+            viewBox="0 0 358 148"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            aria-label="DieProduktMacher"
+          >
+            <rect x="0.3" y="0" fill="#FFFFFF" width="150" height="148" />
+            <g>
+              <g>
+                <defs>
+                  <rect id="hdr-clip" x="0.3" y="0" width="150" height="148" />
+                </defs>
+                <clipPath id="hdr-clip-path">
+                  <use xlink:href="#hdr-clip" overflow="visible" />
+                </clipPath>
+                <g clip-path="url(#hdr-clip-path)">
+                  <path
+                    d="M0.3,0v148h150V0H0.3z M121.6,97.1c-1.1,1.2-2.7,1.9-4.3,1.9l-41.1,0.2l13-11.6l21.6-0.1l-3.7-35.4l-69.8,62.6
                 c-1.1,1-2.5,1.5-3.9,1.5c-0.9,0-1.7-0.2-2.6-0.6c-2.1-1.1-3.5-3.3-3.3-5.7L32.7,41c0.2-2.2,1.6-4.1,3.7-4.9s4.4-0.4,6.1,1.1
                 l21,18.3l-8.7,7.9l-11.2-9.9l-3.2,42.7l67.5-60.5c1.6-1.5,4-1.9,6.1-1.1c2.1,0.8,3.5,2.7,3.8,4.8l5.5,53
-                C123.2,94.2,122.7,95.8,121.6,97.1z"/>
+                C123.2,94.2,122.7,95.8,121.6,97.1z"
+                  />
+                </g>
+              </g>
             </g>
-          </g>
-        </g>
-        <path d="M292.2,40.9H308L324.6,81h0.7L342,40.9h15.8v59.7h-12.4V61.8h-0.5l-15.7,38.6h-8.5L305,61.7h-0.5v39h-12.4V40.9H292.2z"/>
-        <path d="M237.5,100.6V40.9h23.9c4.6,0,8.5,0.9,11.7,2.6c3.2,1.7,5.7,4.1,7.4,7.1c1.7,3,2.6,6.5,2.6,10.5s-0.9,7.5-2.6,10.5
+            <path
+              d="M292.2,40.9H308L324.6,81h0.7L342,40.9h15.8v59.7h-12.4V61.8h-0.5l-15.7,38.6h-8.5L305,61.7h-0.5v39h-12.4V40.9H292.2z"
+            />
+            <path
+              d="M237.5,100.6V40.9h23.9c4.6,0,8.5,0.9,11.7,2.6c3.2,1.7,5.7,4.1,7.4,7.1c1.7,3,2.6,6.5,2.6,10.5s-0.9,7.5-2.6,10.5
           s-4.2,5.4-7.5,7.1s-7.2,2.5-11.9,2.5h-15.2v-10H259c2.5,0,4.5-0.4,6.1-1.3s2.8-2,3.6-3.5c0.8-1.5,1.2-3.3,1.2-5.2
-          c0-2-0.4-3.7-1.2-5.2c-0.8-1.5-2-2.7-3.6-3.5s-3.7-1.3-6.1-1.3h-8.6v49.4C250.4,100.6,237.5,100.6,237.5,100.6z"/>
-        <path d="M197.6,100.6h-21.5V40.9h21.6c6.1,0,11.3,1.2,15.7,3.6c4.4,2.4,7.8,5.8,10.1,10.2c2.4,4.5,3.6,9.8,3.6,16s-1.2,11.6-3.6,16
+          c0-2-0.4-3.7-1.2-5.2c-0.8-1.5-2-2.7-3.6-3.5s-3.7-1.3-6.1-1.3h-8.6v49.4C250.4,100.6,237.5,100.6,237.5,100.6z"
+            />
+            <path
+              d="M197.6,100.6h-21.5V40.9h21.6c6.1,0,11.3,1.2,15.7,3.6c4.4,2.4,7.8,5.8,10.1,10.2c2.4,4.5,3.6,9.8,3.6,16s-1.2,11.6-3.6,16
           c-2.4,4.5-5.8,7.9-10.2,10.3C209,99.4,203.7,100.6,197.6,100.6z M188.9,89.8h8.1c3.8,0,7-0.7,9.5-2c2.6-1.3,4.6-3.4,5.9-6.2
-          c1.3-2.8,2-6.5,2-10.9s-0.7-8-2-10.8s-3.2-4.9-5.8-6.2s-5.8-2-9.5-2h-8.2V89.8z"/>
-      </svg>
-      <span class="divider"></span>
-      <h1>Lunchline</h1>
-    </div>
-    <span class="today-pill" id="today-label"></span>
-  </div>
-  <p class="subline">Tägliches Mittagsmenü rund um Hofmannstraße 7a, 81379 München</p>
-</header>
+          c1.3-2.8,2-6.5,2-10.9s-0.7-8-2-10.8s-3.2-4.9-5.8-6.2s-5.8-2-9.5-2h-8.2V89.8z"
+            />
+          </svg>
+          <span class="divider"></span>
+          <h1>Lunchline</h1>
+        </div>
+        <span class="today-pill" id="today-label"></span>
+      </div>
+      <p class="subline">
+        Tägliches Mittagsmenü rund um Hofmannstraße 7a, 81379 München
+      </p>
+    </header>
 
-<main id="cards">
-  <p class="empty-note">Lade Menüs…</p>
-</main>
+    <main id="cards">
+      <p class="empty-note">Lade Menüs…</p>
+    </main>
 
-<footer id="footer-note"></footer>
+    <footer id="footer-note"></footer>
 
-<script>
-const EMBEDDED_DATA = {
-  "generated_at": "2026-08-12",
-  "note": "Beispiel-Snapshot (KW 33, 10.–14.08.2026), manuell erfasst als Startdaten. scraper.py ersetzt diese Datei durch aktuelle Live-Daten, sobald es mit Internetzugriff ausgeführt wird.",
-  "restaurants": [
-    {
-      "id": "egghaus",
-      "name": "Egg Haus Café",
-      "address": "Hofmannstraße 23, 81379 München",
-      "walk_minutes": 3,
-      "source_url": "https://egghauscafe.de/lunch-menu/",
-      "format": "html",
-      "status": "ok",
-      "error": null,
-      "week_label": "Mo–Do, 10.–14.08.26 (Fr geschlossen)",
-      "days": {
-        "Montag": [
-          {"dish": "Pasta mit Auberginen, B.Pesto und Tomatensauce", "description": null, "price": "10,50 €"},
-          {"dish": "Pinsa mit Salami, Oliven und Rucola", "description": null, "price": "11,50 €"}
+    <script>
+      const EMBEDDED_DATA = {
+        generated_at: "2026-08-12",
+        note: "Beispiel-Snapshot (KW 33, 10.–14.08.2026), manuell erfasst als Startdaten. scraper.py ersetzt diese Datei durch aktuelle Live-Daten, sobald es mit Internetzugriff ausgeführt wird.",
+        restaurants: [
+          {
+            id: "augustiner",
+            name: "Augustiner Schützengarten",
+            address: "Zielstattstraße, 81379 München",
+            walk_minutes: 10,
+            source_url:
+              "https://augustiner-schuetzengarten.de/wp-content/uploads/12.08.26_Tageskarte.pdf",
+            format: "pdf",
+            status: "ok",
+            error: null,
+            week_label: "Tageskarte (nur aktueller Tag)",
+            days: {
+              Mittwoch: [
+                {
+                  dish: "Cordon Bleu vom Schwein mit Pommes Frites",
+                  description: "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
+                  price: "9,90 €",
+                },
+              ],
+            },
+          },
+          {
+            id: "moccasola",
+            name: "Café Moccasola",
+            address: "Zielstattstraße, 81379 München",
+            walk_minutes: 10,
+            source_url:
+              "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW33_2026.pdf",
+            format: "pdf",
+            status: "ok",
+            error: null,
+            week_label: "KW 33, 10.–14.08.26",
+            days: {
+              Montag: [
+                {
+                  dish: "Köfte-Wrap mit Tomate, Gurke, Salat",
+                  description: null,
+                  price: "12,90 €",
+                },
+                {
+                  dish: "Gnocchi mit Tomaten-Sahne-Sauce",
+                  description: null,
+                  price: "11,50 €",
+                },
+              ],
+              Dienstag: [
+                {
+                  dish: "Hühnerstreifen in Rahmsauce mit Farfalle",
+                  description: null,
+                  price: "12,90 €",
+                },
+                {
+                  dish: "Hausgemachte Pfannkuchen mit Pfifferlingen und Kräuterquark",
+                  description: null,
+                  price: "11,50 €",
+                },
+              ],
+              Mittwoch: [
+                {
+                  dish: "Münchner Schnitzel mit Bratkartoffeln und Meerrettich",
+                  description: "Burger/Schnitzel-Tag",
+                  price: "12,90 €",
+                },
+                {
+                  dish: "Teriyaki-Gemüse mit Jasminreis",
+                  description: null,
+                  price: "11,50 €",
+                },
+              ],
+              Donnerstag: [
+                {
+                  dish: "Hausgemachte Ofenlasagne",
+                  description: null,
+                  price: "12,90 €",
+                },
+                {
+                  dish: "Rahmspinat mit Salzkartoffeln und zwei Spiegeleiern",
+                  description: null,
+                  price: "11,50 €",
+                },
+              ],
+              Freitag: [
+                {
+                  dish: "Betriebsschließung",
+                  description: "Kein Mittagstisch",
+                  price: null,
+                },
+              ],
+            },
+          },
+          {
+            id: "egghaus",
+            name: "Egg Haus Café",
+            address: "Hofmannstraße 23, 81379 München",
+            walk_minutes: 3,
+            source_url: "https://egghauscafe.de/lunch-menu/",
+            format: "html",
+            status: "ok",
+            error: null,
+            week_label: "Mo–Do, 10.–14.08.26 (Fr geschlossen)",
+            days: {
+              Montag: [
+                {
+                  dish: "Pasta mit Auberginen, B.Pesto und Tomatensauce",
+                  description: null,
+                  price: "10,50 €",
+                },
+                {
+                  dish: "Pinsa mit Salami, Oliven und Rucola",
+                  description: null,
+                  price: "11,50 €",
+                },
+              ],
+              Dienstag: [
+                {
+                  dish: "Pasta mit Auberginen, B.Pesto und Tomatensauce",
+                  description: null,
+                  price: "10,50 €",
+                },
+                {
+                  dish: "Pinsa mit Salami, Oliven und Rucola",
+                  description: null,
+                  price: "11,50 €",
+                },
+              ],
+              Mittwoch: [
+                {
+                  dish: "Pasta mit Auberginen, B.Pesto und Tomatensauce",
+                  description: null,
+                  price: "10,50 €",
+                },
+                {
+                  dish: "Pinsa mit Salami, Oliven und Rucola",
+                  description: null,
+                  price: "11,50 €",
+                },
+              ],
+              Donnerstag: [
+                {
+                  dish: "Pasta mit Auberginen, B.Pesto und Tomatensauce",
+                  description: null,
+                  price: "10,50 €",
+                },
+                {
+                  dish: "Pinsa mit Salami, Oliven und Rucola",
+                  description: null,
+                  price: "11,50 €",
+                },
+              ],
+            },
+          },
+          {
+            id: "lotus_asia",
+            name: "Lotus Asia",
+            address: "Boschetsrieder Str. 75, 81379 München",
+            walk_minutes: 8,
+            source_url: "https://www.lotusasia.shop/wochenkarte",
+            format: "html",
+            status: "ok",
+            error: null,
+            week_label: "KW 33, 10.–14.08.26",
+            days: {
+              Montag: [
+                {
+                  dish: "Thailändischer Glasnudelsalat (pikant)",
+                  description:
+                    "Tomaten, Gurken, Paprika, Lauch, Erdnüsse, Sellerie, Koriander und Reis",
+                  price: "9,50 € (Hühnerfleisch) / 9,00 € (vegetarisch)",
+                },
+                {
+                  dish: "Rotes Thai Curry (mittelscharf)",
+                  description:
+                    "Mit Bohnen, Zucchini, Paprika, Karotten, Bambus und Basilikum, dazu Reis",
+                  price: "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/vegetarisch)",
+                },
+              ],
+              Dienstag: [
+                {
+                  dish: "Gebratener Curryreis (mild)",
+                  description:
+                    "Mit Erbsen, Karotten, Mais, Ei, Pilzen, Paprika, Zwiebeln, Sojasprossen und Kräutern",
+                  price: null,
+                },
+              ],
+              Mittwoch: [
+                {
+                  dish: "Pad Siuw Nudeln (mild)",
+                  description:
+                    "Gebratene Reisbandnudeln mit Hühnerfleisch, Broccoli, Chinakohl, Paprika, Ei, Porree und Sojasprossen",
+                  price: "9,50 €",
+                },
+                {
+                  dish: "Süßkartoffel Curry (pikant)",
+                  description:
+                    "Karotten, Paprika, Bohnen, Zucchini, Bambus und Blumenkohl, dazu Reis",
+                  price: "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/vegetarisch)",
+                },
+              ],
+              Donnerstag: [
+                {
+                  dish: "Laab (mittelscharf)",
+                  description:
+                    "Hackfleischsalat (gemischt Rind/Schwein) mit Zitronengras und Minze",
+                  price: "10,00 €",
+                },
+              ],
+            },
+          },
         ],
-        "Dienstag": [
-          {"dish": "Pasta mit Auberginen, B.Pesto und Tomatensauce", "description": null, "price": "10,50 €"},
-          {"dish": "Pinsa mit Salami, Oliven und Rucola", "description": null, "price": "11,50 €"}
-        ],
-        "Mittwoch": [
-          {"dish": "Pasta mit Auberginen, B.Pesto und Tomatensauce", "description": null, "price": "10,50 €"},
-          {"dish": "Pinsa mit Salami, Oliven und Rucola", "description": null, "price": "11,50 €"}
-        ],
-        "Donnerstag": [
-          {"dish": "Pasta mit Auberginen, B.Pesto und Tomatensauce", "description": null, "price": "10,50 €"},
-          {"dish": "Pinsa mit Salami, Oliven und Rucola", "description": null, "price": "11,50 €"}
-        ]
       }
-    },
-    {
-      "id": "lotus_asia",
-      "name": "Lotus Asia",
-      "address": "Boschetsrieder Str. 75, 81379 München",
-      "walk_minutes": 8,
-      "source_url": "https://www.lotusasia.shop/wochenkarte",
-      "format": "html",
-      "status": "ok",
-      "error": null,
-      "week_label": "KW 33, 10.–14.08.26",
-      "days": {
-        "Montag": [
-          {"dish": "Thailändischer Glasnudelsalat (pikant)", "description": "Tomaten, Gurken, Paprika, Lauch, Erdnüsse, Sellerie, Koriander und Reis", "price": "9,50 € (Hühnerfleisch) / 9,00 € (vegetarisch)"},
-          {"dish": "Rotes Thai Curry (mittelscharf)", "description": "Mit Bohnen, Zucchini, Paprika, Karotten, Bambus und Basilikum, dazu Reis", "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/vegetarisch)"}
-        ],
-        "Dienstag": [
-          {"dish": "Gebratener Curryreis (mild)", "description": "Mit Erbsen, Karotten, Mais, Ei, Pilzen, Paprika, Zwiebeln, Sojasprossen und Kräutern", "price": null}
-        ],
-        "Mittwoch": [
-          {"dish": "Pad Siuw Nudeln (mild)", "description": "Gebratene Reisbandnudeln mit Hühnerfleisch, Broccoli, Chinakohl, Paprika, Ei, Porree und Sojasprossen", "price": "9,50 €"},
-          {"dish": "Süßkartoffel Curry (pikant)", "description": "Karotten, Paprika, Bohnen, Zucchini, Bambus und Blumenkohl, dazu Reis", "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/vegetarisch)"}
-        ],
-        "Donnerstag": [
-          {"dish": "Laab (mittelscharf)", "description": "Hackfleischsalat (gemischt Rind/Schwein) mit Zitronengras und Minze", "price": "10,00 €"}
-        ]
-      }
-    },
-    {
-      "id": "moccasola",
-      "name": "Café Moccasola",
-      "address": "Zielstattstraße, 81379 München",
-      "walk_minutes": 10,
-      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW33_2026.pdf",
-      "format": "pdf",
-      "status": "ok",
-      "error": null,
-      "week_label": "KW 33, 10.–14.08.26",
-      "days": {
-        "Montag": [
-          {"dish": "Köfte-Wrap mit Tomate, Gurke, Salat", "description": null, "price": "12,90 €"},
-          {"dish": "Gnocchi mit Tomaten-Sahne-Sauce", "description": null, "price": "11,50 €"}
-        ],
-        "Dienstag": [
-          {"dish": "Hühnerstreifen in Rahmsauce mit Farfalle", "description": null, "price": "12,90 €"},
-          {"dish": "Hausgemachte Pfannkuchen mit Pfifferlingen und Kräuterquark", "description": null, "price": "11,50 €"}
-        ],
-        "Mittwoch": [
-          {"dish": "Münchner Schnitzel mit Bratkartoffeln und Meerrettich", "description": "Burger/Schnitzel-Tag", "price": "12,90 €"},
-          {"dish": "Teriyaki-Gemüse mit Jasminreis", "description": null, "price": "11,50 €"}
-        ],
-        "Donnerstag": [
-          {"dish": "Hausgemachte Ofenlasagne", "description": null, "price": "12,90 €"},
-          {"dish": "Rahmspinat mit Salzkartoffeln und zwei Spiegeleiern", "description": null, "price": "11,50 €"}
-        ],
-        "Freitag": [
-          {"dish": "Betriebsschließung", "description": "Kein Mittagstisch", "price": null}
-        ]
-      }
-    },
-    {
-      "id": "augustiner",
-      "name": "Augustiner Schützengarten",
-      "address": "Zielstattstraße, 81379 München",
-      "walk_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/12.08.26_Tageskarte.pdf",
-      "format": "pdf",
-      "status": "ok",
-      "error": null,
-      "week_label": "Tageskarte (nur aktueller Tag)",
-      "days": {
-        "Mittwoch": [
-          {"dish": "Cordon Bleu vom Schwein mit Pommes Frites", "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr", "price": "9,90 €"}
-        ]
-      }
-    }
-  ]
-}
-;
-const WEEKDAYS_DE = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
-const ACCENTS = ["#F8C81D", "#FFA591", "#DFABFF", "#B6BDFD", "#5AD3E4"]; // Saffron, Peach, Violet, Periwinkle, Blue
+      const WEEKDAYS_DE = [
+        "Montag",
+        "Dienstag",
+        "Mittwoch",
+        "Donnerstag",
+        "Freitag",
+        "Samstag",
+        "Sonntag",
+      ]
+      const ACCENTS = ["#F8C81D", "#FFA591", "#DFABFF", "#B6BDFD", "#5AD3E4"] // Saffron, Peach, Violet, Periwinkle, Blue
 
-function escapeHtml(str) {
-  if (str === null || str === undefined) return "";
-  return String(str)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-}
+      function escapeHtml(str) {
+        if (str === null || str === undefined) return ""
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+      }
 
-function renderDishList(dishes) {
-  if (!dishes || dishes.length === 0) return "";
-  return `<ul class="dishes">${dishes.map(d => `
+      function renderDishList(dishes) {
+        if (!dishes || dishes.length === 0) return ""
+        return `<ul class="dishes">${dishes
+          .map(
+            (d) => `
     <li>
       <div class="dish-row">
         <span>${escapeHtml(d.dish)}</span>
         ${d.price ? `<span class="price">${escapeHtml(d.price)}</span>` : ""}
       </div>
-      ${d.description ? `<div class="dish-desc">${escapeHtml(d.description)}</div>` : ""}
-    </li>`).join("")}</ul>`;
-}
+      ${
+        d.description
+          ? `<div class="dish-desc">${escapeHtml(d.description)}</div>`
+          : ""
+      }
+    </li>`
+          )
+          .join("")}</ul>`
+      }
 
-function renderRestaurant(r, todayName, idx) {
-  const todayDishes = r.days && r.days[todayName];
-  const otherDays = Object.keys(r.days || {}).filter(d => d !== todayName);
-  const accent = ACCENTS[idx % ACCENTS.length];
+      function renderRestaurant(r, todayName, idx) {
+        const todayDishes = r.days && r.days[todayName]
+        const otherDays = Object.keys(r.days || {}).filter(
+          (d) => d !== todayName
+        )
+        const accent = ACCENTS[idx % ACCENTS.length]
 
-  let statusBadge = "";
-  if (r.status !== "ok") {
-    statusBadge = `<span class="badge warn">Fehler beim Abrufen</span>`;
-  } else if (!todayDishes) {
-    statusBadge = `<span class="badge warn">Heute nichts gefunden</span>`;
-  } else {
-    statusBadge = `<span class="badge">${escapeHtml(r.format === "pdf" ? "PDF" : "Website")}</span>`;
-  }
+        let statusBadge = ""
+        if (r.status !== "ok") {
+          statusBadge = `<span class="badge warn">Fehler beim Abrufen</span>`
+        } else if (!todayDishes) {
+          statusBadge = `<span class="badge warn">Heute nichts gefunden</span>`
+        } else {
+          statusBadge = `<span class="badge">${escapeHtml(
+            r.format === "pdf" ? "PDF" : "Website"
+          )}</span>`
+        }
 
-  const body = todayDishes
-    ? renderDishList(todayDishes)
-    : `<p class="empty-note">${r.status === "ok"
-        ? "Für heute liegt kein Eintrag vor (z. B. Ruhetag oder noch nicht aktualisiert)."
-        : escapeHtml(r.error || "Konnte nicht geladen werden.")}</p>`;
+        const body = todayDishes
+          ? renderDishList(todayDishes)
+          : `<p class="empty-note">${
+              r.status === "ok"
+                ? "Für heute liegt kein Eintrag vor (z. B. Ruhetag oder noch nicht aktualisiert)."
+                : escapeHtml(r.error || "Konnte nicht geladen werden.")
+            }</p>`
 
-  const weekDetails = otherDays.length ? `
+        const weekDetails = otherDays.length
+          ? `
     <details>
       <summary>Restliche Woche anzeigen</summary>
-      ${otherDays.map(d => `
+      ${otherDays
+        .map(
+          (d) => `
         <div class="week-day-title">${escapeHtml(d)}</div>
         ${renderDishList(r.days[d])}
-      `).join("")}
-    </details>` : "";
+      `
+        )
+        .join("")}
+    </details>`
+          : ""
 
-  return `
+        return `
     <section class="card">
       <div class="accent-tab" style="background:${accent}"></div>
       <div class="card-head">
         <div>
           <h2>${escapeHtml(r.name)}</h2>
-          <div class="sub">${escapeHtml(r.address)}${r.walk_minutes ? " · ca. " + r.walk_minutes + " Min. Fußweg" : ""}</div>
+          <div class="sub">${escapeHtml(r.address)}${
+          r.walk_minutes ? " · ca. " + r.walk_minutes + " Min. Fußweg" : ""
+        }</div>
         </div>
         ${statusBadge}
       </div>
       ${body}
       ${weekDetails}
-      <a class="source-link" href="${escapeHtml(r.source_url)}" target="_blank" rel="noopener">Quelle öffnen ↗</a>
-    </section>`;
-}
+      <a class="source-link" href="${escapeHtml(
+        r.source_url
+      )}" target="_blank" rel="noopener">Quelle öffnen ↗</a>
+    </section>`
+      }
 
-async function load() {
-  const today = new Date();
-  const todayName = WEEKDAYS_DE[today.getDay() === 0 ? 6 : today.getDay() - 1];
-  document.getElementById("today-label").textContent =
-    todayName + ", " + today.toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" });
+      async function load() {
+        const today = new Date()
+        const todayName =
+          WEEKDAYS_DE[today.getDay() === 0 ? 6 : today.getDay() - 1]
+        document.getElementById("today-label").textContent =
+          todayName +
+          ", " +
+          today.toLocaleDateString("de-DE", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          })
 
-  const cardsEl = document.getElementById("cards");
-  const footerEl = document.getElementById("footer-note");
+        const cardsEl = document.getElementById("cards")
+        const footerEl = document.getElementById("footer-note")
 
-  try {
-    const data = EMBEDDED_DATA;
+        try {
+          const data = EMBEDDED_DATA
 
-    let prefix = "";
-    if (["Samstag", "Sonntag"].includes(todayName)) {
-      prefix = `<p class="empty-note">Heute ist ${todayName} – die meisten Mittagstische machen am Wochenende Pause. Hier trotzdem die Wochenkarten:</p>`;
-    }
-    cardsEl.innerHTML = prefix;
+          let prefix = ""
+          if (["Samstag", "Sonntag"].includes(todayName)) {
+            prefix = `<p class="empty-note">Heute ist ${todayName} – die meisten Mittagstische machen am Wochenende Pause. Hier trotzdem die Wochenkarten:</p>`
+          }
+          cardsEl.innerHTML = prefix
 
-    (data.restaurants || []).forEach((r, i) => {
-      cardsEl.insertAdjacentHTML("beforeend", renderRestaurant(r, todayName, i));
-    });
+          const sorted = (data.restaurants || [])
+            .slice()
+            .sort((a, b) =>
+              a.name.localeCompare(b.name, "de", { sensitivity: "base" })
+            )
 
-    footerEl.textContent = "Zuletzt aktualisiert: " + (data.generated_at || "unbekannt") +
-      (data.note ? " — " + data.note : "");
-  } catch (e) {
-    cardsEl.innerHTML = `<p class="empty-note">menus.json konnte nicht geladen werden (${escapeHtml(e.message)}). ` +
-      `Läuft diese Seite über einen lokalen Server (z. B. "python3 -m http.server")?</p>`;
-  }
-}
+          sorted.forEach((r, i) => {
+            cardsEl.insertAdjacentHTML(
+              "beforeend",
+              renderRestaurant(r, todayName, i)
+            )
+          })
 
-load();
-</script>
-</body>
+          footerEl.textContent =
+            "Zuletzt aktualisiert: " +
+            (data.generated_at || "unbekannt") +
+            (data.note ? " — " + data.note : "")
+        } catch (e) {
+          cardsEl.innerHTML =
+            `<p class="empty-note">menus.json konnte nicht geladen werden (${escapeHtml(
+              e.message
+            )}). ` +
+            `Läuft diese Seite über einen lokalen Server (z. B. "python3 -m http.server")?</p>`
+        }
+      }
+
+      load()
+    </script>
+  </body>
 </html>

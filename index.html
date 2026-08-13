@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script data-goatcounter="https://dpm-lunchline.goatcounter.com/count"
+    async src="//gc.zgo.at/count.js"></script>
 <style>
   /* ---- DPM design tokens (aus dem DPM Design System: tokens/colors.css, web.css) ---- */
   :root {
@@ -351,7 +353,10 @@ async function load() {
     }
     cardsEl.innerHTML = prefix;
 
-    (data.restaurants || []).forEach((r, i) => {
+    const sorted = (data.restaurants || []).slice().sort((a, b) =>
+      a.name.localeCompare(b.name, "de", { sensitivity: "base" }));
+
+    sorted.forEach((r, i) => {
       cardsEl.insertAdjacentHTML("beforeend", renderRestaurant(r, todayName, i));
     });
 
