@@ -38,9 +38,20 @@ def _get(url, **kwargs):
     return requests.get(url, headers=HEADERS, timeout=15, **kwargs)
 
 
+_PRICE_RE = re.compile(
+    r"(?:(\d{1,2}(?:[.,]\d{1,2})?)\s*€)"       # "9,50 €" / "9,5 €" / "10 €"
+    r"|(?:€\s*(\d{1,2}(?:[.,]\d{1,2})?))"      # "€ 9,90" (z.B. Augustiner-PDF)
+)
+
+
 def _price_from_text(text):
-    m = re.search(r"(\d{1,2}[.,]\d{2})\s*€", text)
-    return m.group(1).replace(".", ",") + " €" if m else None
+    """Findet einen Preis in beiden auf den Seiten vorkommenden Schreibweisen
+    (Zahl-vor-€ oder €-vor-Zahl) und mit 0-2 Nachkommastellen."""
+    m = _PRICE_RE.search(text)
+    if not m:
+        return None
+    num = (m.group(1) or m.group(2)).replace(".", ",")
+    return num + " €"
 
 
 # ---------------------------------------------------------------------------
@@ -70,12 +81,13 @@ def scrape_egghaus():
         dishes = []
         pending_name = None
         for h in headings:
-            price = _price_from_text(h.replace(",", "."))
-            if re.fullmatch(r"\d{1,2}[.,]\d{2}\s*€?", h.strip()):
+            bare_match = re.fullmatch(r"(\d{1,2}(?:[.,]\d{1,2})?)\s*€?", h.strip())
+            if bare_match:
                 if pending_name:
-                    dishes.append({"dish": pending_name, "description": None, "price": h.strip()})
+                    price = bare_match.group(1).replace(".", ",") + " €"
+                    dishes.append({"dish": pending_name, "description": None, "price": price})
                     pending_name = None
-            elif "mittagsmenü" in h.lower() or "business lunch" in h.lower() or re.search(r"\d{1,2}\.\d{2}", h):
+            elif "mittagsmenü" in h.lower() or "business lunch" in h.lower() or re.search(r"\d{1,2}[.,]\d{1,2}", h):
                 continue
             else:
                 pending_name = h
@@ -113,6 +125,13 @@ def scrape_lotus_asia():
         "status": "error",
         "error": None,
     }
+    # Zeilen, die eine Preis-Variante markieren ("Mit Hühnerfleisch", "Vegetarisch",
+    # "Mit Tofu/Vegetarisch", ...) statt eines neuen Gerichtsnamens.
+    variant_re = re.compile(r"^(mit\s|vegetarisch\b|tofu\b)", re.I)
+    # Reine Würz-/Schärfe-Tags, die zwischen Beschreibung und Preis-Varianten stehen
+    # und weder Beschreibung noch neues Gericht sind.
+    spice_tags = {"mild", "mittelscharf", "scharf", "pikant"}
+
     try:
         resp = _get(url)
         resp.raise_for_status()
@@ -130,14 +149,65 @@ def scrape_lotus_asia():
                 continue
             if current_day is None:
                 continue
-            price = _price_from_text(line.replace(".", ","))
-            if price and current_dish:
-                current_dish["price"] = price
-            elif len(line) < 60 and not price and current_dish is None:
-                current_dish = {"dish": line, "description": None, "price": None}
+
+            price = _price_from_text(line)
+            stripped = line.strip()
+            # Beschreibungen beginnen im Deutschen oft ebenfalls mit "mit ..."
+            # (z.B. "mit Bohnen, Zucchini, ..."), das ist NICHT dasselbe wie die
+            # kurze Preis-Variante "Mit Hühnerfleisch". Nur kurze, kommafreie
+            # "Mit ..."-Zeilen (oder solche mit Preis dabei) zählen als Variante.
+            starts_mit = bool(variant_re.match(stripped))
+            short_and_simple = "," not in stripped and len(stripped) <= 40
+            has_label = starts_mit and (short_and_simple or price is not None)
+            is_variant = has_label or price is not None
+
+            if is_variant:
+                if current_dish is not None:
+                    label = None
+                    if has_label:
+                        label = re.sub(r"^mit\s+", "", line.strip(), flags=re.I)
+                        label = _PRICE_RE.sub("", label).strip(" :–-") or None
+                    if price is None:
+                        # Label und Preis stehen in getrennten Zeilen/Elementen
+                        # (z.B. "Mit Hühnerfleisch" dann "9,5 €") - Label merken
+                        # und auf die passende Preiszeile warten.
+                        current_dish["_pending_label"] = label
+                    else:
+                        if label is None:
+                            label = current_dish.pop("_pending_label", None)
+                        else:
+                            current_dish.pop("_pending_label", None)
+                        current_dish["_variants"].append({"label": label, "price": price})
+                continue
+
+            if line.strip().lower() in spice_tags:
+                if current_dish is not None:
+                    current_dish["_spice"] = line.strip()
+                continue
+
+            # Kein Preis/Variante/Tag -> entweder neuer Gerichtsname oder Beschreibung
+            if current_dish is None or current_dish.get("description") is not None:
+                current_dish = {
+                    "dish": line, "description": None, "price": None,
+                    "_variants": [], "_spice": None, "_pending_label": None,
+                }
                 result["days"][current_day].append(current_dish)
-            elif current_dish and current_dish.get("description") is None and not price:
+            else:
                 current_dish["description"] = line
+
+        # Varianten zu einem Preis-String zusammenfassen, z.B.
+        # "9,50 € (Hühnerfleisch) / 9,00 € (vegetarisch)"
+        for day_dishes in result["days"].values():
+            for dish in day_dishes:
+                variants = dish.pop("_variants", [])
+                dish.pop("_spice", None)
+                dish.pop("_pending_label", None)
+                priced = [v for v in variants if v["price"]]
+                if priced:
+                    dish["price"] = " / ".join(
+                        f"{v['price']}" + (f" ({v['label']})" if v["label"] else "")
+                        for v in priced
+                    )
 
         result["days"] = {d: v for d, v in result["days"].items() if v}
         result["status"] = "ok" if result["days"] else "error"
@@ -275,20 +345,43 @@ def scrape_augustiner():
                 text_chunks.append(t)
         text = "\n".join(text_chunks)
 
+        # Die Karte enthält die ganze Speisekarte (Vorspeiserl, Hauptsach, ...),
+        # nicht nur den Mittagstisch. Uns interessiert ausschließlich das
+        # "Tagesschmankerl" (Mo-Fr Mittagsangebot) - gezielt danach suchen,
+        # statt die erste beliebige Preiszeile der Karte zu nehmen.
+        lines = [l.strip() for l in text.splitlines() if l.strip()]
+        daily_special_headers = ("tagesschmankerl", "tagesangebot", "tagesempfehlung", "mittagstisch")
+        next_section_re = re.compile(
+            r"^(vorspeis|hauptsach|dessert|nachspeis|suppe|salat|getränk)", re.I
+        )
+
         dishes = []
-        for line in text.splitlines():
-            line = line.strip()
-            price = _price_from_text(line.replace(".", ","))
-            if price and 3 < len(line) < 120:
-                dish_line = re.sub(r"[-–—]?\s*\d{1,2}[.,]\d{2}\s*€?\s*$", "", line).strip()
-                if dish_line:
-                    dishes.append({"dish": dish_line, "description": None, "price": price})
+        start = None
+        for i, l in enumerate(lines):
+            if any(h in l.lower() for h in daily_special_headers):
+                start = i + 1
+                break
+
+        if start is not None:
+            for l in lines[start:start + 6]:
+                if next_section_re.match(l):
+                    break
+                price = _price_from_text(l)
+                if price:
+                    dish_line = _PRICE_RE.sub("", l).strip(" -–—")
+                    if dish_line:
+                        dishes.append({
+                            "dish": dish_line,
+                            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
+                            "price": price,
+                        })
+                    break  # nur das eine Tagesschmankerl, nicht die ganze Karte
 
         if dishes and weekday_name:
             result["days"][weekday_name] = dishes
             result["status"] = "ok"
         else:
-            result["error"] = "PDF gefunden, aber keine Gerichte erkannt."
+            result["error"] = "PDF gefunden, aber kein 'Tagesschmankerl' erkannt - Layout ggf. geändert."
     except Exception as exc:  # noqa: BLE001
         result["error"] = str(exc)
     return result
@@ -305,6 +398,8 @@ def main():
         status = r["status"]
         print(f"  -> {status}" + (f" ({r['error']})" if r.get("error") else ""))
         restaurants.append(r)
+
+    restaurants.sort(key=lambda r: r["name"].casefold())
 
     data = {
         "generated_at": date.today().isoformat(),
