@@ -8,9 +8,17 @@
       "walk_minutes": 10,
       "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/14.08.26_Tageskarte.pdf",
       "format": "pdf",
-      "days": {},
-      "status": "error",
-      "error": "PDF gefunden, aber kein 'Tagesschmankerl' erkannt - Layout ggf. geändert."
+      "days": {
+        "Freitag": [
+          {
+            "dish": "Buntbarschfilet gebacken mit Kartoffel-Gurkensalat und Remouladensauce",
+            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
+            "price": "9,90 €"
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
     },
     {
       "id": "moccasola",
@@ -20,8 +28,8 @@
       "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/Instagram_Post_Betriebsferien_Urlaub_Geschlossen_Pflanze_Illustration_Gezeichnet_Modern_Minimalistisch_1.png?v=1786687847",
       "format": "pdf",
       "days": {},
-      "status": "error",
-      "error": "No /Root object! - Is this really a PDF?"
+      "status": "closed",
+      "error": "Betriebsferien laut Website - diese Woche kein Mittagstisch."
     },
     {
       "id": "egghaus",
@@ -68,6 +76,18 @@
           }
         ],
         "Donnerstag": [
+          {
+            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "description": null,
+            "price": "10,50 €"
+          },
+          {
+            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Freitag": [
           {
             "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
             "description": null,
@@ -149,61 +169,6 @@
             "dish": "Matsman Thai Curry (Mittelscharf)",
             "description": "mit Kartoffeln, Zucchini, Paprika, Karotten, Bohnen und Erdnüssen. Dazu Reis",
             "price": "9,5 € (Hühnerfleisch) / 9 € (Tofu/Vegetarisch)"
-          },
-          {
-            "dish": "ÖFFNUNGSZEITEN",
-            "description": "​",
-            "price": null
-          },
-          {
-            "dish": "​ASIA-MARKT",
-            "description": "MO 9.30 - 18.30",
-            "price": null
-          },
-          {
-            "dish": "DI 9.30 - 18.30",
-            "description": "MI 9.30 - 18.30",
-            "price": null
-          },
-          {
-            "dish": "DO 9.30 - 18.30",
-            "description": "FR 9.30 - 18.30",
-            "price": null
-          },
-          {
-            "dish": "SA 9.30 - 14.00",
-            "description": "​",
-            "price": null
-          },
-          {
-            "dish": "WARME SPEISEN ZUM MITNEHMEN",
-            "description": "MO-FR 11.30 - 14.00",
-            "price": null
-          },
-          {
-            "dish": "​KONTAKT",
-            "description": "​",
-            "price": null
-          },
-          {
-            "dish": "089 780 19 626",
-            "description": "HOFMANNSTR. 30",
-            "price": null
-          },
-          {
-            "dish": "MÜNCHEN",
-            "description": "Impressum,",
-            "price": null
-          },
-          {
-            "dish": "Datenschutz  und",
-            "description": "AGB",
-            "price": null
-          },
-          {
-            "dish": "© 2024 Felbers Lotus Asia Markt",
-            "description": "bottom of page",
-            "price": null
           }
         ]
       },
