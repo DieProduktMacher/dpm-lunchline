@@ -92,6 +92,18 @@
     display: grid;
     gap: 18px;
   }
+  .section-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 12px 0 0;
+    letter-spacing: -0.01em;
+  }
+  main > .section-title:first-child { margin-top: 0; }
+  .section-subtitle {
+    font-size: 0.85rem;
+    color: #666;
+    margin: -12px 0 4px;
+  }
   .card {
     background: var(--dpm-white);
     border: 1px solid var(--dpm-grey-20);
@@ -282,6 +294,12 @@ function escapeHtml(str) {
     .replace(/>/g, "&gt;");
 }
 
+function travelLabel(r) {
+  if (!r.travel_minutes) return "";
+  const mode = r.category === "bike" ? "Fahrrad" : "Fußweg";
+  return ` · ca. ${r.travel_minutes} Min. ${mode}`;
+}
+
 function renderDishList(dishes) {
   if (!dishes || dishes.length === 0) return "";
   return `<ul class="dishes">${dishes.map(d => `
@@ -336,7 +354,7 @@ function renderRestaurant(r, todayName, idx) {
       <div class="card-head">
         <div>
           <h2>${escapeHtml(r.name)}</h2>
-          <div class="sub">${escapeHtml(r.address)}${r.walk_minutes ? " · ca. " + r.walk_minutes + " Min. Fußweg" : ""}</div>
+          <div class="sub">${escapeHtml(r.address)}${travelLabel(r)}</div>
         </div>
         ${statusBadge}
       </div>
@@ -365,12 +383,23 @@ async function load() {
     }
     cardsEl.innerHTML = prefix;
 
-    const sorted = (data.restaurants || []).slice().sort((a, b) =>
-      a.name.localeCompare(b.name, "de", { sensitivity: "base" }));
+    const byName = (a, b) => a.name.localeCompare(b.name, "de", { sensitivity: "base" });
+    const all = data.restaurants || [];
+    const walkers = all.filter(r => r.category !== "bike").sort(byName);
+    const bikers = all.filter(r => r.category === "bike").sort(byName);
 
-    sorted.forEach((r, i) => {
-      cardsEl.insertAdjacentHTML("beforeend", renderRestaurant(r, todayName, i));
-    });
+    const renderSection = (title, subtitle, list, startIdx) => {
+      if (!list.length) return;
+      cardsEl.insertAdjacentHTML("beforeend", `
+        <h2 class="section-title">${escapeHtml(title)}</h2>
+        <p class="section-subtitle">${escapeHtml(subtitle)}</p>`);
+      list.forEach((r, i) => {
+        cardsEl.insertAdjacentHTML("beforeend", renderRestaurant(r, todayName, startIdx + i));
+      });
+    };
+
+    renderSection("Zu Fuß in der Nähe", "Unter 10 Minuten Fußweg vom Büro", walkers, 0);
+    renderSection("Mit dem Rad", "Etwas weiter weg, aber gut mit dem Fahrrad erreichbar", bikers, walkers.length);
 
     footerEl.textContent = "Zuletzt aktualisiert: " + (data.generated_at || "unbekannt") +
       (data.note ? " — " + data.note : "");
