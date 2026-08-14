@@ -297,4 +297,194 @@
             <g clip-path="url(#hdr-clip-path)">
               <path d="M0.3,0v148h150V0H0.3z M121.6,97.1c-1.1,1.2-2.7,1.9-4.3,1.9l-41.1,0.2l13-11.6l21.6-0.1l-3.7-35.4l-69.8,62.6
                 c-1.1,1-2.5,1.5-3.9,1.5c-0.9,0-1.7-0.2-2.6-0.6c-2.1-1.1-3.5-3.3-3.3-5.7L32.7,41c0.2-2.2,1.6-4.1,3.7-4.9s4.4-0.4,6.1,1.1
-                l21,18.3l-8.7,7.9l-11.2-9.9l-3.2,42.7l67.5-60.5c1.6-1.5,4-1.9,6.1-1.1c2.1,0.8,3.5,2.7,3.8,4.8
+                l21,18.3l-8.7,7.9l-11.2-9.9l-3.2,42.7l67.5-60.5c1.6-1.5,4-1.9,6.1-1.1c2.1,0.8,3.5,2.7,3.8,4.8l5.5,53
+                C123.2,94.2,122.7,95.8,121.6,97.1z"/>
+            </g>
+          </g>
+        </g>
+        <path d="M292.2,40.9H308L324.6,81h0.7L342,40.9h15.8v59.7h-12.4V61.8h-0.5l-15.7,38.6h-8.5L305,61.7h-0.5v39h-12.4V40.9H292.2z"/>
+        <path d="M237.5,100.6V40.9h23.9c4.6,0,8.5,0.9,11.7,2.6c3.2,1.7,5.7,4.1,7.4,7.1c1.7,3,2.6,6.5,2.6,10.5s-0.9,7.5-2.6,10.5
+          s-4.2,5.4-7.5,7.1s-7.2,2.5-11.9,2.5h-15.2v-10H259c2.5,0,4.5-0.4,6.1-1.3s2.8-2,3.6-3.5c0.8-1.5,1.2-3.3,1.2-5.2
+          c0-2-0.4-3.7-1.2-5.2c-0.8-1.5-2-2.7-3.6-3.5s-3.7-1.3-6.1-1.3h-8.6v49.4C250.4,100.6,237.5,100.6,237.5,100.6z"/>
+        <path d="M197.6,100.6h-21.5V40.9h21.6c6.1,0,11.3,1.2,15.7,3.6c4.4,2.4,7.8,5.8,10.1,10.2c2.4,4.5,3.6,9.8,3.6,16s-1.2,11.6-3.6,16
+          c-2.4,4.5-5.8,7.9-10.2,10.3C209,99.4,203.7,100.6,197.6,100.6z M188.9,89.8h8.1c3.8,0,7-0.7,9.5-2c2.6-1.3,4.6-3.4,5.9-6.2
+          c1.3-2.8,2-6.5,2-10.9s-0.7-8-2-10.8s-3.2-4.9-5.8-6.2s-5.8-2-9.5-2h-8.2V89.8z"/>
+      </svg>
+      <span class="divider"></span>
+      <h1>Lunchline</h1>
+    </div>
+    <span class="today-pill" id="today-label"></span>
+  </div>
+  <p class="subline">Tägliches Mittagsmenü rund um Hofmannstraße 7a, 81379 München</p>
+</header>
+
+<main id="cards">
+  <p class="empty-note">Lade Menüs…</p>
+</main>
+
+<footer id="footer-note"></footer>
+
+<script>
+const WEEKDAYS_DE = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
+const ACCENTS = ["#F8C81D", "#FFA591", "#DFABFF", "#B6BDFD", "#5AD3E4"]; // Saffron, Peach, Violet, Periwinkle, Blue
+
+function escapeHtml(str) {
+  if (str === null || str === undefined) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function travelLabel(r) {
+  if (!r.travel_minutes) return "";
+  const mode = r.category === "bike" ? "Fahrrad" : "Fußweg";
+  return ` · ca. ${r.travel_minutes} Min. ${mode}`;
+}
+
+function renderDishList(dishes) {
+  if (!dishes || dishes.length === 0) return "";
+  return `<ul class="dishes">${dishes.map(d => `
+    <li>
+      <div class="dish-row">
+        <span>${escapeHtml(d.dish)}</span>
+        ${d.price ? `<span class="price">${escapeHtml(d.price)}</span>` : ""}
+      </div>
+      ${d.description ? `<div class="dish-desc">${escapeHtml(d.description)}</div>` : ""}
+    </li>`).join("")}</ul>`;
+}
+
+function renderRestaurant(r, todayName, idx) {
+  const todayDishes = r.days && r.days[todayName];
+  const otherDays = Object.keys(r.days || {}).filter(d => d !== todayName);
+  const accent = ACCENTS[idx % ACCENTS.length];
+
+  let statusBadge = "";
+  if (r.status === "closed") {
+    statusBadge = `<span class="badge muted">Betriebsferien</span>`;
+  } else if (r.status !== "ok") {
+    statusBadge = `<span class="badge warn">Fehler beim Abrufen</span>`;
+  } else if (!todayDishes) {
+    statusBadge = `<span class="badge warn">Heute nichts gefunden</span>`;
+  } else {
+    statusBadge = `<span class="badge">${escapeHtml(r.format === "pdf" ? "PDF" : "Website")}</span>`;
+  }
+
+  let emptyText = "Konnte nicht geladen werden.";
+  if (r.status === "closed") {
+    emptyText = escapeHtml(r.error || "Betriebsferien - diese Woche kein Mittagstisch.");
+  } else if (r.status === "ok") {
+    emptyText = "Für heute liegt kein Eintrag vor (z. B. Ruhetag oder noch nicht aktualisiert).";
+  } else if (r.error) {
+    emptyText = escapeHtml(r.error);
+  }
+
+  const body = todayDishes ? renderDishList(todayDishes) : `<p class="empty-note">${emptyText}</p>`;
+
+  const weekDetails = otherDays.length ? `
+    <details>
+      <summary>Restliche Woche anzeigen</summary>
+      ${otherDays.map(d => `
+        <div class="week-day-title">${escapeHtml(d)}</div>
+        ${renderDishList(r.days[d])}
+      `).join("")}
+    </details>` : "";
+
+  return `
+    <section class="card">
+      <div class="accent-tab" style="background:${accent}"></div>
+      <div class="card-head">
+        <div>
+          <h2>${escapeHtml(r.name)}</h2>
+          <div class="sub">${escapeHtml(r.address)}${travelLabel(r)}</div>
+        </div>
+        ${statusBadge}
+      </div>
+      ${body}
+      ${weekDetails}
+      <a class="source-link" href="${escapeHtml(r.source_url)}" target="_blank" rel="noopener">Quelle öffnen ↗</a>
+    </section>`;
+}
+
+// Ein paar Wechsel-Sprüche für die Wochenend-404-Seite, damit es nicht jedes
+// Mal derselbe Witz ist. Wird per Zufall (Datum als Seed) ausgewählt, damit
+// alle, die am selben Tag draufschauen, denselben Spruch sehen.
+const WEEKEND_LINES = [
+  "Heute solltet ihr nicht im Büro sein. Geht raus und spielt.",
+  "Dieses Mittagsmenü existiert nicht – genau wie eure Aufgabenliste heute.",
+  "Kein Tagesgericht, keine Ausreden. Sonne, Radltour, Biergarten – so geht Wochenende.",
+];
+
+function renderSections(container, walkers, bikers, todayName) {
+  const renderSection = (title, subtitle, list, startIdx) => {
+    if (!list.length) return;
+    container.insertAdjacentHTML("beforeend", `
+      <h2 class="section-title">${escapeHtml(title)}</h2>
+      <p class="section-subtitle">${escapeHtml(subtitle)}</p>`);
+    list.forEach((r, i) => {
+      container.insertAdjacentHTML("beforeend", renderRestaurant(r, todayName, startIdx + i));
+    });
+  };
+  renderSection("Zu Fuß in der Nähe", "Unter 10 Minuten Fußweg vom Büro", walkers, 0);
+  renderSection("Mit dem Rad", "Etwas weiter weg, aber gut mit dem Fahrrad erreichbar", bikers, walkers.length);
+}
+
+function renderWeekend404(todayName, walkers, bikers) {
+  const dayIndex = new Date().getDate() % WEEKEND_LINES.length;
+  const line = WEEKEND_LINES[dayIndex];
+  return `
+    <section class="card weekend-card">
+      <p class="weekend-code">404</p>
+      <h2 class="weekend-title">Wochenende nicht gefunden</h2>
+      <p class="weekend-text">${escapeHtml(line)}</p>
+      <p class="weekend-meta">FEHLERCODE: NO_LUNCH_ON_${todayName.toUpperCase()} · STATUS: 200 SONNENSCHEIN</p>
+      <details class="weekend-toggle">
+        <summary>Trotzdem die Wochenkarten anzeigen</summary>
+        <div id="weekend-cards"></div>
+      </details>
+    </section>`;
+}
+
+async function load() {
+  const today = new Date();
+  const todayName = WEEKDAYS_DE[today.getDay() === 0 ? 6 : today.getDay() - 1];
+  document.getElementById("today-label").textContent =
+    todayName + ", " + today.toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" });
+
+  const cardsEl = document.getElementById("cards");
+  const footerEl = document.getElementById("footer-note");
+
+  try {
+    const resp = await fetch("menus.json", { cache: "no-store" });
+    const data = await resp.json();
+
+    const byName = (a, b) => a.name.localeCompare(b.name, "de", { sensitivity: "base" });
+    const all = data.restaurants || [];
+    const walkers = all.filter(r => r.category !== "bike").sort(byName);
+    const bikers = all.filter(r => r.category === "bike").sort(byName);
+
+    if (["Samstag", "Sonntag"].includes(todayName)) {
+      cardsEl.innerHTML = renderWeekend404(todayName, walkers, bikers);
+      const details = cardsEl.querySelector(".weekend-toggle");
+      details.addEventListener("toggle", () => {
+        if (details.open) {
+          renderSections(document.getElementById("weekend-cards"), walkers, bikers, todayName);
+        }
+      }, { once: true });
+    } else {
+      cardsEl.innerHTML = "";
+      renderSections(cardsEl, walkers, bikers, todayName);
+    }
+
+    footerEl.textContent = "Zuletzt aktualisiert: " + (data.generated_at || "unbekannt") +
+      (data.note ? " — " + data.note : "");
+  } catch (e) {
+    cardsEl.innerHTML = `<p class="empty-note">menus.json konnte nicht geladen werden (${escapeHtml(e.message)}). ` +
+      `Läuft diese Seite über einen lokalen Server (z. B. "python3 -m http.server")?</p>`;
+  }
+}
+
+load();
+</script>
+</body>
+</html>
