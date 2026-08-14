@@ -493,65 +493,41 @@ def scrape_alter_wirt():
         resp = _get(url)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
-        # Nicht auf eine bestimmte Überschriften-Ebene (h1-h4) verlassen - die
-        # Seite nutzt für den Mittagsmenü-Block teils h5/h6 oder gar keine
-        # echte Überschrift, sondern normale Textblöcke (div/p/span). Wir
-        # scannen deshalb den kompletten sichtbaren Fließtext zeilenweise,
-        # genau wie bei Augustiner/Moccasola.
+        # Skript-/Style-Inhalte sind kein sichtbarer Text und sollen die
+        # Zeilenerkennung nicht verfälschen.
+        for tag in soup(["script", "style"]):
+            tag.decompose()
         lines = [l.strip() for l in soup.get_text("\n", strip=True).splitlines() if l.strip()]
 
+        # Die Seite kennzeichnet die beiden festen Mittagsmenü-Gerichte
+        # explizit mit "Menu 1: ..." / "Menu 2: ...", gefolgt von je einer
+        # Preis- und einer Beilagen-Zeile. Das ist ein viel zuverlässigerer
+        # Anker als der umgebende Marketing-Text (WLAN-Hinweis, Lieferando-
+        # Werbung, ...), der sich zwischen der "Mittagsmenü"-Überschrift und
+        # den eigentlichen Gerichten schiebt und früher fälschlich als
+        # Gerichtsname erfasst wurde.
+        menu_label_re = re.compile(r"^Men[uü]\s*\d+\s*:\s*(.+)$", re.I)
+
         dishes = []
-        name_parts = []
-        in_lunch_section = False
-        for line in lines:
-            low = line.lower()
-            if not in_lunch_section:
-                if "mittagsmenü" in low or "mittagsmenu" in low:
-                    in_lunch_section = True
+        for i, line in enumerate(lines):
+            m = menu_label_re.match(line)
+            if not m:
                 continue
-            # Die reguläre (deutlich teurere) Wochenkarte folgt direkt danach -
-            # sobald wir dort landen, ist der Mittagsmenü-Abschnitt zu Ende.
-            if "wochenkarte" in low or "speisekarte" in low or "getränkekarte" in low:
-                break
-            # Preiszeile erkennen - entweder "11,90 €"/"11,90€" (Normalfall)
-            # oder eine reine Zahl ohne €-Zeichen (falls die Seite das Symbol
-            # mal separat setzt, wie bei Egghaus beobachtet).
-            price_match = _PRICE_RE.search(line)
-            bare_match = None if price_match else re.fullmatch(r"(\d{1,2}(?:[.,]\d{1,2})?)", line)
-            if price_match or bare_match:
-                raw_num = (price_match.group(1) or price_match.group(2)) if price_match else bare_match.group(1)
-                price = _format_price(raw_num)
-                price_val = float(raw_num.replace(",", "."))
-                # Falls noch Text neben dem Preis in derselben Zeile steht
-                # (z.B. "Spaghetti ... 11,90 €"), den Rest als Namensteil mitnehmen.
-                leftover = _PRICE_RE.sub("", line).strip(" -–—") if price_match else ""
-                if leftover:
-                    name_parts.append(leftover)
-                if name_parts:
-                    # Sicherheitsnetz: das Mittagsmenü ist deutlich günstiger als
-                    # die reguläre Karte (11-13 € vs. 17-33 €) - falls die
-                    # Abschnittsgrenze mal nicht sauber erkannt wird, lieber ein
-                    # zu teures "Gericht" verwerfen als falsche Daten anzeigen.
-                    if price_val <= 16:
-                        dishes.append({
-                            "dish": name_parts[0],
-                            "description": " ".join(name_parts[1:]) or None,
-                            "price": price,
-                        })
-                    name_parts = []
-            elif "uhr" in low or re.search(r"^(nur\s+)?montag\s*(bis|-)\s*freitag", low):
-                continue  # Zeitfenster-Zeile, kein Gerichtsname
-            else:
-                name_parts.append(line)
-            if len(dishes) >= 4:
-                break
+            dish_name = m.group(1).strip()
+            price = _price_from_text(lines[i + 1]) if i + 1 < len(lines) else None
+            description = None
+            if i + 2 < len(lines):
+                candidate = lines[i + 2]
+                if not menu_label_re.match(candidate) and not _price_from_text(candidate):
+                    description = candidate
+            dishes.append({"dish": dish_name, "description": description, "price": price})
 
         if dishes:
             for day in WEEKDAYS_DE:
                 result["days"][day] = dishes
             result["status"] = "ok"
         else:
-            result["error"] = "Mittagsmenü-Abschnitt nicht gefunden - Seitenstruktur ggf. anders als erwartet."
+            result["error"] = "Mittagsmenü-Abschnitt ('Menu 1: ...') nicht gefunden - Seitenstruktur ggf. anders als erwartet."
     except Exception as exc:  # noqa: BLE001
         result["error"] = str(exc)
     return result
