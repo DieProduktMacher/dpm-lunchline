@@ -21,10 +21,25 @@ geladen, also am besten über einen kleinen lokalen Webserver öffnen:
 
 import json
 import re
+import socket
+import time
 from datetime import date, timedelta
 
 import requests
 from bs4 import BeautifulSoup
+
+# GitHub Actions Runner haben gelegentlich fehlerhaftes IPv6-Routing zu
+# einzelnen Hosts ("Network is unreachable"), obwohl IPv4 problemlos
+# funktioniert. requests/urllib3 bevorzugt IPv6, wenn ein Host beides anbietet
+# - das erzwingt IPv4-only für alle Verbindungen dieses Skripts.
+import urllib3.util.connection as _urllib3_cn
+
+
+def _force_ipv4():
+    return socket.AF_INET
+
+
+_urllib3_cn.allowed_gai_family = _force_ipv4
 
 WEEKDAYS_DE = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
 
@@ -34,8 +49,19 @@ HEADERS = {
 }
 
 
-def _get(url, **kwargs):
-    return requests.get(url, headers=HEADERS, timeout=15, **kwargs)
+def _get(url, retries=3, **kwargs):
+    """GET mit ein paar Wiederholungsversuchen, damit eine einzelne
+    transiente Netzwerkstörung (Timeout, DNS-Hänger, o.ä.) nicht gleich die
+    ganze Karte als 'Fehler' markiert."""
+    last_exc = None
+    for attempt in range(retries):
+        try:
+            return requests.get(url, headers=HEADERS, timeout=15, **kwargs)
+        except requests.exceptions.RequestException as exc:
+            last_exc = exc
+            if attempt < retries - 1:
+                time.sleep(2 * (attempt + 1))
+    raise last_exc
 
 
 _PRICE_RE = re.compile(
@@ -44,14 +70,23 @@ _PRICE_RE = re.compile(
 )
 
 
+def _format_price(num_str):
+    """Bringt eine Preiszahl (egal ob '9', '9,5', '9.50', ...) einheitlich
+    auf das Format 'xx,xx €' mit immer genau zwei Nachkommastellen."""
+    try:
+        value = float(num_str.replace(",", "."))
+    except (ValueError, AttributeError):
+        return None
+    return f"{value:.2f}".replace(".", ",") + " €"
+
+
 def _price_from_text(text):
     """Findet einen Preis in beiden auf den Seiten vorkommenden Schreibweisen
-    (Zahl-vor-€ oder €-vor-Zahl) und mit 0-2 Nachkommastellen."""
+    (Zahl-vor-€ oder €-vor-Zahl) und normalisiert ihn auf 'xx,xx €'."""
     m = _PRICE_RE.search(text)
     if not m:
         return None
-    num = (m.group(1) or m.group(2)).replace(".", ",")
-    return num + " €"
+    return _format_price(m.group(1) or m.group(2))
 
 
 _CLOSURE_KEYWORDS = ("betriebsferien", "geschlossen", "urlaub", "ruhetag")
@@ -96,7 +131,7 @@ def scrape_egghaus():
             bare_match = re.fullmatch(r"(\d{1,2}(?:[.,]\d{1,2})?)\s*€?", h.strip())
             if bare_match:
                 if pending_name:
-                    price = bare_match.group(1).replace(".", ",") + " €"
+                    price = _format_price(bare_match.group(1))
                     dishes.append({"dish": pending_name, "description": None, "price": price})
                     pending_name = None
             elif "mittagsmenü" in h.lower() or "business lunch" in h.lower() or re.search(r"\d{1,2}[.,]\d{1,2}", h):
@@ -458,32 +493,43 @@ def scrape_alter_wirt():
         resp = _get(url)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
-        headings = [h.get_text(strip=True) for h in soup.select("h1, h2, h3, h4") if h.get_text(strip=True)]
+        # Nicht auf eine bestimmte Überschriften-Ebene (h1-h4) verlassen - die
+        # Seite nutzt für den Mittagsmenü-Block teils h5/h6 oder gar keine
+        # echte Überschrift, sondern normale Textblöcke (div/p/span). Wir
+        # scannen deshalb den kompletten sichtbaren Fließtext zeilenweise,
+        # genau wie bei Augustiner/Moccasola.
+        lines = [l.strip() for l in soup.get_text("\n", strip=True).splitlines() if l.strip()]
 
         dishes = []
-        # Pro Gericht gibt es hier 2-3 Überschriften hintereinander (Name,
-        # optional Beschreibung, Preis) statt nur Name+Preis wie bei Egghaus -
-        # deshalb Textzeilen sammeln statt nur die letzte zu merken.
         name_parts = []
         in_lunch_section = False
-        for h in headings:
-            low = h.lower()
-            if "mittagsmenü" in low or "mittagsmenu" in low:
-                in_lunch_section = True
-                continue
+        for line in lines:
+            low = line.lower()
             if not in_lunch_section:
+                if "mittagsmenü" in low or "mittagsmenu" in low:
+                    in_lunch_section = True
                 continue
             # Die reguläre (deutlich teurere) Wochenkarte folgt direkt danach -
             # sobald wir dort landen, ist der Mittagsmenü-Abschnitt zu Ende.
-            if "wochenkarte" in low or "speisekarte" in low or "getränk" in low:
+            if "wochenkarte" in low or "speisekarte" in low or "getränkekarte" in low:
                 break
-            bare_match = re.fullmatch(r"(\d{1,2}(?:[.,]\d{1,2})?)\s*€?", h.strip())
-            if bare_match:
+            # Preiszeile erkennen - entweder "11,90 €"/"11,90€" (Normalfall)
+            # oder eine reine Zahl ohne €-Zeichen (falls die Seite das Symbol
+            # mal separat setzt, wie bei Egghaus beobachtet).
+            price_match = _PRICE_RE.search(line)
+            bare_match = None if price_match else re.fullmatch(r"(\d{1,2}(?:[.,]\d{1,2})?)", line)
+            if price_match or bare_match:
+                raw_num = (price_match.group(1) or price_match.group(2)) if price_match else bare_match.group(1)
+                price = _format_price(raw_num)
+                price_val = float(raw_num.replace(",", "."))
+                # Falls noch Text neben dem Preis in derselben Zeile steht
+                # (z.B. "Spaghetti ... 11,90 €"), den Rest als Namensteil mitnehmen.
+                leftover = _PRICE_RE.sub("", line).strip(" -–—") if price_match else ""
+                if leftover:
+                    name_parts.append(leftover)
                 if name_parts:
-                    price = bare_match.group(1).replace(".", ",") + " €"
-                    price_val = float(bare_match.group(1).replace(",", "."))
                     # Sicherheitsnetz: das Mittagsmenü ist deutlich günstiger als
-                    # die reguläre Karte (11-13 € vs. 17-28 €) - falls die
+                    # die reguläre Karte (11-13 € vs. 17-33 €) - falls die
                     # Abschnittsgrenze mal nicht sauber erkannt wird, lieber ein
                     # zu teures "Gericht" verwerfen als falsche Daten anzeigen.
                     if price_val <= 16:
@@ -493,10 +539,10 @@ def scrape_alter_wirt():
                             "price": price,
                         })
                     name_parts = []
-            elif re.search(r"\d{1,2}[,.]\d{1,2}", h) or "uhr" in low:
-                continue  # Zeitfenster-/Preistext, kein Gerichtsname
+            elif "uhr" in low or re.search(r"^(nur\s+)?montag\s*(bis|-)\s*freitag", low):
+                continue  # Zeitfenster-Zeile, kein Gerichtsname
             else:
-                name_parts.append(h)
+                name_parts.append(line)
             if len(dishes) >= 4:
                 break
 
