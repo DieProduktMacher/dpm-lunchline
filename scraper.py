@@ -473,6 +473,9 @@ def scrape_augustiner():
 # ---------------------------------------------------------------------------
 # 5. Alter Wirt Thalkirchen — eigener "Mittagsmenü"-Abschnitt (HTML-Text),
 #    getrennt von der viel teureren regulären "Wochenkarte" auf derselben Seite.
+#    Wie bei Augustiner zeigt die Seite nur das AKTUELLE Tagesangebot, keine
+#    Vorschau für die ganze Woche - deshalb wird (wieder wie bei Augustiner)
+#    nur der heutige Wochentag befüllt, nicht alle fünf.
 #    Mit dem Rad, nicht zu Fuß erreichbar -> category "bike".
 # ---------------------------------------------------------------------------
 def scrape_alter_wirt():
@@ -490,6 +493,9 @@ def scrape_alter_wirt():
         "error": None,
     }
     try:
+        today = date.today()
+        weekday_name = WEEKDAYS_DE[today.weekday()] if today.weekday() < 5 else None
+
         resp = _get(url)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
@@ -499,13 +505,12 @@ def scrape_alter_wirt():
             tag.decompose()
         lines = [l.strip() for l in soup.get_text("\n", strip=True).splitlines() if l.strip()]
 
-        # Die Seite kennzeichnet die beiden festen Mittagsmenü-Gerichte
-        # explizit mit "Menu 1: ..." / "Menu 2: ...", gefolgt von je einer
-        # Preis- und einer Beilagen-Zeile. Das ist ein viel zuverlässigerer
-        # Anker als der umgebende Marketing-Text (WLAN-Hinweis, Lieferando-
-        # Werbung, ...), der sich zwischen der "Mittagsmenü"-Überschrift und
-        # den eigentlichen Gerichten schiebt und früher fälschlich als
-        # Gerichtsname erfasst wurde.
+        # Die Seite kennzeichnet die beiden Mittagsmenü-Gerichte explizit mit
+        # "Menu 1: ..." / "Menu 2: ...", gefolgt von je einer Preis- und einer
+        # Beilagen-Zeile. Das ist ein viel zuverlässigerer Anker als der
+        # umgebende Marketing-Text (WLAN-Hinweis, Lieferando-Werbung, ...),
+        # der sich zwischen der "Mittagsmenü"-Überschrift und den eigentlichen
+        # Gerichten schiebt und früher fälschlich als Gerichtsname erfasst wurde.
         menu_label_re = re.compile(r"^Men[uü]\s*\d+\s*:\s*(.+)$", re.I)
 
         dishes = []
@@ -522,16 +527,14 @@ def scrape_alter_wirt():
                     description = candidate
             dishes.append({"dish": dish_name, "description": description, "price": price})
 
-        if dishes:
-            for day in WEEKDAYS_DE:
-                result["days"][day] = dishes
+        if dishes and weekday_name:
+            result["days"][weekday_name] = dishes
             result["status"] = "ok"
         else:
             result["error"] = "Mittagsmenü-Abschnitt ('Menu 1: ...') nicht gefunden - Seitenstruktur ggf. anders als erwartet."
     except Exception as exc:  # noqa: BLE001
         result["error"] = str(exc)
     return result
-
 
 SCRAPERS = [scrape_egghaus, scrape_lotus_asia, scrape_moccasola, scrape_augustiner, scrape_alter_wirt]
 
