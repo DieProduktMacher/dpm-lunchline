@@ -135,6 +135,10 @@
   .badge.warn {
     background: var(--dpm-magenta);
   }
+  .badge.muted {
+    background: var(--dpm-grey-30);
+    color: var(--dpm-black);
+  }
   ul.dishes {
     list-style: none;
     margin: 16px 0 4px;
@@ -295,7 +299,9 @@ function renderRestaurant(r, todayName, idx) {
   const accent = ACCENTS[idx % ACCENTS.length];
 
   let statusBadge = "";
-  if (r.status !== "ok") {
+  if (r.status === "closed") {
+    statusBadge = `<span class="badge muted">Betriebsferien</span>`;
+  } else if (r.status !== "ok") {
     statusBadge = `<span class="badge warn">Fehler beim Abrufen</span>`;
   } else if (!todayDishes) {
     statusBadge = `<span class="badge warn">Heute nichts gefunden</span>`;
@@ -303,11 +309,16 @@ function renderRestaurant(r, todayName, idx) {
     statusBadge = `<span class="badge">${escapeHtml(r.format === "pdf" ? "PDF" : "Website")}</span>`;
   }
 
-  const body = todayDishes
-    ? renderDishList(todayDishes)
-    : `<p class="empty-note">${r.status === "ok"
-        ? "Für heute liegt kein Eintrag vor (z. B. Ruhetag oder noch nicht aktualisiert)."
-        : escapeHtml(r.error || "Konnte nicht geladen werden.")}</p>`;
+  let emptyText = "Konnte nicht geladen werden.";
+  if (r.status === "closed") {
+    emptyText = escapeHtml(r.error || "Betriebsferien - diese Woche kein Mittagstisch.");
+  } else if (r.status === "ok") {
+    emptyText = "Für heute liegt kein Eintrag vor (z. B. Ruhetag oder noch nicht aktualisiert).";
+  } else if (r.error) {
+    emptyText = escapeHtml(r.error);
+  }
+
+  const body = todayDishes ? renderDishList(todayDishes) : `<p class="empty-note">${emptyText}</p>`;
 
   const weekDetails = otherDays.length ? `
     <details>
