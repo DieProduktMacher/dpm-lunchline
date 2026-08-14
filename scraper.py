@@ -54,6 +54,17 @@ def _price_from_text(text):
     return num + " €"
 
 
+_CLOSURE_KEYWORDS = ("betriebsferien", "geschlossen", "urlaub", "ruhetag")
+
+
+def _looks_closed(text):
+    """Erkennt Ankündigungen wie 'Betriebsferien'/'Urlaub'/'geschlossen' in
+    einem Linktext, Dateinamen o.ä. - kein Scraper-Fehler, sondern schlicht
+    'diese Woche kein Mittagstisch'."""
+    low = text.lower()
+    return any(k in low for k in _CLOSURE_KEYWORDS)
+
+
 # ---------------------------------------------------------------------------
 # 1. Egg Haus Café — feste Wochenkarte als HTML-Text, gilt Mo-Fr identisch
 # ---------------------------------------------------------------------------
@@ -99,7 +110,8 @@ def scrape_egghaus():
                 if p and len(line) < 120:
                     dishes.append({"dish": line, "description": None, "price": p})
         if dishes:
-            for day in WEEKDAYS_DE[:4]:  # Mo-Do laut Website, Fr geschlossen
+            # Laut Website gilt die Karte "Monday - Friday" (Mo-Fr), nicht nur Mo-Do.
+            for day in WEEKDAYS_DE:
                 result["days"][day] = dishes
             result["status"] = "ok"
         else:
@@ -149,6 +161,14 @@ def scrape_lotus_asia():
                 continue
             if current_day is None:
                 continue
+
+            # Nach der Speisekarte folgen auf der Seite Öffnungszeiten, Kontakt,
+            # Impressum etc. - diese Abschnitte sind auf lotusasia.shop komplett
+            # in GROSSBUCHSTABEN gesetzt, echte Gerichte/Beschreibungen dagegen nie.
+            # Sobald wir eine solche Zeile sehen, ist die Karte zu Ende.
+            letters = [c for c in line if c.isalpha()]
+            if letters and all(c.isupper() for c in letters):
+                break
 
             price = _price_from_text(line)
             stripped = line.strip()
@@ -252,6 +272,17 @@ def scrape_moccasola():
         if pdf_link.startswith("//"):
             pdf_link = "https:" + pdf_link
         result["source_url"] = pdf_link
+
+        # Manchmal verlinkt "Wochenkarte" statt einer PDF ein Ankündigungsbild
+        # (z.B. Instagram-Grafik "Betriebsferien"). Das ist kein Scraper-Fehler,
+        # sondern schlicht: diese Woche kein Mittagstisch.
+        if not pdf_link.split("?")[0].lower().endswith(".pdf"):
+            if _looks_closed(pdf_link):
+                result["status"] = "closed"
+                result["error"] = "Betriebsferien laut Website - diese Woche kein Mittagstisch."
+            else:
+                result["error"] = "Verlinkte Datei ist kein PDF (evtl. Ankündigung statt Speisekarte)."
+            return result
 
         pdf_resp = _get(pdf_link)
         pdf_resp.raise_for_status()
@@ -362,20 +393,33 @@ def scrape_augustiner():
                 start = i + 1
                 break
 
+        # Zeitfenster-Zeile direkt unter der Überschrift, z.B.
+        # "Montag bis Freitag von 11:30 – 15:00 Uhr" - gehört nicht zum Gerichtsnamen.
+        time_window_re = re.compile(r"\d{1,2}[:.]\d{2}.*uhr", re.I)
+
         if start is not None:
-            for l in lines[start:start + 6]:
+            name_parts = []
+            price = None
+            for l in lines[start:start + 8]:
                 if next_section_re.match(l):
                     break
-                price = _price_from_text(l)
-                if price:
-                    dish_line = _PRICE_RE.sub("", l).strip(" -–—")
-                    if dish_line:
-                        dishes.append({
-                            "dish": dish_line,
-                            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
-                            "price": price,
-                        })
-                    break  # nur das eine Tagesschmankerl, nicht die ganze Karte
+                if time_window_re.search(l):
+                    continue
+                p = _price_from_text(l)
+                if p:
+                    leftover = _PRICE_RE.sub("", l).strip(" -–—")
+                    if leftover:
+                        name_parts.append(leftover)
+                    price = p
+                    break
+                name_parts.append(l)
+
+            if name_parts and price:
+                dishes.append({
+                    "dish": " ".join(name_parts),
+                    "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
+                    "price": price,
+                })
 
         if dishes and weekday_name:
             result["days"][weekday_name] = dishes
