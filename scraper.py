@@ -74,7 +74,8 @@ def scrape_egghaus():
         "id": "egghaus",
         "name": "Egg Haus Café",
         "address": "Hofmannstraße 23, 81379 München",
-        "walk_minutes": 3,
+        "category": "walk",
+        "travel_minutes": 3,
         "source_url": url,
         "format": "html",
         "days": {},
@@ -130,7 +131,8 @@ def scrape_lotus_asia():
         "id": "lotus_asia",
         "name": "Lotus Asia",
         "address": "Boschetsrieder Str. 75, 81379 München",
-        "walk_minutes": 8,
+        "category": "walk",
+        "travel_minutes": 8,
         "source_url": url,
         "format": "html",
         "days": {},
@@ -247,7 +249,8 @@ def scrape_moccasola():
         "id": "moccasola",
         "name": "Café Moccasola",
         "address": "Zielstattstraße, 81379 München",
-        "walk_minutes": 10,
+        "category": "walk",
+        "travel_minutes": 10,
         "source_url": page_url,
         "format": "pdf",
         "days": {},
@@ -329,7 +332,8 @@ def scrape_augustiner():
         "id": "augustiner",
         "name": "Augustiner Schützengarten",
         "address": "Zielstattstraße, 81379 München",
-        "walk_minutes": 10,
+        "category": "walk",
+        "travel_minutes": 10,
         "source_url": page_url,
         "format": "pdf",
         "days": {},
@@ -431,7 +435,83 @@ def scrape_augustiner():
     return result
 
 
-SCRAPERS = [scrape_egghaus, scrape_lotus_asia, scrape_moccasola, scrape_augustiner]
+# ---------------------------------------------------------------------------
+# 5. Alter Wirt Thalkirchen — eigener "Mittagsmenü"-Abschnitt (HTML-Text),
+#    getrennt von der viel teureren regulären "Wochenkarte" auf derselben Seite.
+#    Mit dem Rad, nicht zu Fuß erreichbar -> category "bike".
+# ---------------------------------------------------------------------------
+def scrape_alter_wirt():
+    url = "https://www.alter-wirt-thalkirchen.de/"
+    result = {
+        "id": "alter_wirt",
+        "name": "Alter Wirt Thalkirchen",
+        "address": "Fraunbergstraße 8, 81379 München",
+        "category": "bike",
+        "travel_minutes": 8,
+        "source_url": url + "#wochenkarte",
+        "format": "html",
+        "days": {},
+        "status": "error",
+        "error": None,
+    }
+    try:
+        resp = _get(url)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.text, "html.parser")
+        headings = [h.get_text(strip=True) for h in soup.select("h1, h2, h3, h4") if h.get_text(strip=True)]
+
+        dishes = []
+        # Pro Gericht gibt es hier 2-3 Überschriften hintereinander (Name,
+        # optional Beschreibung, Preis) statt nur Name+Preis wie bei Egghaus -
+        # deshalb Textzeilen sammeln statt nur die letzte zu merken.
+        name_parts = []
+        in_lunch_section = False
+        for h in headings:
+            low = h.lower()
+            if "mittagsmenü" in low or "mittagsmenu" in low:
+                in_lunch_section = True
+                continue
+            if not in_lunch_section:
+                continue
+            # Die reguläre (deutlich teurere) Wochenkarte folgt direkt danach -
+            # sobald wir dort landen, ist der Mittagsmenü-Abschnitt zu Ende.
+            if "wochenkarte" in low or "speisekarte" in low or "getränk" in low:
+                break
+            bare_match = re.fullmatch(r"(\d{1,2}(?:[.,]\d{1,2})?)\s*€?", h.strip())
+            if bare_match:
+                if name_parts:
+                    price = bare_match.group(1).replace(".", ",") + " €"
+                    price_val = float(bare_match.group(1).replace(",", "."))
+                    # Sicherheitsnetz: das Mittagsmenü ist deutlich günstiger als
+                    # die reguläre Karte (11-13 € vs. 17-28 €) - falls die
+                    # Abschnittsgrenze mal nicht sauber erkannt wird, lieber ein
+                    # zu teures "Gericht" verwerfen als falsche Daten anzeigen.
+                    if price_val <= 16:
+                        dishes.append({
+                            "dish": name_parts[0],
+                            "description": " ".join(name_parts[1:]) or None,
+                            "price": price,
+                        })
+                    name_parts = []
+            elif re.search(r"\d{1,2}[,.]\d{1,2}", h) or "uhr" in low:
+                continue  # Zeitfenster-/Preistext, kein Gerichtsname
+            else:
+                name_parts.append(h)
+            if len(dishes) >= 4:
+                break
+
+        if dishes:
+            for day in WEEKDAYS_DE:
+                result["days"][day] = dishes
+            result["status"] = "ok"
+        else:
+            result["error"] = "Mittagsmenü-Abschnitt nicht gefunden - Seitenstruktur ggf. anders als erwartet."
+    except Exception as exc:  # noqa: BLE001
+        result["error"] = str(exc)
+    return result
+
+
+SCRAPERS = [scrape_egghaus, scrape_lotus_asia, scrape_moccasola, scrape_augustiner, scrape_alter_wirt]
 
 
 def main():
@@ -443,7 +523,11 @@ def main():
         print(f"  -> {status}" + (f" ({r['error']})" if r.get("error") else ""))
         restaurants.append(r)
 
-    restaurants.sort(key=lambda r: r["name"].casefold())
+    # Erst zu Fuß erreichbare Restaurants, dann die mit dem Rad - innerhalb
+    # jeder Gruppe alphabetisch. Das Frontend gruppiert ohnehin selbst nach
+    # "category", diese Reihenfolge ist nur für eine lesbare menus.json.
+    category_order = {"walk": 0, "bike": 1}
+    restaurants.sort(key=lambda r: (category_order.get(r.get("category"), 9), r["name"].casefold()))
 
     data = {
         "generated_at": date.today().isoformat(),
