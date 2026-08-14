@@ -187,9 +187,70 @@
       "travel_minutes": 8,
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
-      "days": {},
-      "status": "error",
-      "error": "Mittagsmenü-Abschnitt nicht gefunden - Seitenstruktur ggf. anders als erwartet."
+      "days": {
+        "Montag": [
+          {
+            "dish": "Spaghetti mit Bärlauch-Pesto-Soße",
+            "description": "Tomatenwürfeln und Parmesan",
+            "price": "11,90 €"
+          },
+          {
+            "dish": "Gebackene Hackbraten-Schreiben",
+            "description": "mit Spiegelei und Kartoffelsalat",
+            "price": "12,90 €"
+          }
+        ],
+        "Dienstag": [
+          {
+            "dish": "Spaghetti mit Bärlauch-Pesto-Soße",
+            "description": "Tomatenwürfeln und Parmesan",
+            "price": "11,90 €"
+          },
+          {
+            "dish": "Gebackene Hackbraten-Schreiben",
+            "description": "mit Spiegelei und Kartoffelsalat",
+            "price": "12,90 €"
+          }
+        ],
+        "Mittwoch": [
+          {
+            "dish": "Spaghetti mit Bärlauch-Pesto-Soße",
+            "description": "Tomatenwürfeln und Parmesan",
+            "price": "11,90 €"
+          },
+          {
+            "dish": "Gebackene Hackbraten-Schreiben",
+            "description": "mit Spiegelei und Kartoffelsalat",
+            "price": "12,90 €"
+          }
+        ],
+        "Donnerstag": [
+          {
+            "dish": "Spaghetti mit Bärlauch-Pesto-Soße",
+            "description": "Tomatenwürfeln und Parmesan",
+            "price": "11,90 €"
+          },
+          {
+            "dish": "Gebackene Hackbraten-Schreiben",
+            "description": "mit Spiegelei und Kartoffelsalat",
+            "price": "12,90 €"
+          }
+        ],
+        "Freitag": [
+          {
+            "dish": "Spaghetti mit Bärlauch-Pesto-Soße",
+            "description": "Tomatenwürfeln und Parmesan",
+            "price": "11,90 €"
+          },
+          {
+            "dish": "Gebackene Hackbraten-Schreiben",
+            "description": "mit Spiegelei und Kartoffelsalat",
+            "price": "12,90 €"
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
     }
   ]
 }
