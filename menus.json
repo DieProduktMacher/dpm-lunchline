@@ -41,9 +41,70 @@
       "travel_minutes": 3,
       "source_url": "https://egghauscafe.de/lunch-menu/",
       "format": "html",
-      "days": {},
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='egghauscafe.de', port=443): Max retries exceeded with url: /lunch-menu/ (Caused by NewConnectionError(\"HTTPSConnection(host='egghauscafe.de', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))"
+      "days": {
+        "Montag": [
+          {
+            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "description": null,
+            "price": "10,50 €"
+          },
+          {
+            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Dienstag": [
+          {
+            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "description": null,
+            "price": "10,50 €"
+          },
+          {
+            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Mittwoch": [
+          {
+            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "description": null,
+            "price": "10,50 €"
+          },
+          {
+            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Donnerstag": [
+          {
+            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "description": null,
+            "price": "10,50 €"
+          },
+          {
+            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Freitag": [
+          {
+            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "description": null,
+            "price": "10,50 €"
+          },
+          {
+            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
     },
     {
       "id": "lotus_asia",
@@ -58,60 +119,60 @@
           {
             "dish": "Thailändischer Glasnudelsalat (pikant)",
             "description": "Tomaten, Gurken, Paprika, Lauch, Erdnüsse, Sellerie Koriander und Reis",
-            "price": "9,5 € (Hühnerfleisch) / 9 € (Vegetarisch)"
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Vegetarisch)"
           },
           {
             "dish": "Rotes Thai Curry (Mittelscharf)",
             "description": "mit Bohnen, Zucchini, Paprika, Karotten, Bambus und Basilikum. Dazu Reis",
-            "price": "9,5 € (Hühnerfleisch) / 9 € (Tofu/Vegetarisch)"
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
         "Dienstag": [
           {
             "dish": "Gebratener Curryreis (mild)",
             "description": "mit Erbsen, Karotten, Mais, Ei, Pilze, Paprika, Zwiebeln, Soyasprossen und Kräuter",
-            "price": "9,5 € (Hühnerfleisch) / 9 € (Tofu/Vegetarisch)"
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           },
           {
             "dish": "Erdnuss Curry (pikant)",
             "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen, Erdnussbutter, Erdnüssen und Basilikum. Dazu Reis",
-            "price": "9,5 € (Hühnerfleisch) / 9 € (Tofu/Vegetarisch)"
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
         "Mittwoch": [
           {
             "dish": "Pad Siuw Nudeln (mild)",
             "description": "Gebratene Reisbandnudeln mit Hühnerfleisch, Broccoli, China Kohl, Paprika, Ei, Porree, Sojasprossen und Lauch",
-            "price": "9,5 €"
+            "price": "9,50 €"
           },
           {
             "dish": "Süßkartofffel Curry (pikant)",
             "description": "Karotten, Paprika, Bohnen und Zucchini, Bambus und Blumenkohl. Dazu Reis",
-            "price": "9,5 € (Hühnerfleisch) / 9 € (Tofu/Vegetarisch)"
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
         "Donnerstag": [
           {
             "dish": "Laab (mittelscharf)",
             "description": "Hackfleischsalat (gemischt Rind/Schwein) mit Zitronengras und Minze",
-            "price": "10 €"
+            "price": "10,00 €"
           },
           {
             "dish": "Kao Soi Thai Curry (pikant)",
             "description": "mit Blumenkohl, Bambus, Zucchini, Karotten, Paprika, Bohnen, Babymais und Basilikum",
-            "price": "9,5 € (Hühnerfleisch) / 9 € (Tofu/Vegetarisch)"
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
         "Freitag": [
           {
             "dish": "Gai Pad Pet (scharf)",
             "description": "scharfe Hühnerpfanne mit Bambus, Paprika, Bohnen, Porree, Karotten, Blumenkohl und Morcheln dazu Reis",
-            "price": "10 €"
+            "price": "10,00 €"
           },
           {
             "dish": "Matsman Thai Curry (Mittelscharf)",
             "description": "mit Kartoffeln, Zucchini, Paprika, Karotten, Bohnen und Erdnüssen. Dazu Reis",
-            "price": "9,5 € (Hühnerfleisch) / 9 € (Tofu/Vegetarisch)"
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ]
       },
