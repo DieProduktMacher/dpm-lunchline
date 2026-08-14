@@ -5,7 +5,8 @@
       "id": "augustiner",
       "name": "Augustiner Schützengarten",
       "address": "Zielstattstraße, 81379 München",
-      "walk_minutes": 10,
+      "category": "walk",
+      "travel_minutes": 10,
       "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/14.08.26_Tageskarte.pdf",
       "format": "pdf",
       "days": {
@@ -24,7 +25,8 @@
       "id": "moccasola",
       "name": "Café Moccasola",
       "address": "Zielstattstraße, 81379 München",
-      "walk_minutes": 10,
+      "category": "walk",
+      "travel_minutes": 10,
       "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/Instagram_Post_Betriebsferien_Urlaub_Geschlossen_Pflanze_Illustration_Gezeichnet_Modern_Minimalistisch_1.png?v=1786687847",
       "format": "pdf",
       "days": {},
@@ -35,79 +37,20 @@
       "id": "egghaus",
       "name": "Egg Haus Café",
       "address": "Hofmannstraße 23, 81379 München",
-      "walk_minutes": 3,
+      "category": "walk",
+      "travel_minutes": 3,
       "source_url": "https://egghauscafe.de/lunch-menu/",
       "format": "html",
-      "days": {
-        "Montag": [
-          {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Dienstag": [
-          {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Mittwoch": [
-          {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Donnerstag": [
-          {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Freitag": [
-          {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='egghauscafe.de', port=443): Max retries exceeded with url: /lunch-menu/ (Caused by NewConnectionError(\"HTTPSConnection(host='egghauscafe.de', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))"
     },
     {
       "id": "lotus_asia",
       "name": "Lotus Asia",
       "address": "Boschetsrieder Str. 75, 81379 München",
-      "walk_minutes": 8,
+      "category": "walk",
+      "travel_minutes": 8,
       "source_url": "https://www.lotusasia.shop/wochenkarte",
       "format": "html",
       "days": {
@@ -174,6 +117,18 @@
       },
       "status": "ok",
       "error": null
+    },
+    {
+      "id": "alter_wirt",
+      "name": "Alter Wirt Thalkirchen",
+      "address": "Fraunbergstraße 8, 81379 München",
+      "category": "bike",
+      "travel_minutes": 8,
+      "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
+      "format": "html",
+      "days": {},
+      "status": "error",
+      "error": "Mittagsmenü-Abschnitt nicht gefunden - Seitenstruktur ggf. anders als erwartet."
     }
   ]
 }
