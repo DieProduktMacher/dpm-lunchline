@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14",
+  "generated_at": "2026-08-17",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,14 +7,14 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/14.08.26_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/16.08.26_Tageskarte.pdf",
       "format": "pdf",
       "days": {
-        "Freitag": [
+        "Montag": [
           {
-            "dish": "Buntbarschfilet gebacken mit Kartoffel-Gurkensalat und Remouladensauce",
+            "dish": "Kalbsleber Berliner Art mit Kartoffelpüree, Zwiebelsauce und Apfelspalten",
             "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
-            "price": "9,90 €"
+            "price": "24,90 €"
           }
         ]
       },
@@ -44,60 +44,60 @@
       "days": {
         "Montag": [
           {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "dish": "Penne all’arrabbiata mit \t\t\t\t\t\tBüffelmozzarella",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Zucchini und \t\t\t\t\t\tGorgonzola",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "dish": "Penne all’arrabbiata mit \t\t\t\t\t\tBüffelmozzarella",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Zucchini und \t\t\t\t\t\tGorgonzola",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Mittwoch": [
           {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "dish": "Penne all’arrabbiata mit \t\t\t\t\t\tBüffelmozzarella",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Zucchini und \t\t\t\t\t\tGorgonzola",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "dish": "Penne all’arrabbiata mit \t\t\t\t\t\tBüffelmozzarella",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Zucchini und \t\t\t\t\t\tGorgonzola",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Freitag": [
           {
-            "dish": "Pasta mit Auberginen  B.Pesto      \t\t\tund Tomatensauce",
+            "dish": "Penne all’arrabbiata mit \t\t\t\t\t\tBüffelmozzarella",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Salami, Oliven und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Zucchini und \t\t\t\t\t\tGorgonzola",
             "description": null,
             "price": "11,50 €"
           }
@@ -188,15 +188,15 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Freitag": [
+        "Montag": [
           {
-            "dish": "Spaghetti mit Bärlauch-Pesto-Soße",
-            "description": "Tomatenwürfeln und Parmesan",
+            "dish": "Salatteller in Blsamico-Dressing",
+            "description": "Thunfisch,Zwiebeln,Oliven u.Baguette",
             "price": "11,90 €"
           },
           {
-            "dish": "Gebackene Hackbraten-Schreiben",
-            "description": "mit Spiegelei und Kartoffelsalat",
+            "dish": "Sesam-Schnitzel von der Schweinelende",
+            "description": "mit Preiselbeeren und Kartoffeln",
             "price": "12,90 €"
           }
         ]
