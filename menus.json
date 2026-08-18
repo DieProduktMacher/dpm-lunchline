@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17",
+  "generated_at": "2026-08-18",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,14 +7,14 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/16.08.26_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/18.08.26_Tageskarte.pdf",
       "format": "pdf",
       "days": {
-        "Montag": [
+        "Dienstag": [
           {
-            "dish": "Kalbsleber Berliner Art mit Kartoffelpüree, Zwiebelsauce und Apfelspalten",
+            "dish": "Tagliatelle Arrabiata mit Parmesan",
             "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
-            "price": "24,90 €"
+            "price": "9,90 €"
           }
         ]
       },
@@ -188,7 +188,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Montag": [
+        "Dienstag": [
           {
             "dish": "Salatteller in Blsamico-Dressing",
             "description": "Thunfisch,Zwiebeln,Oliven u.Baguette",
