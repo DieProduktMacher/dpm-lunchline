@@ -7,12 +7,12 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/18.08.26_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/19.08.26_Tageskarte.pdf",
       "format": "pdf",
       "days": {
         "Mittwoch": [
           {
-            "dish": "Tagliatelle Arrabiata mit Parmesan",
+            "dish": "Fleischpflanzerl mit Kartoffel-Gurkensalat und Dunkelbiersauce",
             "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
             "price": "9,90 €"
           }
