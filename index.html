@@ -362,6 +362,8 @@ function renderRestaurant(r, todayName, idx) {
   let statusBadge = "";
   if (r.status === "closed") {
     statusBadge = `<span class="badge muted">Betriebsferien</span>`;
+  } else if (r.status === "stale") {
+    statusBadge = `<span class="badge muted">Noch nicht aktualisiert</span>`;
   } else if (r.status !== "ok") {
     statusBadge = `<span class="badge warn">Fehler beim Abrufen</span>`;
   } else if (!todayDishes) {
@@ -373,6 +375,8 @@ function renderRestaurant(r, todayName, idx) {
   let emptyText = "Konnte nicht geladen werden.";
   if (r.status === "closed") {
     emptyText = escapeHtml(r.error || "Betriebsferien - diese Woche kein Mittagstisch.");
+  } else if (r.status === "stale") {
+    emptyText = escapeHtml(r.error || "Für heute liegt noch keine aktuelle Karte vor.");
   } else if (r.status === "ok") {
     emptyText = "Für heute liegt kein Eintrag vor (z. B. Ruhetag oder noch nicht aktualisiert).";
   } else if (r.error) {
