@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18",
+  "generated_at": "2026-08-19",
   "restaurants": [
     {
       "id": "augustiner",
@@ -10,7 +10,7 @@
       "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/18.08.26_Tageskarte.pdf",
       "format": "pdf",
       "days": {
-        "Dienstag": [
+        "Mittwoch": [
           {
             "dish": "Tagliatelle Arrabiata mit Parmesan",
             "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
@@ -183,7 +183,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Dienstag": [
+        "Mittwoch": [
           {
             "dish": "Salatteller in Blsamico-Dressing",
             "description": "Thunfisch,Zwiebeln,Oliven u.Baguette",
