@@ -406,6 +406,15 @@ def scrape_augustiner():
             return result
         result["source_url"] = pdf_url
 
+        # Der Fallback (Portfolio-Seite scrapen) kann eine ALTE Tageskarte
+        # liefern, wenn Augustiner die Seite an diesem Morgen noch nicht
+        # aktualisiert hat - der Dateiname verrät, für welchen Tag die Karte
+        # wirklich ist. Nicht blind übernehmen, sonst zeigen wir gestriges
+        # Tagesschmankerl fälschlich als "heutiges" an.
+        today_str = today.strftime("%d.%m.%y")
+        found_date_match = re.search(r"(\d{2}\.\d{2}\.\d{2})_Tageskarte\.pdf", pdf_url, re.I)
+        is_current = bool(found_date_match) and found_date_match.group(1) == today_str
+
         pdf_resp = _get(pdf_url)
         pdf_resp.raise_for_status()
         text_chunks = []
@@ -460,9 +469,16 @@ def scrape_augustiner():
                     "price": price,
                 })
 
-        if dishes and weekday_name:
+        if dishes and weekday_name and is_current:
             result["days"][weekday_name] = dishes
             result["status"] = "ok"
+        elif dishes and weekday_name and not is_current:
+            found_date = found_date_match.group(1) if found_date_match else "unbekanntem Datum"
+            result["status"] = "stale"
+            result["error"] = (
+                f"Zuletzt gefundene Tageskarte ist vom {found_date} (heute: {today_str}) - "
+                "Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
+            )
         else:
             result["error"] = "PDF gefunden, aber kein 'Tagesschmankerl' erkannt - Layout ggf. geändert."
     except Exception as exc:  # noqa: BLE001
@@ -535,6 +551,7 @@ def scrape_alter_wirt():
     except Exception as exc:  # noqa: BLE001
         result["error"] = str(exc)
     return result
+
 
 SCRAPERS = [scrape_egghaus, scrape_lotus_asia, scrape_moccasola, scrape_augustiner, scrape_alter_wirt]
 
