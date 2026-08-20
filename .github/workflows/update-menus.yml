@@ -10,8 +10,7 @@ on:
     # aktualisierte Karte selbst (status "stale" statt falscher "ok"-Daten),
     # jeder zusätzliche Lauf gibt ihr aber eine reale Chance, rechtzeitig vor
     # Ende des Tagesschmankerls (11:30-15:00 Uhr) aktuell zu sein.
-    - cron: "0 6-12 * * 1-5"
-    
+    - cron: "0 6,7,8,9,10,11,12 * * 1-5"
   workflow_dispatch: {}   # manuell über den "Run workflow"-Button auslösbar
 
 permissions:
