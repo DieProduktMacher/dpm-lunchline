@@ -412,7 +412,7 @@ def scrape_augustiner():
         # wirklich ist. Nicht blind übernehmen, sonst zeigen wir gestriges
         # Tagesschmankerl fälschlich als "heutiges" an.
         today_str = today.strftime("%d.%m.%y")
-        found_date_match = re.search(r"(\d{2}\.\d{2}\.\d{2})_Tageskarte\.pdf", pdf_url, re.I)
+        found_date_match = re.search(r"(\d{2}\.\d{2}\.\d{2})_Tageskarte.*\.pdf", pdf_url, re.I)
         is_current = bool(found_date_match) and found_date_match.group(1) == today_str
 
         pdf_resp = _get(pdf_url)
