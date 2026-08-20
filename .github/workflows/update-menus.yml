@@ -11,6 +11,7 @@ on:
     # jeder zusätzliche Lauf gibt ihr aber eine reale Chance, rechtzeitig vor
     # Ende des Tagesschmankerls (11:30-15:00 Uhr) aktuell zu sein.
     - cron: "0 6-12 * * 1-5"
+    
   workflow_dispatch: {}   # manuell über den "Run workflow"-Button auslösbar
 
 permissions:
