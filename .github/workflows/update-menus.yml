@@ -1,7 +1,7 @@
 name: Update Mittagsmenüs
 
 on:
-    schedule:
+  schedule:
     # Stündlich, werktags 06:00-12:00 UTC = 08:00-14:00 Europe/Berlin
     # (Sommerzeit) bzw. 07:00-13:00 (Winterzeit). Augustiner lädt die
     # Tageskarte nicht immer schon morgens hoch, manchmal erst gegen Mittag -
