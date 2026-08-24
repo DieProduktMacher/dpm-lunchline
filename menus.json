@@ -7,11 +7,19 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/23.08.26_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/24.08.26_Tageskarte.pdf",
       "format": "pdf",
-      "days": {},
-      "status": "stale",
-      "error": "Zuletzt gefundene Tageskarte ist vom 23.08.26 (heute: 24.08.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
+      "days": {
+        "Montag": [
+          {
+            "dish": "Geschmorte Hähnchenbrust mit Gemüse und Kartoffelpüree",
+            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
+            "price": "9,90 €"
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
     },
     {
       "id": "moccasola",
@@ -114,40 +122,45 @@
             "price": "10,00 €"
           },
           {
-            "dish": "Panang Thai Curry (mittelscharf)",
-            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen und Basilikum. Dazu Reis",
+            "dish": "Rotes Thai Curry (Mittelscharf)",
+            "description": "mit Bohnen, Zucchini, Paprika, Karotten, Bambus und Basilikum. Dazu Reis",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Gebratener Eierreis (mild)",
-            "description": "mit Erbsen, Karotten, Mais, Ei, Pilze, Paprika, Zwiebeln und Kräuter",
-            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Vegetarisch)"
+            "dish": "Gebratener Curryreis (mild)",
+            "description": "mit Erbsen, Karotten, Mais, Ei, Pilze, Paprika, Zwiebeln, Soyasprossen und Kräuter",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           },
           {
-            "dish": "Gelbes Thai Curry (pikant)",
-            "description": "mit Kartoffeln, Paprika, Bohnen, Karotten, Zucchini und Babymais. Dazu Reis",
+            "dish": "Erdnuss Curry (pikant)",
+            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen, Erdnussbutter, Erdnüssen und Basilikum. Dazu Reis",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
         "Mittwoch": [
           {
-            "dish": "Gebratene Glasnudeln (mild)",
-            "description": "mit Hühnerfleisch, Broccoli, Karotten, Ei, Spitz Kohl, Porree und Sojasprossen",
+            "dish": "Pad Siuw Nudeln (mild)",
+            "description": "Gebratene Reisbandnudeln mit Hühnerfleisch, Broccoli, China Kohl, Paprika, Ei, Porree, Sojasprossen und Lauch",
             "price": "9,50 €"
           },
           {
-            "dish": "Hunglay Curry (pikant)",
-            "description": "Burmesisches Hunglay Curry mit Ingwer, Blumenkohl, Paprika, Zucchini, Bambus, Karotten und Bohnen",
+            "dish": "Kao Soi Thai Curry (pikant)",
+            "description": "mit Blumenkohl, Bambus, Zucchini, Karotten, Paprika, Bohnen, Babymais und Basilikum",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "Pad Krapao (scharf)",
-            "description": "gebratenes Hackfleisch (gemischt Rind/Schwein) mit Bohnen, Bambus und Paprika. Dazu Reis",
+            "dish": "Laab (mittelscharf)",
+            "description": "Hackfleischsalat (gemischt Rind/Schwein) mit Zitronengras und Minze",
             "price": "10,00 €"
+          },
+          {
+            "dish": "Grünes Thai Curry (mittelscharf)",
+            "description": "mit Bohnen, Auberginen, Paprika, Karotten, Bambus, Blumenkohl und Basilikum. Dazu Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Gemüse und Tofu)"
           }
         ],
         "Freitag": [
@@ -157,8 +170,8 @@
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Vegetarisch)"
           },
           {
-            "dish": "Rotes Thai Curry (Mittelscharf)",
-            "description": "mit Bohnen, Zucchini, Paprika, Karotten, Bambus und Basilikum. Dazu Reis",
+            "dish": "Panang Thai Curry (mittelscharf)",
+            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen und Basilikum. Dazu Reis",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ]
