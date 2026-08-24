@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21",
+  "generated_at": "2026-08-24",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,19 +7,11 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/21.08.26_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/23.08.26_Tageskarte.pdf",
       "format": "pdf",
-      "days": {
-        "Freitag": [
-          {
-            "dish": "Tilapia-Filet mit Kartoffel-Gurkensalat und Remouladensauce",
-            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
-            "price": "9,90 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "stale",
+      "error": "Zuletzt gefundene Tageskarte ist vom 23.08.26 (heute: 24.08.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
     },
     {
       "id": "moccasola",
@@ -44,60 +36,60 @@
       "days": {
         "Montag": [
           {
-            "dish": "Penne all’arrabbiata mit \t\t\t\t\t\tBüffelmozzarella",
+            "dish": "Linguine mit Gorgonzola und \t\t\t\t   Pfifferlingen",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Zucchini und \t\t\t\t\t\tGorgonzola",
+            "dish": "Pinsa Napoli\n\t(Sardellen Oliven mit Kapern)",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Penne all’arrabbiata mit \t\t\t\t\t\tBüffelmozzarella",
+            "dish": "Linguine mit Gorgonzola und \t\t\t\t   Pfifferlingen",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Zucchini und \t\t\t\t\t\tGorgonzola",
+            "dish": "Pinsa Napoli\n\t(Sardellen Oliven mit Kapern)",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Mittwoch": [
           {
-            "dish": "Penne all’arrabbiata mit \t\t\t\t\t\tBüffelmozzarella",
+            "dish": "Linguine mit Gorgonzola und \t\t\t\t   Pfifferlingen",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Zucchini und \t\t\t\t\t\tGorgonzola",
+            "dish": "Pinsa Napoli\n\t(Sardellen Oliven mit Kapern)",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "Penne all’arrabbiata mit \t\t\t\t\t\tBüffelmozzarella",
+            "dish": "Linguine mit Gorgonzola und \t\t\t\t   Pfifferlingen",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Zucchini und \t\t\t\t\t\tGorgonzola",
+            "dish": "Pinsa Napoli\n\t(Sardellen Oliven mit Kapern)",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Freitag": [
           {
-            "dish": "Penne all’arrabbiata mit \t\t\t\t\t\tBüffelmozzarella",
+            "dish": "Linguine mit Gorgonzola und \t\t\t\t   Pfifferlingen",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Zucchini und \t\t\t\t\t\tGorgonzola",
+            "dish": "Pinsa Napoli\n\t(Sardellen Oliven mit Kapern)",
             "description": null,
             "price": "11,50 €"
           }
@@ -183,15 +175,15 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Freitag": [
+        "Montag": [
           {
-            "dish": "Salatteller in Blsamico-Dressing",
-            "description": "Thunfisch,Zwiebeln,Oliven u.Baguette",
+            "dish": "Farfalle in Kräuter-Sahne-Sauce",
+            "description": "Mit Pfifferlingen",
             "price": "11,90 €"
           },
           {
-            "dish": "Sesam-Schnitzel von der Schweinelende",
-            "description": "mit Preiselbeeren und Kartoffeln",
+            "dish": "Knusprige Hähnchenkeule mit Barbecue Sauce",
+            "description": "mit Pommes",
             "price": "12,90 €"
           }
         ]
