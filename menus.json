@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24",
+  "generated_at": "2026-08-25",
   "restaurants": [
     {
       "id": "augustiner",
@@ -9,17 +9,9 @@
       "travel_minutes": 10,
       "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/24.08.26_Tageskarte.pdf",
       "format": "pdf",
-      "days": {
-        "Montag": [
-          {
-            "dish": "Geschmorte Hähnchenbrust mit Gemüse und Kartoffelpüree",
-            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
-            "price": "9,90 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "stale",
+      "error": "Zuletzt gefundene Tageskarte ist vom 24.08.26 (heute: 25.08.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
     },
     {
       "id": "moccasola",
@@ -188,7 +180,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Montag": [
+        "Dienstag": [
           {
             "dish": "Farfalle in Kräuter-Sahne-Sauce",
             "description": "Mit Pfifferlingen",
