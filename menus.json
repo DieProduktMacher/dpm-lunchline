@@ -7,11 +7,19 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/25.08.26_Tageskarte.docx.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/26.08.26_Tageskarte.pdf",
       "format": "pdf",
-      "days": {},
-      "status": "stale",
-      "error": "Zuletzt gefundene Tageskarte ist vom 25.08.26 (heute: 26.08.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
+      "days": {
+        "Mittwoch": [
+          {
+            "dish": "Hähnchenbrust Piccata mit Penne Arrabiata und Parmesan",
+            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
+            "price": "9,90 €"
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
     },
     {
       "id": "moccasola",
