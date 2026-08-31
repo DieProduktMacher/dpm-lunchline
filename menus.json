@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28",
+  "generated_at": "2026-08-31",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,12 +7,12 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/28.08.26_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/31.08.26_Tageskarte.pdf",
       "format": "pdf",
       "days": {
-        "Freitag": [
+        "Montag": [
           {
-            "dish": "Buntbarschfilet gebacken mit Kartoffel-Gurkensalat und Remouladensauce",
+            "dish": "Auberginenschnitzel mit Penne in Tomatensugo und Parmesan",
             "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
             "price": "9,90 €"
           }
@@ -27,11 +27,117 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/Instagram_Post_Betriebsferien_Urlaub_Geschlossen_Pflanze_Illustration_Gezeichnet_Modern_Minimalistisch_1.png?v=1786687847",
+      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW36_2026.pdf?v=1788059082",
       "format": "pdf",
-      "days": {},
-      "status": "closed",
-      "error": "Betriebsferien laut Website - diese Woche kein Mittagstisch."
+      "days": {
+        "Montag": [
+          {
+            "dish": "Coq au Vin I Ratatouille I Schwarzer Reis 12,90 €",
+            "description": null,
+            "price": "12,90 €"
+          },
+          {
+            "dish": "Spaghetti Aglio e Olio I Grana Padano 11,50 € a",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Dienstag": [
+          {
+            "dish": "Caesar Chicken Salat I Croutons I Parmigiano 12,90 € c,m,a",
+            "description": null,
+            "price": "12,90 €"
+          },
+          {
+            "dish": "Hausgemachte Gemüselasagne 11,50 € a,g",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Mittwoch": [
+          {
+            "dish": "Burger/Schnitzeltag",
+            "description": null,
+            "price": null
+          },
+          {
+            "dish": "MOCCASOLA Bacon- oder Vegi Burger I Pommes 12,90 € a,n",
+            "description": null,
+            "price": "12,90 €"
+          },
+          {
+            "dish": "Als Double Burger 16,90 € I + Bacon 1,50 €",
+            "description": null,
+            "price": "16,90 €"
+          },
+          {
+            "dish": "Hummus Bowl I Halloumi I Avocado I Salat 11,50 €",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Donnerstag": [
+          {
+            "dish": "Roastbeef I Rosmarinkartoffeln I Blattsalat 12,90 € m,g",
+            "description": null,
+            "price": "12,90 €"
+          },
+          {
+            "dish": "Käsespätzle I Bergkäse I Röstzwiebel11,50 € a,c,g",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Freitag": [
+          {
+            "dish": "Pasta Tonno I Tomatensugo I Radicchio 12,90 € d,a",
+            "description": null,
+            "price": "12,90 €"
+          },
+          {
+            "dish": "Gemüsecurry I Duftreis I vegan 11,50 € f",
+            "description": null,
+            "price": "11,50 €"
+          },
+          {
+            "dish": "Änderungen vorbehalten",
+            "description": null,
+            "price": null
+          },
+          {
+            "dish": "Allergenliste siehe Aushang",
+            "description": null,
+            "price": null
+          },
+          {
+            "dish": "Reservierungen nehmen wir gerne unter 089 – 411 118 273 entgegen",
+            "description": null,
+            "price": null
+          },
+          {
+            "dish": "www.moccasola.de",
+            "description": null,
+            "price": null
+          },
+          {
+            "dish": "Mittagstisch oder zum Mitnehmen",
+            "description": null,
+            "price": null
+          },
+          {
+            "dish": "Montag bis Donnerstag von 11:30 – 14:30",
+            "description": null,
+            "price": null
+          },
+          {
+            "dish": "Freitags von 11:30 bis 13:00 Uhr",
+            "description": null,
+            "price": null
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
     },
     {
       "id": "egghaus",
@@ -41,70 +147,9 @@
       "travel_minutes": 3,
       "source_url": "https://egghauscafe.de/lunch-menu/",
       "format": "html",
-      "days": {
-        "Montag": [
-          {
-            "dish": "Linguine mit Gorgonzola und \t\t\t\t   Pfifferlingen",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa Napoli\n\t(Sardellen Oliven mit Kapern)",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Dienstag": [
-          {
-            "dish": "Linguine mit Gorgonzola und \t\t\t\t   Pfifferlingen",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa Napoli\n\t(Sardellen Oliven mit Kapern)",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Mittwoch": [
-          {
-            "dish": "Linguine mit Gorgonzola und \t\t\t\t   Pfifferlingen",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa Napoli\n\t(Sardellen Oliven mit Kapern)",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Donnerstag": [
-          {
-            "dish": "Linguine mit Gorgonzola und \t\t\t\t   Pfifferlingen",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa Napoli\n\t(Sardellen Oliven mit Kapern)",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Freitag": [
-          {
-            "dish": "Linguine mit Gorgonzola und \t\t\t\t   Pfifferlingen",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa Napoli\n\t(Sardellen Oliven mit Kapern)",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='egghauscafe.de', port=443): Max retries exceeded with url: /lunch-menu/ (Caused by ConnectTimeoutError(<HTTPSConnection(host='egghauscafe.de', port=443) at 0x7fedb93a6a50>, 'Connection to egghauscafe.de timed out. (connect timeout=15)'))"
     },
     {
       "id": "lotus_asia",
@@ -188,15 +233,15 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Freitag": [
+        "Montag": [
           {
-            "dish": "Farfalle in Kräuter-Sahne-Sauce",
-            "description": "Mit Pfifferlingen",
+            "dish": "Gemüsestrudel in Kräuter-Sahne-Sauce",
+            "description": null,
             "price": "11,90 €"
           },
           {
-            "dish": "Knusprige Hähnchenkeule mit Barbecue Sauce",
-            "description": "mit Pommes",
+            "dish": "Rahm-Gulasch vom Schwein",
+            "description": "mit Semmelknödel",
             "price": "12,90 €"
           }
         ]
