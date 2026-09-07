@@ -223,16 +223,28 @@
             "price": "10,00 €"
           },
           {
-            "dish": "Grünes Thai Curry (mittelscharf)",
-            "description": "mit Bohnen, Auberginen, Paprika, Karotten, Bambus, Blumenkohl und Basilikum. Dazu Reis",
-            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Gemüse und Tofu)"
+            "dish": "Rotes Thai Curry (Mittelscharf)",
+            "description": "mit Bohnen, Zucchini, Paprika, Karotten, Bambus und Basilikum. Dazu Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Gebratener Eierreis (mild)",
-            "description": "mit Erbsen, Karotten, Mais, Ei, Pilze, Paprika, Zwiebeln und Kräuter",
-            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Vegetarisch)"
+            "dish": "Gebratener Curryreis (mild)",
+            "description": "mit Erbsen, Karotten, Mais, Ei, Pilze, Paprika, Zwiebeln, Soyasprossen und Kräuter",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+          },
+          {
+            "dish": "Erdnuss Curry (pikant)",
+            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen, Erdnussbutter, Erdnüssen und Basilikum. Dazu Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+          }
+        ],
+        "Mittwoch": [
+          {
+            "dish": "Gebratene Glasnudeln (mild)",
+            "description": "mit Broccoli, Karotten, Ei, Spitz Kohl, Porree und Sojasprossen",
+            "price": "9,50 € (Hühnerfleisch)"
           },
           {
             "dish": "Gelbes Thai Curry (pikant)",
@@ -240,11 +252,11 @@
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
-        "Mittwoch": [
+        "Donnerstag": [
           {
-            "dish": "Pad Thai Nudeln (mild)",
-            "description": "Gebratene Reisbandnudeln mit Huhn, China Kohl, Paprika, Ei,Tofu, Sojasprossen, Lauch und Nüssen",
-            "price": "9,50 €"
+            "dish": "Laab (mittelscharf)",
+            "description": "Hackfleischsalat (gemischt Rind/Schwein) mit Zitronengras und Minze",
+            "price": "10,00 €"
           },
           {
             "dish": "Hunglay Curry (pikant)",
@@ -252,27 +264,15 @@
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
-        "Donnerstag": [
-          {
-            "dish": "Pad Krapao (scharf)",
-            "description": "gebratenes Hackfleisch (gemischt Rind/Schwein) mit Bohnen, Bambus und Paprika. Dazu Reis",
-            "price": "10,00 €"
-          },
-          {
-            "dish": "Kao Soi Thai Curry (pikant)",
-            "description": "mit Blumenkohl, Bambus, Zucchini, Karotten, Paprika, Bohnen, Babymais und Basilikum",
-            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
-          }
-        ],
         "Freitag": [
           {
-            "dish": "Pad Prik Khing Pfanne",
-            "description": "Gebratenes Hühnerfleisch mit Bambus, Paprika, Bohnen, Karotten, Blumenkohl und Ingwer",
+            "dish": "Gochujang Bulgogi Hühnerpfanne (neu)",
+            "description": "scharf gebratenes Hühnchen mit buntem Gemüse",
             "price": "10,00 €"
           },
           {
-            "dish": "Matsman Thai Curry (Mittelscharf)",
-            "description": "mit Kartoffeln, Zucchini, Paprika, Karotten, Bohnen und Erdnüssen. Dazu Reis",
+            "dish": "Panang Thai Curry (mittelscharf)",
+            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen und Basilikum. Dazu Reis",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ]
