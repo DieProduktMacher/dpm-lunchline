@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04",
+  "generated_at": "2026-09-07",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,12 +7,12 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/04.09.26_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/07.09.26_Tageskarte.pdf",
       "format": "pdf",
       "days": {
-        "Freitag": [
+        "Montag": [
           {
-            "dish": "Buntbarschfilet gebacken mit Kartoffel-Gurkensalat und Remouladensauce",
+            "dish": "Tagliatelle in Waldpilz-Kräuterrahm mit Kirschtomaten, Rucola und Parmesan",
             "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
             "price": "9,90 €"
           }
@@ -27,29 +27,29 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW36_2026.pdf?v=1788059082",
+      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW37_2026.pdf?v=1788769804",
       "format": "pdf",
       "days": {
         "Montag": [
           {
-            "dish": "Coq au Vin I Ratatouille I Schwarzer Reis 12,90 €",
+            "dish": "Spaghetti Bolognese I Grana Padano 12,90 € a",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Spaghetti Aglio e Olio I Grana Padano 11,50 € a",
+            "dish": "Spinat & Kasknödel I Rahmkraut 11,50 € a,n,c,g",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Caesar Chicken Salat I Croutons I Parmigiano 12,90 € c,m,a",
+            "dish": "Rotes Thaicurry I Chicken I Gemüse I Duftreis 12,90 € f",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Hausgemachte Gemüselasagne 11,50 € a,g",
+            "dish": "Hausgemachte Quiche I Ziegenkäse I Blattsalat 11,50 € a,g,c",
             "description": null,
             "price": "11,50 €"
           }
@@ -61,41 +61,36 @@
             "price": null
           },
           {
-            "dish": "MOCCASOLA Bacon- oder Vegi Burger I Pommes 12,90 € a,n",
+            "dish": "Piccata Milanese vom Huhn I Tagliatelle I Tomatensugo 12,90 € a",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Als Double Burger 16,90 € I + Bacon 1,50 €",
-            "description": null,
-            "price": "16,90 €"
-          },
-          {
-            "dish": "Hummus Bowl I Halloumi I Avocado I Salat 11,50 €",
+            "dish": "Gnocchi I Basilikumpesto I Grana 11,50 € a,h",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "Roastbeef I Rosmarinkartoffeln I Blattsalat 12,90 € m,g",
+            "dish": "Rindsroulade I Blaukraut I hausgemachte Semmelknödel 12,90 € m,a,c,g,n",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Käsespätzle I Bergkäse I Röstzwiebel11,50 € a,c,g",
+            "dish": "Blumenkohl-Kartoffelgratin I Bergkäse 11,50 € a,g",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Freitag": [
           {
-            "dish": "Pasta Tonno I Tomatensugo I Radicchio 12,90 € d,a",
+            "dish": "Spaghetti Frutti di Mare I Weißweinsauce 12,90 € a,d",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Gemüsecurry I Duftreis I vegan 11,50 € f",
+            "dish": "Rahmspinat I Salzkartoffeln I 2 Spiegeleier 11,50 € c,g",
             "description": null,
             "price": "11,50 €"
           },
@@ -150,60 +145,60 @@
       "days": {
         "Montag": [
           {
-            "dish": "Penne mit Kürbis               \t Tomatensauce  und \t    \t \t\tschwarzen Oliven",
+            "dish": "Pasta mit Thunfisch, \t\tTomatensauce und \tschwarzen Oliven",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa Tomatensoße, Mozzarella mit Kürbis und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Kürbis und \t\t\t\t\t\t\tSardellen",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Penne mit Kürbis               \t Tomatensauce  und \t    \t \t\tschwarzen Oliven",
+            "dish": "Pasta mit Thunfisch, \t\tTomatensauce und \tschwarzen Oliven",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa Tomatensoße, Mozzarella mit Kürbis und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Kürbis und \t\t\t\t\t\t\tSardellen",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Mittwoch": [
           {
-            "dish": "Penne mit Kürbis               \t Tomatensauce  und \t    \t \t\tschwarzen Oliven",
+            "dish": "Pasta mit Thunfisch, \t\tTomatensauce und \tschwarzen Oliven",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa Tomatensoße, Mozzarella mit Kürbis und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Kürbis und \t\t\t\t\t\t\tSardellen",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "Penne mit Kürbis               \t Tomatensauce  und \t    \t \t\tschwarzen Oliven",
+            "dish": "Pasta mit Thunfisch, \t\tTomatensauce und \tschwarzen Oliven",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa Tomatensoße, Mozzarella mit Kürbis und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Kürbis und \t\t\t\t\t\t\tSardellen",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Freitag": [
           {
-            "dish": "Penne mit Kürbis               \t Tomatensauce  und \t    \t \t\tschwarzen Oliven",
+            "dish": "Pasta mit Thunfisch, \t\tTomatensauce und \tschwarzen Oliven",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa Tomatensoße, Mozzarella mit Kürbis und \t\t\t\t\t\tRucola",
+            "dish": "Pinsa mit Kürbis und \t\t\t\t\t\t\tSardellen",
             "description": null,
             "price": "11,50 €"
           }
@@ -294,15 +289,15 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Freitag": [
+        "Montag": [
           {
-            "dish": "Gemüsestrudel in Kräuter-Sahne-Sauce",
-            "description": null,
+            "dish": "Penne in Pesto-Sahne-Sauce",
+            "description": "mit Tommatenwürfeln",
             "price": "11,90 €"
           },
           {
-            "dish": "Rahm-Gulasch vom Schwein",
-            "description": "mit Semmelknödel",
+            "dish": "Nürnberger Rostbratwurst",
+            "description": "Auf Sauerkraut und Salzkartoffeln",
             "price": "12,90 €"
           }
         ]
