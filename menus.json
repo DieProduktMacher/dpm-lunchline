@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07",
+  "generated_at": "2026-09-08",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,12 +7,12 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/07.09.26_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/08.09.26_Tageskarte.pdf",
       "format": "pdf",
       "days": {
-        "Montag": [
+        "Dienstag": [
           {
-            "dish": "Tagliatelle in Waldpilz-Kräuterrahm mit Kirschtomaten, Rucola und Parmesan",
+            "dish": "Paprika-Schweinegulasch mit Semmelknödel",
             "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
             "price": "9,90 €"
           }
@@ -289,7 +289,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Montag": [
+        "Dienstag": [
           {
             "dish": "Penne in Pesto-Sahne-Sauce",
             "description": "mit Tommatenwürfeln",
