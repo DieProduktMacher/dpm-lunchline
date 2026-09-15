@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14",
+  "generated_at": "2026-09-15",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,19 +7,11 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/14.09.26_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/15.09.26_Schulanfang.pdf",
       "format": "pdf",
-      "days": {
-        "Montag": [
-          {
-            "dish": "Pulled Pork mit Ofenkartoffel, Sourcream und Salat",
-            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
-            "price": "9,90 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "stale",
+      "error": "Zuletzt gefundene Tageskarte ist vom unbekanntem Datum (heute: 15.09.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
     },
     {
       "id": "moccasola",
@@ -294,7 +286,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Montag": [
+        "Dienstag": [
           {
             "dish": "Spaghetti Bolognese",
             "description": "mit Parmesan",
