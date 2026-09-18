@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17",
+  "generated_at": "2026-09-18",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,19 +7,11 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/17.09.26_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/18.09.2026_Tageskarte.pdf",
       "format": "pdf",
-      "days": {
-        "Donnerstag": [
-          {
-            "dish": "Hähnchenschnitzel Wiener Art mit Pommes Frites",
-            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
-            "price": "9,90 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "stale",
+      "error": "Zuletzt gefundene Tageskarte ist vom unbekanntem Datum (heute: 18.09.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
     },
     {
       "id": "moccasola",
@@ -147,70 +139,9 @@
       "travel_minutes": 3,
       "source_url": "https://egghauscafe.de/lunch-menu/",
       "format": "html",
-      "days": {
-        "Montag": [
-          {
-            "dish": "Pasta mit Bolognese, Pilzen \n\t\t\t    und Erbsen",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa mit Kürbis und Thunfisch",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Dienstag": [
-          {
-            "dish": "Pasta mit Bolognese, Pilzen \n\t\t\t    und Erbsen",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa mit Kürbis und Thunfisch",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Mittwoch": [
-          {
-            "dish": "Pasta mit Bolognese, Pilzen \n\t\t\t    und Erbsen",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa mit Kürbis und Thunfisch",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Donnerstag": [
-          {
-            "dish": "Pasta mit Bolognese, Pilzen \n\t\t\t    und Erbsen",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa mit Kürbis und Thunfisch",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ],
-        "Freitag": [
-          {
-            "dish": "Pasta mit Bolognese, Pilzen \n\t\t\t    und Erbsen",
-            "description": null,
-            "price": "10,50 €"
-          },
-          {
-            "dish": "Pinsa mit Kürbis und Thunfisch",
-            "description": null,
-            "price": "11,50 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "error",
+      "error": "403 Client Error: Forbidden for url: https://egghauscafe.de/lunch-menu/"
     },
     {
       "id": "lotus_asia",
@@ -294,7 +225,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Donnerstag": [
+        "Freitag": [
           {
             "dish": "Spaghetti Bolognese",
             "description": "mit Parmesan",
