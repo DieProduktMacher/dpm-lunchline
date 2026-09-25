@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24",
+  "generated_at": "2026-09-25",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,11 +7,11 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/24.09.2026_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/25.09.2026_Tageskarte.pdf",
       "format": "pdf",
       "days": {},
       "status": "stale",
-      "error": "Zuletzt gefundene Tageskarte ist vom unbekanntem Datum (heute: 24.09.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
+      "error": "Zuletzt gefundene Tageskarte ist vom unbekanntem Datum (heute: 25.09.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
     },
     {
       "id": "moccasola",
@@ -202,9 +202,70 @@
       "travel_minutes": 8,
       "source_url": "https://www.lotusasia.shop/wochenkarte",
       "format": "html",
-      "days": {},
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='www.lotusasia.shop', port=443): Max retries exceeded with url: /wochenkarte (Caused by NameResolutionError(\"HTTPSConnection(host='www.lotusasia.shop', port=443): Failed to resolve 'www.lotusasia.shop' ([Errno -2] Name or service not known)\"))"
+      "days": {
+        "Montag": [
+          {
+            "dish": "Teriyaki Chicken Salat (mild)",
+            "description": "Mariniertes Hähnchen auf gemischtem Salat mit Reis und Erdnusssosse",
+            "price": "10,00 €"
+          },
+          {
+            "dish": "Panang Thai Curry (mittelscharf)",
+            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen und Basilikum. Dazu Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+          }
+        ],
+        "Dienstag": [
+          {
+            "dish": "Gebratener Curryreis (mild)",
+            "description": "mit Erbsen, Karotten, Mais, Ei, Pilze, Paprika, Zwiebeln, Soyasprossen und Kräuter",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+          },
+          {
+            "dish": "Erdnuss Curry (pikant)",
+            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen, Erdnussbutter, Erdnüssen und Basilikum. Dazu Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+          }
+        ],
+        "Mittwoch": [
+          {
+            "dish": "Pad Thai Nudeln (mild)",
+            "description": "Gebratene Reisbandnudeln mit Huhn, China Kohl, Paprika, Ei,Tofu, Sojasprossen, Lauch und Nüssen",
+            "price": "9,50 €"
+          },
+          {
+            "dish": "Hunglay Curry (pikant)",
+            "description": "Burmesisches Hunglay Curry mit Ingwer, Blumenkohl, Paprika, Zucchini, Bambus, Karotten und Bohnen",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+          }
+        ],
+        "Donnerstag": [
+          {
+            "dish": "Laab (mittelscharf)",
+            "description": "Hackfleischsalat (gemischt Rind/Schwein) mit Zitronengras und Minze",
+            "price": "10,00 €"
+          },
+          {
+            "dish": "Gelbes Thai Curry (pikant)",
+            "description": "mit Kartoffeln, Paprika, Bohnen, Karotten, Zucchini und Babymais. Dazu Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+          }
+        ],
+        "Freitag": [
+          {
+            "dish": "Gai Pad Pet (scharf)",
+            "description": "gebratenes Hühnerfleisch, mit Zucchini, Bambus, Broccoli, Bohnen, Karotten und Blumenkohl",
+            "price": "10,00 €"
+          },
+          {
+            "dish": "Rotes Thai Curry (Mittelscharf)",
+            "description": "mit Bohnen, Zucchini, Paprika, Karotten, Bambus und Basilikum. Dazu Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
     },
     {
       "id": "alter_wirt",
@@ -215,7 +276,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Donnerstag": [
+        "Freitag": [
           {
             "dish": "Pasta mit Kürbis, Tomatenwürfeln",
             "description": "und Feta",
