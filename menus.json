@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28",
+  "generated_at": "2026-09-29",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,11 +7,11 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/28.09.2026_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/29.09.2026_Tageskarte.pdf",
       "format": "pdf",
       "days": {},
       "status": "stale",
-      "error": "Zuletzt gefundene Tageskarte ist vom unbekanntem Datum (heute: 28.09.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
+      "error": "Zuletzt gefundene Tageskarte ist vom unbekanntem Datum (heute: 29.09.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
     },
     {
       "id": "moccasola",
@@ -139,9 +139,70 @@
       "travel_minutes": 3,
       "source_url": "https://egghauscafe.de/lunch-menu/",
       "format": "html",
-      "days": {},
-      "status": "error",
-      "error": "403 Client Error: Forbidden for url: https://egghauscafe.de/lunch-menu/"
+      "days": {
+        "Montag": [
+          {
+            "dish": "Penne alla Sorrentiner Art\n\t\t\t (Mozzarella)",
+            "description": null,
+            "price": "10,50 €"
+          },
+          {
+            "dish": "Pinsa mit Rucola und Oliven",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Dienstag": [
+          {
+            "dish": "Penne alla Sorrentiner Art\n\t\t\t (Mozzarella)",
+            "description": null,
+            "price": "10,50 €"
+          },
+          {
+            "dish": "Pinsa mit Rucola und Oliven",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Mittwoch": [
+          {
+            "dish": "Penne alla Sorrentiner Art\n\t\t\t (Mozzarella)",
+            "description": null,
+            "price": "10,50 €"
+          },
+          {
+            "dish": "Pinsa mit Rucola und Oliven",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Donnerstag": [
+          {
+            "dish": "Penne alla Sorrentiner Art\n\t\t\t (Mozzarella)",
+            "description": null,
+            "price": "10,50 €"
+          },
+          {
+            "dish": "Pinsa mit Rucola und Oliven",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ],
+        "Freitag": [
+          {
+            "dish": "Penne alla Sorrentiner Art\n\t\t\t (Mozzarella)",
+            "description": null,
+            "price": "10,50 €"
+          },
+          {
+            "dish": "Pinsa mit Rucola und Oliven",
+            "description": null,
+            "price": "11,50 €"
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
     },
     {
       "id": "lotus_asia",
@@ -225,7 +286,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Montag": [
+        "Dienstag": [
           {
             "dish": "Spinat-Feta-Strudel",
             "description": "mit warmer Schnittlauchsauce",
