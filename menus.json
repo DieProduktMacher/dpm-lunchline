@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29",
+  "generated_at": "2026-09-30",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,11 +7,11 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/29.09.2026_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/30.09.2026_Tageskarte.pdf",
       "format": "pdf",
       "days": {},
       "status": "stale",
-      "error": "Zuletzt gefundene Tageskarte ist vom unbekanntem Datum (heute: 29.09.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
+      "error": "Zuletzt gefundene Tageskarte ist vom unbekanntem Datum (heute: 30.09.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
     },
     {
       "id": "moccasola",
@@ -286,7 +286,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Dienstag": [
+        "Mittwoch": [
           {
             "dish": "Spinat-Feta-Strudel",
             "description": "mit warmer Schnittlauchsauce",
