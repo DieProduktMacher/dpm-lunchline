@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02",
+  "generated_at": "2026-10-05",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,11 +7,11 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/02.10.2026_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/05.10.2026_Tageskarte.pdf",
       "format": "pdf",
       "days": {},
       "status": "stale",
-      "error": "Zuletzt gefundene Tageskarte ist vom unbekanntem Datum (heute: 02.10.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
+      "error": "Zuletzt gefundene Tageskarte ist vom unbekanntem Datum (heute: 05.10.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
     },
     {
       "id": "moccasola",
@@ -19,29 +19,29 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW40_2026.pdf?v=1790579889",
+      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW41_2026.pdf?v=1791186371",
       "format": "pdf",
       "days": {
         "Montag": [
           {
-            "dish": "Geschnetzeltes Zürcher Art vom Schwein I Rösti 12,90 € g",
+            "dish": "Hausgemachte Ofenlasagne 12,90 € a,g",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Hausgemachte Gemüselasagne 11,50 € a,g",
+            "dish": "Rahmspinat I 2 Spiegeleier I Salzkartoffeln 11,50 € g,c",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Hühnchen Szechuan Art I Gemüse I Jasminreis 12,90 € f",
+            "dish": "Chicken Thaicurry I Gemüse I Jasminreis 12,90 € f,g",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Ofenkartoffel I Kräuterquark I Blattsalat 11,50 € g,m",
+            "dish": "Gebackene Champignons I Blattsalat I Sauce Tartar 11,50 € a,m",
             "description": null,
             "price": "11,50 €"
           }
@@ -53,41 +53,36 @@
             "price": null
           },
           {
-            "dish": "MOCCASOLA Cheeseburger I 12,90 € a,n",
+            "dish": "Holzfällerschnitzel I Speck & Zwiebel I Bratkartoffeln 12,90 € a",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Als Double Burger 16,90 € I +Bacon 1,50 €",
-            "description": null,
-            "price": "16,90 €"
-          },
-          {
-            "dish": "Caesar Salat I gebratene Kräutersaitlinge I Croutons 11,50 € a,n",
+            "dish": "Ricotta Tortellini I Tomaten-Sahne Sauce I Grana Padano 11,50 € g",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "Gyros I Tzatziki I Tomatenreis 12,90 € g",
+            "dish": "Putenrollbraten I Blaukraut I Kartoffelknödel 12,90 € o",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Gnocchi I Tomaten-Sahne Sauce I Grana Padano 11,50 € a,g",
+            "dish": "Udon Nudeln I Pak Choy Gemüse 11,50 € a,f",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Freitag": [
           {
-            "dish": "Backfisch I hausgemachter Kartoffel-Gurkensalat I Remoulade 12,90 € a,d,m,c",
+            "dish": "Lachstagliatelle I Zitronensauce 12,90 € d,g",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Antipastiteller I Gemüse I Bohnensalat I Oliven I Mozzarella I Brot 11,50 €a,n,g",
+            "dish": "Sellerieschnitzel I Sauce Hollandaise I Kartoffelsalat 11,50 € a,c,m",
             "description": null,
             "price": "11,50 €"
           },
@@ -142,60 +137,60 @@
       "days": {
         "Montag": [
           {
-            "dish": "Penne alla Sorrentiner Art\n\t\t\t (Mozzarella)",
+            "dish": "Penne mit Thunfisch, Kürbis und \t\t\tTomatensauce",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Rucola und Oliven",
+            "dish": "Pinsa mit scharfer Salami und \t\t\t\t\t  Rucola",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Penne alla Sorrentiner Art\n\t\t\t (Mozzarella)",
+            "dish": "Penne mit Thunfisch, Kürbis und \t\t\tTomatensauce",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Rucola und Oliven",
+            "dish": "Pinsa mit scharfer Salami und \t\t\t\t\t  Rucola",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Mittwoch": [
           {
-            "dish": "Penne alla Sorrentiner Art\n\t\t\t (Mozzarella)",
+            "dish": "Penne mit Thunfisch, Kürbis und \t\t\tTomatensauce",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Rucola und Oliven",
+            "dish": "Pinsa mit scharfer Salami und \t\t\t\t\t  Rucola",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "Penne alla Sorrentiner Art\n\t\t\t (Mozzarella)",
+            "dish": "Penne mit Thunfisch, Kürbis und \t\t\tTomatensauce",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Rucola und Oliven",
+            "dish": "Pinsa mit scharfer Salami und \t\t\t\t\t  Rucola",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Freitag": [
           {
-            "dish": "Penne alla Sorrentiner Art\n\t\t\t (Mozzarella)",
+            "dish": "Penne mit Thunfisch, Kürbis und \t\t\tTomatensauce",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Rucola und Oliven",
+            "dish": "Pinsa mit scharfer Salami und \t\t\t\t\t  Rucola",
             "description": null,
             "price": "11,50 €"
           }
@@ -215,33 +210,21 @@
       "days": {
         "Montag": [
           {
-            "dish": "Thailändischer Glasnudelsalat (pikant)",
-            "description": "Tomaten, Gurken, Paprika, Lauch, Erdnüsse, Sellerie Koriander und Reis",
-            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Vegetarisch)"
+            "dish": "Pad Krapao Huhn (scharf)",
+            "description": "gebratenes Hühnerfleisch mit Bohnen, Bambus, Porree, Paprika, Peperoni und scharfen Basilikum. Dazu Reis",
+            "price": "10,00 €"
           },
           {
-            "dish": "Gelbes Thai Curry (pikant)",
-            "description": "mit Kartoffeln, Paprika, Bohnen, Karotten, Zucchini und Babymais. Dazu Reis",
-            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+            "dish": "Grünes Thai Curry (mittelscharf)",
+            "description": "mit Bohnen, Auberginen, Paprika, Karotten, Bambus, Blumenkohl und Basilikum. Dazu Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Gemüse und Tofu)"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Gebratener Eierreis (mild)",
-            "description": "mit Erbsen, Karotten, Mais, Ei, Pilze, Paprika, Zwiebeln und Kräuter",
-            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Vegetarisch)"
-          },
-          {
-            "dish": "Erdnuss Curry (pikant)",
-            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen, Erdnussbutter, Erdnüssen und Basilikum. Dazu Reis",
+            "dish": "Gebratener Curryreis (mild)",
+            "description": "mit Erbsen, Karotten, Mais, Ei, Pilze, Paprika, Zwiebeln, Soyasprossen und Kräuter",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
-          }
-        ],
-        "Mittwoch": [
-          {
-            "dish": "Tandoori Chicken Salat (mild)",
-            "description": "mariniertes Hähnchen auf Mix Salat mit Reis und Sosse",
-            "price": "10,00 €"
           },
           {
             "dish": "Rotes Thai Curry (Mittelscharf)",
@@ -249,27 +232,39 @@
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
+        "Mittwoch": [
+          {
+            "dish": "Pad Siuw Nudeln (mild)",
+            "description": "Gebratene Reisbandnudeln mit Hühnerfleisch, Broccoli, China Kohl, Paprika, Ei, Porree, Sojasprossen und Lauch",
+            "price": "9,50 €"
+          },
+          {
+            "dish": "Hunglay Curry (pikant)",
+            "description": "Burmesisches Hunglay Curry mit Ingwer, Blumenkohl, Paprika, Zucchini, Bambus, Karotten und Bohnen",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+          }
+        ],
         "Donnerstag": [
           {
-            "dish": "Pad Krapao (scharf)",
-            "description": "gebratenes Hackfleisch (gemischt Rind/Schwein) mit Bohnen, Bambus und Paprika. Dazu Reis",
+            "dish": "Laab (mittelscharf)",
+            "description": "Hackfleischsalat (gemischt Rind/Schwein) mit Zitronengras und Minze",
             "price": "10,00 €"
           },
           {
-            "dish": "Tom Kha Kokossuppe (mild)",
-            "description": "Kokossuppe mit Pilzen, Tomaten, Weißkohl, Babymais, Karotten, Lauch und Kräuter",
+            "dish": "Gelbes Thai Curry (pikant)",
+            "description": "mit Kartoffeln, Paprika, Bohnen, Karotten, Zucchini und Babymais. Dazu Reis",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
         "Freitag": [
           {
-            "dish": "Gochujang Bulgogi Hühnerpfanne (neu)",
-            "description": "scharf gebratenes Hühnchen mit buntem Gemüse",
-            "price": "10,00 €"
+            "dish": "Hühnerpfanne mit Zitronengras",
+            "description": "gebratenes Hühnerfleisch mit buntem Gemüse",
+            "price": "9,20 €"
           },
           {
-            "dish": "Matsman Thai Curry (Mittelscharf)",
-            "description": "mit Kartoffeln, Zucchini, Paprika, Karotten, Bohnen und Erdnüssen. Dazu Reis",
+            "dish": "Panang Thai Curry (mittelscharf)",
+            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen und Basilikum. Dazu Reis",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ]
@@ -286,15 +281,15 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Freitag": [
+        "Montag": [
           {
-            "dish": "Spinat-Feta-Strudel",
-            "description": "mit warmer Schnittlauchsauce",
+            "dish": "Sellerie-Schnitzel in Panko-Panade",
+            "description": "mit Preiselbeeren und Kartoffelsalat",
             "price": "11,90 €"
           },
           {
-            "dish": "Münchner Leberkas mit Spiegelei",
-            "description": "Und Kartoffelsalat",
+            "dish": "Schweine-Geschnetzeltes in cremige Wald-Pilzsoße",
+            "description": "Und Rösti",
             "price": "12,90 €"
           }
         ]
