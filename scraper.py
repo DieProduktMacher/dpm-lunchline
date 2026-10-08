@@ -383,14 +383,20 @@ def scrape_augustiner():
         weekday_name = WEEKDAYS_DE[today.weekday()] if today.weekday() < 5 else None
         pdf_url = None
 
-        guess = today.strftime("%d.%m.%y") + "_Tageskarte.pdf"
-        guess_url = f"https://augustiner-schuetzengarten.de/wp-content/uploads/{guess}"
-        try:
-            head = _get(guess_url)
-            if head.status_code == 200 and head.headers.get("Content-Type", "").startswith("application/pdf"):
-                pdf_url = guess_url
-        except Exception:  # noqa: BLE001
-            pass
+        # Augustiner hat das Dateinamensformat schon mal geändert (zweistelliges
+        # Jahr "08.10.26_...", inzwischen vierstellig "08.10.2026_..."). Beide
+        # Varianten durchprobieren, damit ein künftiger Wechsel nicht wieder den
+        # direkten Treffer kostet (die Portfolio-Seite bleibt als Fallback).
+        for guess in (today.strftime("%d.%m.%Y") + "_Tageskarte.pdf",
+                      today.strftime("%d.%m.%y") + "_Tageskarte.pdf"):
+            guess_url = f"https://augustiner-schuetzengarten.de/wp-content/uploads/{guess}"
+            try:
+                head = _get(guess_url)
+                if head.status_code == 200 and head.headers.get("Content-Type", "").startswith("application/pdf"):
+                    pdf_url = guess_url
+                    break
+            except Exception:  # noqa: BLE001
+                pass
 
         if not pdf_url:
             resp = _get(page_url)
@@ -411,9 +417,13 @@ def scrape_augustiner():
         # aktualisiert hat - der Dateiname verrät, für welchen Tag die Karte
         # wirklich ist. Nicht blind übernehmen, sonst zeigen wir gestriges
         # Tagesschmankerl fälschlich als "heutiges" an.
+        # Datum im Dateinamen kann 2- oder 4-stellig sein (s.o.) - beide Formen
+        # erkennen und gegen beide heutigen Schreibweisen vergleichen.
+        
         today_str = today.strftime("%d.%m.%y")
-        found_date_match = re.search(r"(\d{2}\.\d{2}\.\d{2})_Tageskarte.*\.pdf", pdf_url, re.I)
-        is_current = bool(found_date_match) and found_date_match.group(1) == today_str
+        today_str_4y = today.strftime("%d.%m.%Y")
+        found_date_match = re.search(r"(\d{2}\.\d{2}\.(?:\d{4}|\d{2}))_Tageskarte.*\.pdf", pdf_url, re.I)
+        is_current = bool(found_date_match) and found_date_match.group(1) in (today_str, today_str_4y)
 
         pdf_resp = _get(pdf_url)
         pdf_resp.raise_for_status()
