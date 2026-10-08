@@ -9,9 +9,17 @@
       "travel_minutes": 10,
       "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/08.10.2026_Tageskarte.pdf",
       "format": "pdf",
-      "days": {},
-      "status": "stale",
-      "error": "Zuletzt gefundene Tageskarte ist vom unbekanntem Datum (heute: 08.10.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
+      "days": {
+        "Donnerstag": [
+          {
+            "dish": "½ Maishendl mit Pommes Frites",
+            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
+            "price": "9,90 €"
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
     },
     {
       "id": "moccasola",
