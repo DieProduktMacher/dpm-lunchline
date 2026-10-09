@@ -7,11 +7,19 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/08.10.2026_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/09.10.2026_Tageskarte.pdf",
       "format": "pdf",
-      "days": {},
-      "status": "stale",
-      "error": "Zuletzt gefundene Tageskarte ist vom 08.10.2026 (heute: 09.10.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
+      "days": {
+        "Freitag": [
+          {
+            "dish": "Gebackenes Seelachsfilet mit Kartoffel-Gurkensalat und Remouladensauce",
+            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
+            "price": "9,90 €"
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
     },
     {
       "id": "moccasola",
@@ -24,24 +32,24 @@
       "days": {
         "Montag": [
           {
-            "dish": "Hausgemachte Ofenlasagne 12,90 € a,g",
+            "dish": "Hausgemachte Ofenlasagne",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Rahmspinat I 2 Spiegeleier I Salzkartoffeln 11,50 € g,c",
+            "dish": "Rahmspinat | 2 Spiegeleier | Salzkartoffeln",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Chicken Thaicurry I Gemüse I Jasminreis 12,90 € f,g",
+            "dish": "Chicken Thaicurry | Gemüse | Jasminreis",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Gebackene Champignons I Blattsalat I Sauce Tartar 11,50 € a,m",
+            "dish": "Gebackene Champignons | Blattsalat | Sauce Tartar",
             "description": null,
             "price": "11,50 €"
           }
@@ -53,73 +61,38 @@
             "price": null
           },
           {
-            "dish": "Holzfällerschnitzel I Speck & Zwiebel I Bratkartoffeln 12,90 € a",
+            "dish": "Holzfällerschnitzel | Speck & Zwiebel | Bratkartoffeln",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Ricotta Tortellini I Tomaten-Sahne Sauce I Grana Padano 11,50 € g",
+            "dish": "Ricotta Tortellini | Tomaten-Sahne Sauce | Grana Padano",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "Putenrollbraten I Blaukraut I Kartoffelknödel 12,90 € o",
+            "dish": "Putenrollbraten | Blaukraut | Kartoffelknödel",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Udon Nudeln I Pak Choy Gemüse 11,50 € a,f",
+            "dish": "Udon Nudeln | Pak Choy Gemüse",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Freitag": [
           {
-            "dish": "Lachstagliatelle I Zitronensauce 12,90 € d,g",
+            "dish": "Lachstagliatelle | Zitronensauce",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Sellerieschnitzel I Sauce Hollandaise I Kartoffelsalat 11,50 € a,c,m",
+            "dish": "Sellerieschnitzel | Sauce Hollandaise | Kartoffelsalat",
             "description": null,
             "price": "11,50 €"
-          },
-          {
-            "dish": "Änderungen vorbehalten",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "Allergenliste siehe Aushang",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "Reservierungen nehmen wir gerne unter 089 – 411 118 273 entgegen",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "www.moccasola.de",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "Mittagstisch oder zum Mitnehmen",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "Montag bis Donnerstag von 11:30 – 14:30",
-            "description": null,
-            "price": null
-          },
-          {
-            "dish": "Freitags von 11:30 bis 13:00 Uhr",
-            "description": null,
-            "price": null
           }
         ]
       },
