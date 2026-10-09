@@ -348,8 +348,15 @@ def scrape_moccasola():
                 continue
             if current_day is None:
                 continue
+                        if _MOCCASOLA_FOOTER_RE.search(line):
+                break
             price = _price_from_text(line.replace(".", ","))
-            dish_line = re.sub(r"[-–—]\s*\d{1,2}[.,]\d{2}\s*€?", "", line).strip()
+            dish_line = line
+            if price:
+                dish_line = _PRICE_RE.sub("", dish_line)
+            dish_line = re.sub(r"\s+[a-zA-Z](?:\s*,\s*[a-zA-Z])*\s*$", "", dish_line)
+            dish_line = dish_line.strip(" -–—:")
+            dish_line = re.sub(r"(?<=\s)I(?=\s)", "|", dish_line)
             if dish_line:
                 result["days"][current_day].append({"dish": dish_line, "description": None, "price": price})
 
