@@ -348,7 +348,7 @@ def scrape_moccasola():
                 continue
             if current_day is None:
                 continue
-                        if _MOCCASOLA_FOOTER_RE.search(line):
+            if _MOCCASOLA_FOOTER_RE.search(line):
                 break
             price = _price_from_text(line.replace(".", ","))
             dish_line = line
