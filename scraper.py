@@ -278,6 +278,12 @@ def scrape_lotus_asia():
 # ---------------------------------------------------------------------------
 # 3. Café Moccasola — Wochenkarte als PDF, Dateiname enthält Kalenderwoche
 # ---------------------------------------------------------------------------
+
+_MOCCASOLA_FOOTER_RE = re.compile(
+    r"änderungen vorbehalten|allergenliste|reservierung|^www\.|mitnehmen|"
+    r"montag bis (?:donnerstag|freitag)|freitags?\s+von|geöffnet|öffnungszeiten",
+    re.I,
+)
 def scrape_moccasola():
     page_url = "https://www.moccasola.de/pages/moccasola-cafe"
     result = {
