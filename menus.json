@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16",
+  "generated_at": "2026-10-19",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,12 +7,12 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/16.10.2026_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/19.10.2026_Tageskarte.pdf",
       "format": "pdf",
       "days": {
-        "Freitag": [
+        "Montag": [
           {
-            "dish": "Gebackenes Seehechtfilet mit Kartoffel-Gurkensalat und Remouladensauce",
+            "dish": "1/ ofenfrisches Hendl mit Pommes Frites",
             "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
             "price": "9,90 €"
           }
@@ -27,29 +27,29 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW42_2026.pdf?v=1791783289",
+      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW43_2026.pdf?v=1792073001",
       "format": "pdf",
       "days": {
         "Montag": [
           {
-            "dish": "MOCCASOLA Biergulasch vom Rind | Semmelknödel",
+            "dish": "Rahmgeschnetzeltes vom Hühnchen | Reis | Erbsengemüse",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Spaghetti Arrabiata | Grana Padano",
+            "dish": "Hausgemachte Pfannkuchen | Schwammerl | Kräuterquark",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Chicken Teriyaki | Gemüse | Duftreis",
+            "dish": "Rindsroulade | Spätzle | Krautsalat",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Käsespätzle | Röstzwiebel",
+            "dish": "Gnocchi Genovese | Hausgemachtes Basilikumpesto",
             "description": null,
             "price": "11,50 €"
           }
@@ -61,41 +61,36 @@
             "price": null
           },
           {
-            "dish": "MOCCASOLA Bacon Burger | Pommes",
+            "dish": "Piccata Milanese vom Huhn | Tagliatelle | Tomatensugo",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Als Double Burger  | + Käse",
-            "description": null,
-            "price": "16,90 €"
-          },
-          {
-            "dish": "Gebackener Camembert | Blattsalat | Preiselbeeren | Brotkorb",
+            "dish": "Gelbes Linsendhal | Brokkoli | hausgemachtes Naanbrot",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "6 Stück Nürnberger | Sauerkraut | Kartoffelpüree",
+            "dish": "Pulled Pork | Cole Slaw | Laugenstangerl",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Protein Bowl | Edamame | Hummus | Ei | Hüttenkäse",
+            "dish": "Hausgemachte Gemüselasagne",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Freitag": [
           {
-            "dish": "Pizza Tonno | Tomatensalat",
+            "dish": "Currywurst | Pommes | Beilagensalat",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Blumenkohlauflauf | Bergkäse",
+            "dish": "Gebackene Zucchini | Tzatziki | Bohnenpüree",
             "description": null,
             "price": "11,50 €"
           }
@@ -115,60 +110,60 @@
       "days": {
         "Montag": [
           {
-            "dish": "Pasta mit Basilikumpesto und Kürbis-Tomatensauce",
+            "dish": "Rigatoni mit Kürbis, Miesmuscheln und Tomatensauce",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Gorgonzola und Kürbis",
+            "dish": "Pinsa mit ParmaSchinken und schwarzen Oliven",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Pasta mit Basilikumpesto und Kürbis-Tomatensauce",
+            "dish": "Rigatoni mit Kürbis, Miesmuscheln und Tomatensauce",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Gorgonzola und Kürbis",
+            "dish": "Pinsa mit ParmaSchinken und schwarzen Oliven",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Mittwoch": [
           {
-            "dish": "Pasta mit Basilikumpesto und Kürbis-Tomatensauce",
+            "dish": "Rigatoni mit Kürbis, Miesmuscheln und Tomatensauce",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Gorgonzola und Kürbis",
+            "dish": "Pinsa mit ParmaSchinken und schwarzen Oliven",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "Pasta mit Basilikumpesto und Kürbis-Tomatensauce",
+            "dish": "Rigatoni mit Kürbis, Miesmuscheln und Tomatensauce",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Gorgonzola und Kürbis",
+            "dish": "Pinsa mit ParmaSchinken und schwarzen Oliven",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Freitag": [
           {
-            "dish": "Pasta mit Basilikumpesto und Kürbis-Tomatensauce",
+            "dish": "Rigatoni mit Kürbis, Miesmuscheln und Tomatensauce",
             "description": null,
             "price": "10,50 €"
           },
           {
-            "dish": "Pinsa mit Gorgonzola und Kürbis",
+            "dish": "Pinsa mit ParmaSchinken und schwarzen Oliven",
             "description": null,
             "price": "11,50 €"
           }
@@ -259,15 +254,15 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Freitag": [
+        "Montag": [
           {
-            "dish": "Fusilli Tricolore mit Broccoli",
-            "description": "und Gorgonzolasoße",
+            "dish": "Kartoffel-Lauch-Gratin",
+            "description": "mit Waldpilzsoße",
             "price": "11,90 €"
           },
           {
-            "dish": "Gefüllte Paprika mit Hackfleisch",
-            "description": "an Tomatensoße und Salzkartoffeln",
+            "dish": "Hackbraten mit Paprikasoße",
+            "description": "und Reis",
             "price": "12,90 €"
           }
         ]
