@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20",
+  "generated_at": "2026-10-21",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,12 +7,12 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/20.10.2026_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/21.10.2026_Tageskarte.pdf",
       "format": "pdf",
       "days": {
-        "Dienstag": [
+        "Mittwoch": [
           {
-            "dish": "Ofenfrischer Schweinerollbraten mit Kartoffel-Gurkensalat und Augustiner-Dunkelbiersauce",
+            "dish": "Fleischpflanzerl mit Kartoffel-Gurkensalat und Augustiner-Dunkelbiersauce",
             "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
             "price": "9,90 €"
           }
@@ -254,7 +254,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Dienstag": [
+        "Mittwoch": [
           {
             "dish": "Kartoffel-Lauch-Gratin",
             "description": "mit Waldpilzsoße",
@@ -264,6 +264,79 @@
             "dish": "Hackbraten mit Paprikasoße",
             "description": "und Reis",
             "price": "12,90 €"
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "id": "nilis_kitchen",
+      "name": "Nili's Kitchen",
+      "address": "Schertlinstraße 4, 81379 München",
+      "category": "bike",
+      "travel_minutes": 5,
+      "source_url": "https://cdn.website.dish.co/media/6f/a0/10237416/Muenchen-Speisekarte.pdf",
+      "format": "pdf",
+      "days": {
+        "Montag": [
+          {
+            "dish": "Grüne Bohnen mit Reis",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Puten-Geschnetzeltes mit Reis",
+            "description": "inkl. Tagessuppe",
+            "price": "8,90 €"
+          }
+        ],
+        "Dienstag": [
+          {
+            "dish": "Nudeln in Gorgonzola Tomatensoße",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Chicken Indischer Art",
+            "description": "inkl. Tagessuppe",
+            "price": "8,90 €"
+          }
+        ],
+        "Mittwoch": [
+          {
+            "dish": "Zucchinigemüse",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Izmir Köfte",
+            "description": "inkl. Tagessuppe",
+            "price": "8,90 €"
+          }
+        ],
+        "Donnerstag": [
+          {
+            "dish": "Auberginengemüse mit Reis",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Dönerteller",
+            "description": "inkl. Tagessuppe",
+            "price": "8,90 €"
+          }
+        ],
+        "Freitag": [
+          {
+            "dish": "Kaiserschmarrn mit Apfelmousse",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Goldbraun panierter Alaska-Seelachs mit Petersilienkartoffel",
+            "description": null,
+            "price": "8,90 €"
           }
         ]
       },

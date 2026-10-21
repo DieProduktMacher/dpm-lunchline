@@ -576,7 +576,106 @@ def scrape_alter_wirt():
     return result
 
 
-SCRAPERS = [scrape_egghaus, scrape_lotus_asia, scrape_moccasola, scrape_augustiner, scrape_alter_wirt]
+# ---------------------------------------------------------------------------
+# 6. Nili's Kitchen — Wochenkarte als PDF, Tabelle mit Wochentagen als Spalten
+#    und "Menü 1"/"Menü 2" als Zeilen. Jede Tageszelle enthält Gerichtsname,
+#    ein optionales "+Tagessuppe"/"Tagessuppe" und den Preis - alles durch
+#    Zeilenumbrüche innerhalb der Zelle getrennt; Allergenkürzel stehen in
+#    eigenen Spalten und landen deshalb gar nicht erst im Gerichtsnamen.
+# ---------------------------------------------------------------------------
+_NILIS_DAY_NAMES = {d.lower(): d for d in WEEKDAYS_DE}
+
+
+def scrape_nilis_kitchen():
+    pdf_url = "https://cdn.website.dish.co/media/6f/a0/10237416/Muenchen-Speisekarte.pdf"
+    result = {
+        "id": "nilis_kitchen",
+        "name": "Nili's Kitchen",
+        "address": "Schertlinstraße 4, 81379 München",
+        "category": "bike",
+        "travel_minutes": 5,
+        "source_url": pdf_url,
+        "format": "pdf",
+        "days": {},
+        "status": "error",
+        "error": None,
+    }
+    try:
+        import pdfplumber
+        from io import BytesIO
+
+        pdf_resp = _get(pdf_url)
+        pdf_resp.raise_for_status()
+
+        tables = []
+        with pdfplumber.open(BytesIO(pdf_resp.content)) as pdf:
+            for page in pdf.pages:
+                tables.extend(page.extract_tables())
+
+        # Die Kopfzeile nennt die Wochentage ausgeschrieben, teils mit
+        # angehängtem Datum in derselben Zelle ("Montag, 19.10.2026"),
+        # deshalb per Präfix-Match statt exaktem Abgleich suchen.
+        day_cols = {}
+        for table in tables:
+            for row in table:
+                cells = [str(c).strip() if c else "" for c in row]
+                found = {}
+                for i, c in enumerate(cells):
+                    low = c.lower()
+                    for name_lower, name in _NILIS_DAY_NAMES.items():
+                        if low.startswith(name_lower):
+                            found[i] = name
+                            break
+                if len(found) >= 3:
+                    day_cols = found
+                    break
+            if day_cols:
+                break
+
+        if not day_cols:
+            result["error"] = "Konnte Wochentags-Kopfzeile in der PDF-Tabelle nicht finden - Layout ggf. geändert."
+            return result
+
+        for table in tables:
+            for row in table:
+                cells = [str(c).strip() if c else "" for c in row]
+                if not cells or not re.search(r"men[uü]\s*\d", cells[0], re.I):
+                    continue
+                for col_idx, day_name in day_cols.items():
+                    if col_idx >= len(cells) or not cells[col_idx]:
+                        continue
+                    # Silbentrennung am Zeilenumbruch ("Puten-\nGeschnetzeltes")
+                    # zusammenführen, bevor übrige Umbrüche zu Leerzeichen werden.
+                    cell_text = cells[col_idx].replace("-\n", "-").replace("\n", " ").strip()
+                    has_soup = "tagessuppe" in cell_text.lower()
+                    price = _price_from_text(cell_text)
+                    dish = _PRICE_RE.sub("", cell_text)
+                    # Vereinzelt bleibt ein zweites, überlappendes "€" ohne Zahl
+                    # übrig (Darstellungsartefakt der PDF) - das ist kein Teil
+                    # des Gerichtsnamens.
+                    dish = re.sub(r"€+", "", dish)
+                    dish = re.sub(r"\+?\s*tagessuppe\b", "", dish, flags=re.I)
+                    dish = re.sub(r"\s{2,}", " ", dish).strip(" -–—:+")
+                    if dish:
+                        result["days"].setdefault(day_name, []).append({
+                            "dish": dish,
+                            "description": "inkl. Tagessuppe" if has_soup else None,
+                            "price": price,
+                        })
+
+        result["days"] = {d: v for d, v in result["days"].items() if v}
+        result["status"] = "ok" if result["days"] else "error"
+        if result["status"] == "error":
+            result["error"] = "PDF gefunden, aber keine Gerichte in der Tabelle erkannt - Layout ggf. anders als erwartet."
+    except Exception as exc:  # noqa: BLE001
+        result["error"] = str(exc)
+    return result
+
+
+SCRAPERS = [
+    scrape_egghaus, scrape_lotus_asia, scrape_moccasola, scrape_augustiner,
+    scrape_alter_wirt, scrape_nilis_kitchen,
+]
 
 
 def main():
