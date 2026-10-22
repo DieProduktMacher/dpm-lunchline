@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21",
+  "generated_at": "2026-10-22",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,19 +7,11 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/21.10.2026_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/22.10.2026_Tageskarte.pdf",
       "format": "pdf",
-      "days": {
-        "Mittwoch": [
-          {
-            "dish": "Fleischpflanzerl mit Kartoffel-Gurkensalat und Augustiner-Dunkelbiersauce",
-            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
-            "price": "9,90 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "error",
+      "error": "PDF gefunden, aber kein 'Tagesschmankerl' erkannt - Layout ggf. geändert."
     },
     {
       "id": "moccasola",
@@ -254,7 +246,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Mittwoch": [
+        "Donnerstag": [
           {
             "dish": "Kartoffel-Lauch-Gratin",
             "description": "mit Waldpilzsoße",
