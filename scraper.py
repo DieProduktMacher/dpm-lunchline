@@ -582,19 +582,27 @@ def scrape_alter_wirt():
 #    ein optionales "+Tagessuppe"/"Tagessuppe" und den Preis - alles durch
 #    Zeilenumbrüche innerhalb der Zelle getrennt; Allergenkürzel stehen in
 #    eigenen Spalten und landen deshalb gar nicht erst im Gerichtsnamen.
+#
+#    Die PDF-URL selbst ist NICHT stabil: die Bestellplattform (eatbu.com /
+#    dish.co) vergibt bei jedem Hochladen der Karte eine neue, zufällige
+#    URL (gesehen: derselbe Wocheninhalt unter zwei verschiedenen Links
+#    innerhalb weniger Tage). Deshalb - wie bei Moccasola - die Restaurant-
+#    Seite selbst nach dem aktuellen Link abfragen, statt ihn fest zu
+#    verdrahten. Die Seite listet mehrere Standorte (u.a. Germering); nur
+#    der Münchner Link interessiert uns.
 # ---------------------------------------------------------------------------
 _NILIS_DAY_NAMES = {d.lower(): d for d in WEEKDAYS_DE}
 
 
 def scrape_nilis_kitchen():
-    pdf_url = "https://cdn.website.dish.co/media/6f/a0/10237416/Muenchen-Speisekarte.pdf"
+    page_url = "https://nilis-kitchen.eatbu.com/?lang=en"
     result = {
         "id": "nilis_kitchen",
         "name": "Nili's Kitchen",
         "address": "Schertlinstraße 4, 81379 München",
         "category": "bike",
         "travel_minutes": 5,
-        "source_url": pdf_url,
+        "source_url": page_url,
         "format": "pdf",
         "days": {},
         "status": "error",
@@ -603,6 +611,20 @@ def scrape_nilis_kitchen():
     try:
         import pdfplumber
         from io import BytesIO
+
+        resp = _get(page_url)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.text, "html.parser")
+        pdf_url = None
+        for a in soup.find_all("a", href=True):
+            href = a["href"]
+            if href.lower().endswith(".pdf") and "muenchen" in href.lower():
+                pdf_url = href
+                break
+        if not pdf_url:
+            result["error"] = "Kein PDF-Link zur Münchner Wochenkarte auf der Restaurant-Seite gefunden."
+            return result
+        result["source_url"] = pdf_url
 
         pdf_resp = _get(pdf_url)
         pdf_resp.raise_for_status()
