@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22",
+  "generated_at": "2026-10-23",
   "restaurants": [
     {
       "id": "augustiner",
@@ -246,7 +246,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Donnerstag": [
+        "Freitag": [
           {
             "dish": "Kartoffel-Lauch-Gratin",
             "description": "mit Waldpilzsoße",
@@ -270,70 +270,9 @@
       "travel_minutes": 5,
       "source_url": "https://cdn.website.dish.co/media/6f/a0/10237416/Muenchen-Speisekarte.pdf",
       "format": "pdf",
-      "days": {
-        "Montag": [
-          {
-            "dish": "Grüne Bohnen mit Reis",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Puten-Geschnetzeltes mit Reis",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Dienstag": [
-          {
-            "dish": "Nudeln in Gorgonzola Tomatensoße",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Chicken Indischer Art",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Mittwoch": [
-          {
-            "dish": "Zucchinigemüse",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Izmir Köfte",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Donnerstag": [
-          {
-            "dish": "Auberginengemüse mit Reis",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Dönerteller",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Freitag": [
-          {
-            "dish": "Kaiserschmarrn mit Apfelmousse",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Goldbraun panierter Alaska-Seelachs mit Petersilienkartoffel",
-            "description": null,
-            "price": "8,90 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "error",
+      "error": "404 Client Error: Not Found for url: https://cdn.website.dish.co/media/6f/a0/10237416/Muenchen-Speisekarte.pdf"
     }
   ]
 }
