@@ -2,18 +2,18 @@ name: Update Mittagsmenüs
 
 on:
   schedule:
-    # Alle 30 Min, werktags 08:00-11:00 UTC = 09:00-12:00 Europe/Berlin
-    # (Winterzeit) bzw. 10:00-13:00 (Sommerzeit) - Cron läuft in UTC und
+    # Alle 30 Min, werktags 07:00-13:00 UTC = 08:00-14:00 Europe/Berlin
+    # (Winterzeit) bzw. 09:00-15:00 (Sommerzeit) - Cron läuft in UTC und
     # verschiebt sich daher je nach Jahreszeit um eine Stunde gegenüber der
     # lokalen Zeit. Augustiner lädt die Tageskarte nicht immer schon
     # morgens hoch, manchmal erst gegen Mittag - deshalb mehrere Läufe
-    # über den Vormittag verteilt statt nur 1-2 feste Uhrzeiten. Der
-    # Scraper erkennt eine noch nicht aktualisierte Karte selbst (status
-    # "stale" statt falscher "ok"-Daten), jeder zusätzliche Lauf gibt ihr
-    # aber eine reale Chance, rechtzeitig vor Ende des Tagesschmankerls
-    # (11:30-15:00 Uhr) aktuell zu sein.
-    - cron: "0,30 8-10 * * 1-5"
-    - cron: "0 11 * * 1-5"
+    # über den Vormittag/frühen Mittag verteilt statt nur 1-2 feste
+    # Uhrzeiten. Der Scraper erkennt eine noch nicht aktualisierte Karte
+    # selbst (status "stale" statt falscher "ok"-Daten), jeder
+    # zusätzliche Lauf gibt ihr aber eine reale Chance, rechtzeitig vor
+    # Ende des Tagesschmankerls (11:30-15:00 Uhr) aktuell zu sein.
+    - cron: "0,30 7-12 * * 1-5"
+    - cron: "0 13 * * 1-5"
   workflow_dispatch: {}   # manuell über den "Run workflow"-Button auslösbar
 
 permissions:
