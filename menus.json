@@ -281,72 +281,11 @@
       "address": "Schertlinstraße 4, 81379 München",
       "category": "bike",
       "travel_minutes": 5,
-      "source_url": "https://cdn.website.dish.co/media/84/7f/10252286/Muenchen-Speisekarte.pdf",
+      "source_url": "https://cdn.website.dish.co/media/72/b4/10252655/Muenchen-Extra.pdf",
       "format": "pdf",
-      "days": {
-        "Montag": [
-          {
-            "dish": "Julienne-Gemüse mit Reis",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Hähnchengeschnetzeltes mit Reis",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Dienstag": [
-          {
-            "dish": "Gemüsecurry",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Hähnchenschenkel",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Mittwoch": [
-          {
-            "dish": "Paprikageschnetzeltes aus Kartoffelpüree",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Chili con Carne",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Donnerstag": [
-          {
-            "dish": "Nudeln mit Champignonsoße",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Dönerteller",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Freitag": [
-          {
-            "dish": "Kartoffel.Lauch-Aufllauf",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Goldbraun panierter Alaska-Seelachs mit Petersilienkartoffel",
-            "description": null,
-            "price": "8,90 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "error",
+      "error": "Konnte Wochentags-Kopfzeile in der PDF-Tabelle nicht finden - Layout ggf. geändert."
     }
   ]
 }
