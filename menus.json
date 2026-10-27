@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26",
+  "generated_at": "2026-10-27",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,12 +7,12 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/26.10.2026_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/27.10.2026_Tageskarte.pdf",
       "format": "pdf",
       "days": {
-        "Montag": [
+        "Dienstag": [
           {
-            "dish": "Ofenfrischer Schweinerollbraten mit Kartoffel-Gurkensalat und Augustiner-Dunkelbiersauce",
+            "dish": "Ofenfrischer Leberkäse mit Kartoffel-Gurkensalat und Augustiner-Dunkelbiersauce",
             "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
             "price": "9,90 €"
           }
@@ -259,7 +259,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Montag": [
+        "Dienstag": [
           {
             "dish": "Rahmschwammerl mit Semmelknödel",
             "description": "und Schnittlauch",
