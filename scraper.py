@@ -615,10 +615,15 @@ def scrape_nilis_kitchen():
         resp = _get(page_url)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
+        # Nicht nur nach "muenchen" filtern: die Seite listet inzwischen auch
+        # Sonderflyer wie "Muenchen-Extra.pdf" (z.B. Ankündigungen), die
+        # ebenfalls "muenchen" im Dateinamen tragen, aber keine Wochenkarte
+        # sind - "speisekarte" im Dateinamen grenzt das gezielt ein.
         pdf_url = None
         for a in soup.find_all("a", href=True):
             href = a["href"]
-            if href.lower().endswith(".pdf") and "muenchen" in href.lower():
+            low = href.lower()
+            if low.endswith(".pdf") and "muenchen" in low and "speisekarte" in low:
                 pdf_url = href
                 break
         if not pdf_url:
