@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28",
+  "generated_at": "2026-10-29",
   "restaurants": [
     {
       "id": "augustiner",
@@ -9,17 +9,9 @@
       "travel_minutes": 10,
       "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/28.10.2026_Tageskarte.pdf",
       "format": "pdf",
-      "days": {
-        "Mittwoch": [
-          {
-            "dish": "Penne Arrabiata in pikantem Tomatensugo mit Rucola und Parmesan",
-            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
-            "price": "9,90 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "stale",
+      "error": "Zuletzt gefundene Tageskarte ist vom 28.10.2026 (heute: 29.10.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
     },
     {
       "id": "moccasola",
@@ -259,7 +251,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Mittwoch": [
+        "Donnerstag": [
           {
             "dish": "Rahmschwammerl mit Semmelknödel",
             "description": "und Schnittlauch",
