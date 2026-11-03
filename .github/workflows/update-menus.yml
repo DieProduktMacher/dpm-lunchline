@@ -12,8 +12,15 @@ on:
     # selbst (status "stale" statt falscher "ok"-Daten), jeder
     # zusätzliche Lauf gibt ihr aber eine reale Chance, rechtzeitig vor
     # Ende des Tagesschmankerls (11:30-15:00 Uhr) aktuell zu sein.
-    - cron: "0,30 7-12 * * 1-5"
-    - cron: "0 13 * * 1-5"
+    #
+    # Minuten bewusst NICHT auf :00/:30 gelegt: das ist die am stärksten
+    # überlastete Zeit in GitHubs Scheduler (Millionen Repos takten dort),
+    # wodurch "schedule"-Trigger regelmäßig stark verzögert oder ganz
+    # übersprungen werden (beobachtet: nur 1-2 von erwarteten ~13 Läufen/Tag
+    # kamen tatsächlich an). :07/:37 reduziert das Risiko, ist aber auch nur
+    # "best effort" von GitHub - siehe workflow_dispatch-Fallback via API.
+    - cron: "7,37 7-12 * * 1-5"
+    - cron: "7 13 * * 1-5"
   workflow_dispatch: {}   # manuell über den "Run workflow"-Button auslösbar
 
 permissions:
