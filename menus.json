@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02",
+  "generated_at": "2026-11-03",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,12 +7,12 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/02.11.2026_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/03.11.2026_Tageskarte.pdf",
       "format": "pdf",
       "days": {
-        "Montag": [
+        "Dienstag": [
           {
-            "dish": "Penne in Waldpilz-Kräuterrahm mit Rucola und Parmesan",
+            "dish": "Ofenfrischer Schweinerollbraten mit Kartoffel-Gurkensalat und Augustiner-Dunkelbiersauce",
             "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
             "price": "9,90 €"
           }
@@ -254,7 +254,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Montag": [
+        "Dienstag": [
           {
             "dish": "Gekochte Eier in Dill-Senf-Sauce",
             "description": "und Schnittlauchkartoffeln",
@@ -276,72 +276,11 @@
       "address": "Schertlinstraße 4, 81379 München",
       "category": "bike",
       "travel_minutes": 5,
-      "source_url": "https://cdn.website.dish.co/media/69/b5/10265495/Muenchen-Speisekarte.pdf",
+      "source_url": "https://nilis-kitchen.eatbu.com/?lang=en",
       "format": "pdf",
-      "days": {
-        "Montag": [
-          {
-            "dish": "Gemüse in Currysoße",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Izmir Köfte mit Reis",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Dienstag": [
-          {
-            "dish": "Gemüsefrikadellen mit Karottendip",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Makkaronl",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Mittwoch": [
-          {
-            "dish": "Auberginenteller",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Hähnchen-Geschnetzeltes mit Reis",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Donnerstag": [
-          {
-            "dish": "Nudel mit Napolisoße",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Gulasch mit Hähnchenfleisch und Paprika+ Kartoffelpüree",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Freitag": [
-          {
-            "dish": "Kartoffel.-Lauch-Aufllauf",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Goldbraun panierter Alaska-Seelachs mit Petersilienkartoffel",
-            "description": null,
-            "price": "8,90 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "error",
+      "error": "Kein PDF-Link zur Münchner Wochenkarte auf der Restaurant-Seite gefunden."
     }
   ]
 }
