@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04",
+  "generated_at": "2026-11-05",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,12 +7,12 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/04.11.2026_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/05.11.2026_Tageskarte.pdf",
       "format": "pdf",
       "days": {
-        "Mittwoch": [
+        "Donnerstag": [
           {
-            "dish": "Hähnchenschnitzel „Wiener Art“ mit Pommes Frites",
+            "dish": "Fleischpflanzerl mit Kartoffel-Gurkensalat und Dunkelbiersauce",
             "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
             "price": "9,90 €"
           }
@@ -254,7 +254,7 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Mittwoch": [
+        "Donnerstag": [
           {
             "dish": "Gekochte Eier in Dill-Senf-Sauce",
             "description": "und Schnittlauchkartoffeln",
