@@ -7,11 +7,19 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/08.11.2026_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/09.11.2026_Tageskarte.pdf",
       "format": "pdf",
-      "days": {},
-      "status": "stale",
-      "error": "Zuletzt gefundene Tageskarte ist vom 08.11.2026 (heute: 09.11.26) - Augustiner hat die Karte für heute vermutlich noch nicht hochgeladen."
+      "days": {
+        "Montag": [
+          {
+            "dish": "Cordon Bleu vom Schwein mit Kartoffel-Gurkensalat",
+            "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
+            "price": "9,90 €"
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
     },
     {
       "id": "moccasola",
@@ -180,37 +188,37 @@
       "days": {
         "Montag": [
           {
-            "dish": "Satay Chicken Salad",
-            "description": "Gebratenes Hühnchen auf gemischtem Salat und Erdnusssoße",
-            "price": "10,00 €"
+            "dish": "Gebratener Eierreis (mild)",
+            "description": "mit Erbsen, Karotten, Mais, Ei, Pilze, Paprika, Zwiebeln und Kräuter",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Vegetarisch)"
           },
           {
-            "dish": "Panang Thai Curry (mittelscharf)",
-            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen und Basilikum. Dazu Reis",
+            "dish": "Rotes Thai Curry (Mittelscharf)",
+            "description": "mit Bohnen, Zucchini, Paprika, Karotten, Bambus und Basilikum. Dazu Reis",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Gebratener Curryreis (mild)",
-            "description": "mit Erbsen, Karotten, Mais, Ei, Pilze, Paprika, Zwiebeln, Soyasprossen und Kräuter",
-            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+            "dish": "Pad Krapao (scharf)",
+            "description": "gebratenes Hackfleisch (gemischt Rind/Schwein) mit Bohnen, Bambus und Paprika. Dazu Reis",
+            "price": "10,00 €"
           },
           {
-            "dish": "Erdnuss Curry (pikant)",
-            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen, Erdnussbutter, Erdnüssen und Basilikum. Dazu Reis",
+            "dish": "Matsman Thai Curry (Mittelscharf)",
+            "description": "mit Kartoffeln, Zucchini, Paprika, Karotten, Bohnen und Erdnüssen. Dazu Reis",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
         "Mittwoch": [
           {
-            "dish": "Gebratene Glasnudeln (mild)",
-            "description": "mit Broccoli, Karotten, Ei, Spitz Kohl, Porree und Sojasprossen",
-            "price": "9,50 € (Hühnerfleisch)"
+            "dish": "Pad Siuw Nudeln (mild)",
+            "description": "Gebratene Reisbandnudeln mit Hühnerfleisch, Broccoli, China Kohl, Paprika, Ei, Porree, Sojasprossen und Lauch",
+            "price": "9,50 €"
           },
           {
-            "dish": "Hunglay Curry (pikant)",
-            "description": "Burmesisches Hunglay Curry mit Ingwer, Blumenkohl, Paprika, Zucchini, Bambus, Karotten und Bohnen",
+            "dish": "Kao Soi Thai Curry (pikant)",
+            "description": "mit Blumenkohl, Bambus, Zucchini, Karotten, Paprika, Bohnen, Babymais und Basilikum",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
@@ -221,21 +229,21 @@
             "price": "10,00 €"
           },
           {
-            "dish": "Matsman Thai Curry (Mittelscharf)",
-            "description": "mit Kartoffeln, Zucchini, Paprika, Karotten, Bohnen und Erdnüssen. Dazu Reis",
+            "dish": "Gelbes Thai Curry (pikant)",
+            "description": "mit Kartoffeln, Paprika, Bohnen, Karotten, Zucchini und Babymais. Dazu Reis",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
         "Freitag": [
           {
-            "dish": "Gung Pao Hühnerpfanne",
-            "description": "scharf gebratenes Huhn mit buntem Gemüse",
+            "dish": "Pad Prik Khing Pfanne",
+            "description": "Gebratenes Hühnerfleisch mit Bambus, Paprika, Bohnen, Karotten, Blumenkohl und Ingwer",
             "price": "10,00 €"
           },
           {
-            "dish": "Grünes Thai Curry (mittelscharf)",
-            "description": "mit Bohnen, Auberginen, Paprika, Karotten, Bambus, Blumenkohl und Basilikum. Dazu Reis",
-            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Gemüse und Tofu)"
+            "dish": "Panang Thai Curry (mittelscharf)",
+            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen und Basilikum. Dazu Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ]
       },
@@ -273,72 +281,11 @@
       "address": "Schertlinstraße 4, 81379 München",
       "category": "bike",
       "travel_minutes": 5,
-      "source_url": "https://cdn.website.dish.co/media/09/4c/10267947/Speisekarte.pdf",
+      "source_url": "https://nilis-kitchen.eatbu.com/?lang=en",
       "format": "pdf",
-      "days": {
-        "Montag": [
-          {
-            "dish": "Gemüse in Currysoße",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Izmir Köfte mit Reis",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Dienstag": [
-          {
-            "dish": "Gemüsefrikadellen mit Karottendip",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Makkaronl",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Mittwoch": [
-          {
-            "dish": "Auberginenteller",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Hähnchen-Geschnetzeltes mit Reis",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Donnerstag": [
-          {
-            "dish": "Nudel mit Napolisoße",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Rinder-Gulasch mit Paprika+ Kartoffelpüree",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Freitag": [
-          {
-            "dish": "Semmelknödel mit Blaukraut und Schwammerlsoße",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Goldbraun panierter Alaska-Seelachs mit Petersilienkartoffel",
-            "description": null,
-            "price": "8,90 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "error",
+      "error": "Kein PDF-Link zur Münchner Wochenkarte auf der Restaurant-Seite gefunden."
     }
   ]
 }
