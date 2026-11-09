@@ -281,11 +281,72 @@
       "address": "Schertlinstraße 4, 81379 München",
       "category": "bike",
       "travel_minutes": 5,
-      "source_url": "https://nilis-kitchen.eatbu.com/?lang=en",
+      "source_url": "https://cdn.website.dish.co/media/9a/f5/10280117/Speisekarte.pdf",
       "format": "pdf",
-      "days": {},
-      "status": "error",
-      "error": "Kein PDF-Link zur Münchner Wochenkarte auf der Restaurant-Seite gefunden."
+      "days": {
+        "Montag": [
+          {
+            "dish": "Spinat mit Spiegelei und Salzkartoffeln",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Chicken Wings mit Kartoffel aus dem Ofen",
+            "description": "inkl. Tagessuppe",
+            "price": "8,90 €"
+          }
+        ],
+        "Dienstag": [
+          {
+            "dish": "Gemüsereis",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Rind-Kartoffeleintopf",
+            "description": "inkl. Tagessuppe",
+            "price": "8,90 €"
+          }
+        ],
+        "Mittwoch": [
+          {
+            "dish": "Grüne Bohnen- mit Reis",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Paprika-Hähnchen-Gulasch mit Reis",
+            "description": "inkl. Tagessuppe",
+            "price": "8,90 €"
+          }
+        ],
+        "Donnerstag": [
+          {
+            "dish": "Nudelauflauf",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Dönerteller",
+            "description": "inkl. Tagessuppe",
+            "price": "8,90 €"
+          }
+        ],
+        "Freitag": [
+          {
+            "dish": "Gemüsemix mit Jogurtdip",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Goldbraun panierter Alaska-Seelachs mit Petersilienkartoffel",
+            "description": null,
+            "price": "8,90 €"
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
     }
   ]
 }
