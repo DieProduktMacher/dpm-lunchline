@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13",
+  "generated_at": "2026-11-16",
   "restaurants": [
     {
       "id": "augustiner",
@@ -7,12 +7,12 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/13.11.2026_Tageskarte.pdf",
+      "source_url": "https://augustiner-schuetzengarten.de/wp-content/uploads/16.11.2026_Tageskarte.pdf",
       "format": "pdf",
       "days": {
-        "Freitag": [
+        "Montag": [
           {
-            "dish": "Frisches Seelachsfilet gebacken mit Kartoffel-Gurkensalat und Remouladensauce",
+            "dish": "Cordon Bleu vom Schwein mit Pommes Frites",
             "description": "Tagesangebot Mo–Fr, 11:30–15:00 Uhr",
             "price": "9,90 €"
           }
@@ -27,29 +27,29 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW46_2026.pdf?v=1793947747",
+      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW47_2026.pdf?v=1794810687",
       "format": "pdf",
       "days": {
         "Montag": [
           {
-            "dish": "Pfeffersteak vom Schweinenacken | Kräuterbutter | Grillgemüse",
+            "dish": "Hühnchen Geschnetzeltes Zürcher Art | Spätzle",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Pasta | Gorgonzolasauce",
+            "dish": "Veganes Thaicurry | Gemüse | Duftreis",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Hühnerbrust Tomate-Mozzarella | Basilikumpesto | Pasta",
+            "dish": "Krustenbraten vom Wammerl | Speckbohnen | Semmelknödel",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Käsespätzle | Röstzwiebel",
+            "dish": "Hausgemachte Gemüselasagne",
             "description": null,
             "price": "11,50 €"
           }
@@ -61,41 +61,36 @@
             "price": null
           },
           {
-            "dish": "MOCCASOLA Bacon- oder Vegi Burger | Pommes",
+            "dish": "Schnitzel Münchner Art | Bratkartoffeln | Kren",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Als Double Burger  | + Käse",
-            "description": null,
-            "price": "16,90 €"
-          },
-          {
-            "dish": "Gefüllte Paprika | Fetakäse",
+            "dish": "Gnocchi | Tomaten-Sahne Sauce | Rucola",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "Chicken Tikka Masala | Brokkoli | Basmati",
+            "dish": "Spaghetti Bolognese | Grana Padano",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Caesar Salat | Grana Padano | gebratene Austernpilze",
+            "dish": "Pfannkuchen | Schwammerl vom Grill | Kräuterquark",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Freitag": [
           {
-            "dish": "Spaghetti Tonno | Tomatensugo | Grana Padano",
+            "dish": "Backfisch | Kartoffel-Gurken Salat | Remoulade",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Linsendal | Blumenkohl | Naanbrot",
+            "dish": "Kartoffel-Frischkäse Tascherl | BabySpinat | Sauce Bernaise",
             "description": null,
             "price": "11,50 €"
           }
@@ -115,60 +110,60 @@
       "days": {
         "Montag": [
           {
-            "dish": "Pinsa mit Kürbis und schwarzen Oliven",
+            "dish": "Pinsa mit Rucola und Spiegelei",
             "description": null,
             "price": "11,50 €"
           },
           {
-            "dish": "Penne mit Kürbis, Kapern und Tomatensauce",
+            "dish": "Rigatoni mit Thunfisch und Capri-Oliven",
             "description": null,
             "price": "10,50 €"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Pinsa mit Kürbis und schwarzen Oliven",
+            "dish": "Pinsa mit Rucola und Spiegelei",
             "description": null,
             "price": "11,50 €"
           },
           {
-            "dish": "Penne mit Kürbis, Kapern und Tomatensauce",
+            "dish": "Rigatoni mit Thunfisch und Capri-Oliven",
             "description": null,
             "price": "10,50 €"
           }
         ],
         "Mittwoch": [
           {
-            "dish": "Pinsa mit Kürbis und schwarzen Oliven",
+            "dish": "Pinsa mit Rucola und Spiegelei",
             "description": null,
             "price": "11,50 €"
           },
           {
-            "dish": "Penne mit Kürbis, Kapern und Tomatensauce",
+            "dish": "Rigatoni mit Thunfisch und Capri-Oliven",
             "description": null,
             "price": "10,50 €"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "Pinsa mit Kürbis und schwarzen Oliven",
+            "dish": "Pinsa mit Rucola und Spiegelei",
             "description": null,
             "price": "11,50 €"
           },
           {
-            "dish": "Penne mit Kürbis, Kapern und Tomatensauce",
+            "dish": "Rigatoni mit Thunfisch und Capri-Oliven",
             "description": null,
             "price": "10,50 €"
           }
         ],
         "Freitag": [
           {
-            "dish": "Pinsa mit Kürbis und schwarzen Oliven",
+            "dish": "Pinsa mit Rucola und Spiegelei",
             "description": null,
             "price": "11,50 €"
           },
           {
-            "dish": "Penne mit Kürbis, Kapern und Tomatensauce",
+            "dish": "Rigatoni mit Thunfisch und Capri-Oliven",
             "description": null,
             "price": "10,50 €"
           }
@@ -188,61 +183,61 @@
       "days": {
         "Montag": [
           {
-            "dish": "Gebratener Eierreis (mild)",
-            "description": "mit Erbsen, Karotten, Mais, Ei, Pilze, Paprika, Zwiebeln und Kräuter",
-            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Vegetarisch)"
+            "dish": "Teriyaki Chicken Salat (mild)",
+            "description": "Mariniertes Hähnchen auf gemischtem Salat mit Reis und Erdnusssosse",
+            "price": "10,00 €"
           },
           {
-            "dish": "Rotes Thai Curry (Mittelscharf)",
-            "description": "mit Bohnen, Zucchini, Paprika, Karotten, Bambus und Basilikum. Dazu Reis",
-            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+            "dish": "Grünes Thai Curry (mittelscharf)",
+            "description": "mit Bohnen, Auberginen, Paprika, Karotten, Bambus, Blumenkohl und Basilikum. Dazu Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Gemüse und Tofu)"
           }
         ],
         "Dienstag": [
+          {
+            "dish": "Gebratener Curryreis (mild)",
+            "description": "mit Erbsen, Karotten, Mais, Ei, Pilze, Paprika, Zwiebeln, Soyasprossen und Kräuter",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+          },
+          {
+            "dish": "Erdnuss Curry (pikant)",
+            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen, Erdnussbutter, Erdnüssen und Basilikum. Dazu Reis",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+          }
+        ],
+        "Mittwoch": [
+          {
+            "dish": "Pad Thai Nudeln (mild)",
+            "description": "Gebratene Reisbandnudeln mit Huhn, China Kohl, Paprika, Ei,Tofu, Sojasprossen, Lauch und Nüssen",
+            "price": "9,50 €"
+          },
+          {
+            "dish": "Hunglay Curry (pikant)",
+            "description": "Burmesisches Hunglay Curry mit Ingwer, Blumenkohl, Paprika, Zucchini, Bambus, Karotten und Bohnen",
+            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
+          }
+        ],
+        "Donnerstag": [
           {
             "dish": "Pad Krapao (scharf)",
             "description": "gebratenes Hackfleisch (gemischt Rind/Schwein) mit Bohnen, Bambus und Paprika. Dazu Reis",
             "price": "10,00 €"
           },
           {
-            "dish": "Matsman Thai Curry (Mittelscharf)",
-            "description": "mit Kartoffeln, Zucchini, Paprika, Karotten, Bohnen und Erdnüssen. Dazu Reis",
-            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
-          }
-        ],
-        "Mittwoch": [
-          {
-            "dish": "Pad Siuw Nudeln (mild)",
-            "description": "Gebratene Reisbandnudeln mit Hühnerfleisch, Broccoli, China Kohl, Paprika, Ei, Porree, Sojasprossen und Lauch",
-            "price": "9,50 €"
-          },
-          {
-            "dish": "Kao Soi Thai Curry (pikant)",
-            "description": "mit Blumenkohl, Bambus, Zucchini, Karotten, Paprika, Bohnen, Babymais und Basilikum",
-            "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
-          }
-        ],
-        "Donnerstag": [
-          {
-            "dish": "Laab (mittelscharf)",
-            "description": "Hackfleischsalat (gemischt Rind/Schwein) mit Zitronengras und Minze",
-            "price": "10,00 €"
-          },
-          {
-            "dish": "Gelbes Thai Curry (pikant)",
-            "description": "mit Kartoffeln, Paprika, Bohnen, Karotten, Zucchini und Babymais. Dazu Reis",
+            "dish": "Tom Kha Kokossuppe (mild)",
+            "description": "Kokossuppe mit Pilzen, Tomaten, Weißkohl, Babymais, Karotten, Lauch und Kräuter",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ],
         "Freitag": [
           {
-            "dish": "Pad Prik Khing Pfanne",
-            "description": "Gebratenes Hühnerfleisch mit Bambus, Paprika, Bohnen, Karotten, Blumenkohl und Ingwer",
+            "dish": "Hühnerpfanne Pfanne mit Cashewkernen (pikant)",
+            "description": "mit Paprika, Karotten, Bohnen, Porree, Shitake Pilze, Lauch, Bambus, Blumenkohl dazu Reis",
             "price": "10,00 €"
           },
           {
-            "dish": "Panang Thai Curry (mittelscharf)",
-            "description": "mit Bambus, Zucchini, Paprika, Karotten, Bohnen und Basilikum. Dazu Reis",
+            "dish": "Rotes Thai Curry (Mittelscharf)",
+            "description": "mit Bohnen, Zucchini, Paprika, Karotten, Bambus und Basilikum. Dazu Reis",
             "price": "9,50 € (Hühnerfleisch) / 9,00 € (Tofu/Vegetarisch)"
           }
         ]
@@ -259,15 +254,15 @@
       "source_url": "https://www.alter-wirt-thalkirchen.de/#wochenkarte",
       "format": "html",
       "days": {
-        "Freitag": [
+        "Montag": [
           {
-            "dish": "Spaghetti mit Linsen-Bolognese",
-            "description": "und frischem Parmesan",
+            "dish": "Käse-Sauerkraut-Spätzle",
+            "description": "mit Schnittlauch",
             "price": "11,90 €"
           },
           {
-            "dish": "Kassler auf Sauerkraut",
-            "description": "Mit Bratensauce und Salzkartoffeln",
+            "dish": "Chili con Carne mit Reis",
+            "description": "und Sourcream",
             "price": "12,90 €"
           }
         ]
@@ -281,72 +276,11 @@
       "address": "Schertlinstraße 4, 81379 München",
       "category": "bike",
       "travel_minutes": 5,
-      "source_url": "https://cdn.website.dish.co/media/de/d6/10285278/Muenchen-Speisekarte.pdf",
+      "source_url": "https://nilis-kitchen.eatbu.com/?lang=en",
       "format": "pdf",
-      "days": {
-        "Montag": [
-          {
-            "dish": "Spinat mit Spiegelei und Salzkartoffeln",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Chicken Wings mit Kartoffel aus dem Ofen",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Dienstag": [
-          {
-            "dish": "Gemüsereis",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Asia Nudeln",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Mittwoch": [
-          {
-            "dish": "Grüne Bohnen- mit Bulgur",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Paprika-Hähnchen-Gulasch mit Bulgur",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Donnerstag": [
-          {
-            "dish": "Nudelauflauf",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Dönerteller",
-            "description": "inkl. Tagessuppe",
-            "price": "8,90 €"
-          }
-        ],
-        "Freitag": [
-          {
-            "dish": "Gemüsemix mit Jogurtdip",
-            "description": "inkl. Tagessuppe",
-            "price": "7,40 €"
-          },
-          {
-            "dish": "Goldbraun panierter Alaska-Seelachs mit Petersilienkartoffel",
-            "description": null,
-            "price": "8,90 €"
-          }
-        ]
-      },
-      "status": "ok",
-      "error": null
+      "days": {},
+      "status": "error",
+      "error": "Kein PDF-Link zur Münchner Wochenkarte auf der Restaurant-Seite gefunden."
     }
   ]
 }
