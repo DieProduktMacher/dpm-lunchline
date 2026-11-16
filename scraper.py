@@ -45,7 +45,7 @@ WEEKDAYS_DE = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; DPM-Mittagsmenu/1.0; "
-    "internal office tool; contact: philipp.hoffmann@produktmacher.com)"
+    "internal office tool; contact: https://github.com/DieProduktMacher/dpm-lunchline)"
 }
 
 

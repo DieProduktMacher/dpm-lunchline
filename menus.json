@@ -276,11 +276,72 @@
       "address": "Schertlinstraße 4, 81379 München",
       "category": "bike",
       "travel_minutes": 5,
-      "source_url": "https://nilis-kitchen.eatbu.com/?lang=en",
+      "source_url": "https://cdn.website.dish.co/media/d0/20/10293029/Muenchen-Speisekarte.pdf",
       "format": "pdf",
-      "days": {},
-      "status": "error",
-      "error": "Kein PDF-Link zur Münchner Wochenkarte auf der Restaurant-Seite gefunden."
+      "days": {
+        "Montag": [
+          {
+            "dish": "Asianudeln",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Hackbraten und Fleischpfanzerl in Rahm soße mit Nudeln",
+            "description": "inkl. Tagessuppe",
+            "price": "8,90 €"
+          }
+        ],
+        "Dienstag": [
+          {
+            "dish": "Gemüsequiche mit Tomatengemüse",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Hähnchen-Geschnetzeltes mit Kartoffelpüree",
+            "description": "inkl. Tagessuppe",
+            "price": "8,90 €"
+          }
+        ],
+        "Mittwoch": [
+          {
+            "dish": "Spaghetti mit Gemüse-Basilikumsoße",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Spaghetti Bolognese",
+            "description": "inkl. Tagessuppe",
+            "price": "8,90 €"
+          }
+        ],
+        "Donnerstag": [
+          {
+            "dish": "Risotto",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Dönerteller",
+            "description": "inkl. Tagessuppe",
+            "price": "8,90 €"
+          }
+        ],
+        "Freitag": [
+          {
+            "dish": "Auberginenteller",
+            "description": "inkl. Tagessuppe",
+            "price": "7,40 €"
+          },
+          {
+            "dish": "Goldbraun panierter Alaska-Seelachs mit Petersilienkartoffel",
+            "description": null,
+            "price": "8,90 €"
+          }
+        ]
+      },
+      "status": "ok",
+      "error": null
     }
   ]
 }
