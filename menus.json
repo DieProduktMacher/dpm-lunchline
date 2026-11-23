@@ -27,29 +27,29 @@
       "address": "Zielstattstraße, 81379 München",
       "category": "walk",
       "travel_minutes": 10,
-      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW47_2026.pdf?v=1794810687",
+      "source_url": "https://cdn.shopify.com/s/files/1/0430/1049/0522/files/KW48_2026.pdf?v=1795443451",
       "format": "pdf",
       "days": {
         "Montag": [
           {
-            "dish": "Hühnchen Geschnetzeltes Zürcher Art | Spätzle",
+            "dish": "Gyros | Tzatziki | Pita",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Veganes Thaicurry | Gemüse | Duftreis",
+            "dish": "Hausgemachte Spinatspätzle Ricottasauce",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Dienstag": [
           {
-            "dish": "Krustenbraten vom Wammerl | Speckbohnen | Semmelknödel",
+            "dish": "Chili con Carne | Guacamole | Tacos",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Hausgemachte Gemüselasagne",
+            "dish": "Rahmspinat | Salzkartoffel | 2 Spiegeleier",
             "description": null,
             "price": "11,50 €"
           }
@@ -61,36 +61,41 @@
             "price": null
           },
           {
-            "dish": "Schnitzel Münchner Art | Bratkartoffeln | Kren",
+            "dish": "MOCCASOLA Cheese- oder Vegiburger | Pommes",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Gnocchi | Tomaten-Sahne Sauce | Rucola",
+            "dish": "Als Double Burger  | + Bacon",
+            "description": null,
+            "price": "16,90 €"
+          },
+          {
+            "dish": "Tortellini | Weißwein-Sahne Sauce | Erbsen",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Donnerstag": [
           {
-            "dish": "Spaghetti Bolognese | Grana Padano",
+            "dish": "Teriyaki Hühnchen | Gemüse | Duftreis",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Pfannkuchen | Schwammerl vom Grill | Kräuterquark",
+            "dish": "Spinat & Kasknödel | Rahmkraut",
             "description": null,
             "price": "11,50 €"
           }
         ],
         "Freitag": [
           {
-            "dish": "Backfisch | Kartoffel-Gurken Salat | Remoulade",
+            "dish": "Tagliatelle Salmone | Zitronensauce",
             "description": null,
             "price": "12,90 €"
           },
           {
-            "dish": "Kartoffel-Frischkäse Tascherl | BabySpinat | Sauce Bernaise",
+            "dish": "Ofenkartoffel | Kräuterquark | Blattsalat",
             "description": null,
             "price": "11,50 €"
           }
